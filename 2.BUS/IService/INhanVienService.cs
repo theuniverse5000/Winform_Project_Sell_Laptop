@@ -7,7 +7,9 @@ namespace _2.BUS.IService
         string AddNhanVien(NhanVienView nvv);
         string UpdateNhanVien(NhanVienView nvv);
         string DeleteNhanVien(NhanVienView nvv);
+        string ChangePassWord(NhanVienView nvv);
         bool CheckMa(string ma);
+        bool CheckGmail(string Gmail);
         List<NhanVienView> GetAllNhanVien();
         bool CheckSdtMkNhanVien(string taikhoan, string matkhau);
 

@@ -364,6 +364,11 @@ namespace _1.DAL.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("DiaChi");
 
+                    b.Property<string>("Gmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("Gmail");
+
                     b.Property<string>("HoTen")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")

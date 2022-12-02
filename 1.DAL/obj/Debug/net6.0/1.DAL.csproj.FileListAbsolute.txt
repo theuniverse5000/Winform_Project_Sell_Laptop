@@ -12,3 +12,17 @@ G:\My Drive\Study\Dự án 1 .net\DA1_QLBanLaptop\1.DAL\obj\Debug\net6.0\refint\
 G:\My Drive\Study\Dự án 1 .net\DA1_QLBanLaptop\1.DAL\obj\Debug\net6.0\1.DAL.pdb
 G:\My Drive\Study\Dự án 1 .net\DA1_QLBanLaptop\1.DAL\obj\Debug\net6.0\1.DAL.genruntimeconfig.cache
 G:\My Drive\Study\Dự án 1 .net\DA1_QLBanLaptop\1.DAL\obj\Debug\net6.0\ref\1.DAL.dll
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\bin\Debug\net6.0\1.DAL.deps.json
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\bin\Debug\net6.0\1.DAL.runtimeconfig.json
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\bin\Debug\net6.0\1.DAL.dll
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\bin\Debug\net6.0\1.DAL.pdb
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\obj\Debug\net6.0\1.DAL.csproj.AssemblyReference.cache
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\obj\Debug\net6.0\1.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\obj\Debug\net6.0\1.DAL.AssemblyInfoInputs.cache
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\obj\Debug\net6.0\1.DAL.AssemblyInfo.cs
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\obj\Debug\net6.0\1.DAL.csproj.CoreCompileInputs.cache
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\obj\Debug\net6.0\1.DAL.dll
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\obj\Debug\net6.0\refint\1.DAL.dll
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\obj\Debug\net6.0\1.DAL.pdb
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\obj\Debug\net6.0\1.DAL.genruntimeconfig.cache
+C:\Users\dinht\OneDrive\Máy tính\test\1.DAL\obj\Debug\net6.0\ref\1.DAL.dll

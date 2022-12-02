@@ -8,6 +8,7 @@
         public string DiaChi { get; set; }
         public string SDT { get; set; }
         public string MatKhau { get; set; }
+        public string Gmail { get; set; }
         public int TrangThai { get; set; }
         public Guid IdCuaHang { get; set; }
         public Guid IdChucVu { get; set; }
