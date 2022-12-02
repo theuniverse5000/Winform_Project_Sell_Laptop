@@ -14,5 +14,6 @@ namespace _2.BUS.ViewModels
         public string SoEmei { get; set; }
         public virtual ChiTietLaptop ChiTietLaptop { get; set; }
         public string MaCTLT { get; set; }
+        public int TrangThai { get; set; }  
     }
 }

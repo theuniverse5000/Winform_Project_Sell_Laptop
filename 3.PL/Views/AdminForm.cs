@@ -222,6 +222,7 @@ namespace _3.PL.Views
             t.Ma = tbx_manhanvien.Text;
             t.HoTen = tbx_hotennhanvien.Text;
             t.DiaChi = tbx_diachinhanvien.Text;
+            t.Gmail = tbx_emailnhanvien.Text;
             t.SDT = tbx_sdtnhanvien.Text;
             t.MatKhau = tbx_matkhaunhanvien.Text;
             t.TrangThai = Convert.ToInt32(nud_ttnhanvien.Value);
@@ -244,6 +245,7 @@ namespace _3.PL.Views
             t.ID = GetIdNhanVien;
             t.HoTen = tbx_hotennhanvien.Text;
             t.DiaChi = tbx_diachinhanvien.Text;
+            t.Gmail = tbx_emailnhanvien.Text;
             t.SDT = tbx_sdtnhanvien.Text;
             t.MatKhau = tbx_matkhaunhanvien.Text;
             t.TrangThai = Convert.ToInt32(nud_ttnhanvien.Value);

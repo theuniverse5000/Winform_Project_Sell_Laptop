@@ -12,6 +12,7 @@ namespace _1.DAL.Configurations
             builder.HasKey(p => p.ID);
             builder.Property(a => a.IDChiTietLaptop).IsRequired();
             builder.Property(a => a.SoEmei).HasColumnName("SoImei").HasColumnType("varchar(70)").IsRequired();
+            builder.Property(a => a.TrangThai).HasColumnName("TrangThai").HasColumnType("int").IsRequired();
             builder.HasOne(x => x.ChiTietLaptop).WithMany().HasForeignKey(a => a.IDChiTietLaptop);
         }
     }

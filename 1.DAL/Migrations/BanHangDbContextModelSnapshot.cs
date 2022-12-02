@@ -257,6 +257,10 @@ namespace _1.DAL.Migrations
                         .HasColumnType("varchar(70)")
                         .HasColumnName("SoImei");
 
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int")
+                        .HasColumnName("TrangThai");
+
                     b.HasKey("ID");
 
                     b.HasIndex("IDChiTietLaptop");
@@ -363,6 +367,11 @@ namespace _1.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("DiaChi");
+
+                    b.Property<string>("Gmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("Gmail");
 
                     b.Property<string>("HoTen")
                         .IsRequired()

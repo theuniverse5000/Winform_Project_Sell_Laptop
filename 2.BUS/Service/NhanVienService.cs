@@ -28,6 +28,7 @@ namespace _2.BUS.Service
             t.SDT = nvv.SDT;
             t.MatKhau = nvv.MatKhau;
             t.TrangThai = nvv.TrangThai;
+            t.Gmail = nvv.Gmail;
             t.IdChucVu = nvv.IdChucVu;
             t.IdCuaHang = nvv.IdCuaHang;
             if (nhanVienRepositories.Add(t))
@@ -82,11 +83,13 @@ namespace _2.BUS.Service
                     DiaChi = a.DiaChi,
                     SDT = a.SDT,
                     MatKhau = a.MatKhau,
+                    
                     TrangThai = a.TrangThai,
                     IdChucVu = a.IdChucVu,
                     IdCuaHang = a.IdCuaHang,
                     MaChucVu = c.Ma,
-                    MaCuaHang = b.Ma
+                    MaCuaHang = b.Ma,
+                    Gmail = a.Gmail
                 }
                 ).ToList();
             return listnv;
@@ -102,11 +105,28 @@ namespace _2.BUS.Service
             t.DiaChi = nvv.DiaChi;
             t.SDT = nvv.SDT;
             t.MatKhau = nvv.MatKhau;
+            t.Gmail = nvv.Gmail;
             t.TrangThai = nvv.TrangThai;
 
             if (nhanVienRepositories.Update(t))
                 return "Thành Công";
             else return "Thất bại";
+        }
+        public string ChangePassWord(NhanVienView nvv)
+        {
+            if (nvv == null) return "Thất bại";
+            NhanVien t = new NhanVien();
+            t.ID = nvv.ID;
+            t.MatKhau = nvv.MatKhau;
+            if (nhanVienRepositories.ChangePassWord(t))
+                return "Thành Công";
+            else return "Thất bại";
+        }
+        public bool CheckGmail(string Gmail)
+        {
+            var thao = nhanVienRepositories.GetNhanVien().FirstOrDefault(a => a.Gmail == Gmail);
+            if (thao != null) return true;
+            else return false;
         }
     }
 }

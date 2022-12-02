@@ -90,6 +90,8 @@
             this.tbx_tenvoucher = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.tbx_emailnhanvien = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.tabctrl_admin.SuspendLayout();
             this.tabp_cuahang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_cuahang)).BeginInit();
@@ -146,7 +148,7 @@
             this.tabp_cuahang.Location = new System.Drawing.Point(4, 33);
             this.tabp_cuahang.Name = "tabp_cuahang";
             this.tabp_cuahang.Padding = new System.Windows.Forms.Padding(3);
-            this.tabp_cuahang.Size = new System.Drawing.Size(1072, 410);
+            this.tabp_cuahang.Size = new System.Drawing.Size(1096, 437);
             this.tabp_cuahang.TabIndex = 1;
             this.tabp_cuahang.Text = "Cửa Hàng";
             this.tabp_cuahang.UseVisualStyleBackColor = true;
@@ -273,7 +275,7 @@
             this.tabp_chucvu.Location = new System.Drawing.Point(4, 33);
             this.tabp_chucvu.Name = "tabp_chucvu";
             this.tabp_chucvu.Padding = new System.Windows.Forms.Padding(3);
-            this.tabp_chucvu.Size = new System.Drawing.Size(1072, 410);
+            this.tabp_chucvu.Size = new System.Drawing.Size(1096, 437);
             this.tabp_chucvu.TabIndex = 2;
             this.tabp_chucvu.Text = "Chức Vụ";
             this.tabp_chucvu.UseVisualStyleBackColor = true;
@@ -356,6 +358,8 @@
             // 
             // tabp_nhanvien
             // 
+            this.tabp_nhanvien.Controls.Add(this.tbx_emailnhanvien);
+            this.tabp_nhanvien.Controls.Add(this.label21);
             this.tabp_nhanvien.Controls.Add(this.nud_ttnhanvien);
             this.tabp_nhanvien.Controls.Add(this.dtg_shownhanvien);
             this.tabp_nhanvien.Controls.Add(this.cbb_idcuahang);
@@ -379,14 +383,14 @@
             this.tabp_nhanvien.Location = new System.Drawing.Point(4, 33);
             this.tabp_nhanvien.Name = "tabp_nhanvien";
             this.tabp_nhanvien.Padding = new System.Windows.Forms.Padding(3);
-            this.tabp_nhanvien.Size = new System.Drawing.Size(1072, 410);
+            this.tabp_nhanvien.Size = new System.Drawing.Size(1096, 437);
             this.tabp_nhanvien.TabIndex = 3;
             this.tabp_nhanvien.Text = "Nhân Viên";
             this.tabp_nhanvien.UseVisualStyleBackColor = true;
             // 
             // nud_ttnhanvien
             // 
-            this.nud_ttnhanvien.Location = new System.Drawing.Point(124, 207);
+            this.nud_ttnhanvien.Location = new System.Drawing.Point(124, 261);
             this.nud_ttnhanvien.Name = "nud_ttnhanvien";
             this.nud_ttnhanvien.Size = new System.Drawing.Size(85, 29);
             this.nud_ttnhanvien.TabIndex = 46;
@@ -405,7 +409,7 @@
             // cbb_idcuahang
             // 
             this.cbb_idcuahang.FormattingEnabled = true;
-            this.cbb_idcuahang.Location = new System.Drawing.Point(123, 243);
+            this.cbb_idcuahang.Location = new System.Drawing.Point(123, 297);
             this.cbb_idcuahang.Name = "cbb_idcuahang";
             this.cbb_idcuahang.Size = new System.Drawing.Size(121, 29);
             this.cbb_idcuahang.TabIndex = 44;
@@ -413,7 +417,7 @@
             // cbb_idchucvu
             // 
             this.cbb_idchucvu.FormattingEnabled = true;
-            this.cbb_idchucvu.Location = new System.Drawing.Point(123, 278);
+            this.cbb_idchucvu.Location = new System.Drawing.Point(123, 332);
             this.cbb_idchucvu.Name = "cbb_idchucvu";
             this.cbb_idchucvu.Size = new System.Drawing.Size(121, 29);
             this.cbb_idchucvu.TabIndex = 43;
@@ -436,7 +440,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(13, 141);
+            this.label13.Location = new System.Drawing.Point(22, 144);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(39, 21);
             this.label13.TabIndex = 40;
@@ -453,7 +457,7 @@
             // 
             // tbx_matkhaunhanvien
             // 
-            this.tbx_matkhaunhanvien.Location = new System.Drawing.Point(122, 169);
+            this.tbx_matkhaunhanvien.Location = new System.Drawing.Point(122, 223);
             this.tbx_matkhaunhanvien.Name = "tbx_matkhaunhanvien";
             this.tbx_matkhaunhanvien.Size = new System.Drawing.Size(122, 29);
             this.tbx_matkhaunhanvien.TabIndex = 38;
@@ -461,7 +465,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 209);
+            this.label11.Location = new System.Drawing.Point(13, 263);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(88, 21);
             this.label11.TabIndex = 36;
@@ -470,7 +474,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(13, 174);
+            this.label12.Location = new System.Drawing.Point(13, 228);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(80, 21);
             this.label12.TabIndex = 35;
@@ -479,7 +483,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 278);
+            this.label9.Location = new System.Drawing.Point(13, 332);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 21);
             this.label9.TabIndex = 32;
@@ -488,7 +492,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 246);
+            this.label10.Location = new System.Drawing.Point(13, 300);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(109, 21);
             this.label10.TabIndex = 31;
@@ -497,7 +501,7 @@
             // btn_suanhanvien
             // 
             this.btn_suanhanvien.ForeColor = System.Drawing.Color.Red;
-            this.btn_suanhanvien.Location = new System.Drawing.Point(92, 314);
+            this.btn_suanhanvien.Location = new System.Drawing.Point(92, 368);
             this.btn_suanhanvien.Name = "btn_suanhanvien";
             this.btn_suanhanvien.Size = new System.Drawing.Size(75, 34);
             this.btn_suanhanvien.TabIndex = 30;
@@ -508,7 +512,7 @@
             // btn_xoanhanvien
             // 
             this.btn_xoanhanvien.ForeColor = System.Drawing.Color.Red;
-            this.btn_xoanhanvien.Location = new System.Drawing.Point(169, 314);
+            this.btn_xoanhanvien.Location = new System.Drawing.Point(169, 368);
             this.btn_xoanhanvien.Name = "btn_xoanhanvien";
             this.btn_xoanhanvien.Size = new System.Drawing.Size(75, 34);
             this.btn_xoanhanvien.TabIndex = 29;
@@ -519,7 +523,7 @@
             // btn_themnhanvien
             // 
             this.btn_themnhanvien.ForeColor = System.Drawing.Color.Red;
-            this.btn_themnhanvien.Location = new System.Drawing.Point(11, 314);
+            this.btn_themnhanvien.Location = new System.Drawing.Point(11, 368);
             this.btn_themnhanvien.Name = "btn_themnhanvien";
             this.btn_themnhanvien.Size = new System.Drawing.Size(75, 34);
             this.btn_themnhanvien.TabIndex = 28;
@@ -580,7 +584,7 @@
             this.tabp_voucher.Location = new System.Drawing.Point(4, 33);
             this.tabp_voucher.Name = "tabp_voucher";
             this.tabp_voucher.Padding = new System.Windows.Forms.Padding(3);
-            this.tabp_voucher.Size = new System.Drawing.Size(1072, 410);
+            this.tabp_voucher.Size = new System.Drawing.Size(1096, 437);
             this.tabp_voucher.TabIndex = 4;
             this.tabp_voucher.Text = "Voucher";
             this.tabp_voucher.UseVisualStyleBackColor = true;
@@ -727,6 +731,22 @@
             this.label20.TabIndex = 47;
             this.label20.Text = "Mã";
             // 
+            // tbx_emailnhanvien
+            // 
+            this.tbx_emailnhanvien.Location = new System.Drawing.Point(123, 177);
+            this.tbx_emailnhanvien.Name = "tbx_emailnhanvien";
+            this.tbx_emailnhanvien.Size = new System.Drawing.Size(122, 29);
+            this.tbx_emailnhanvien.TabIndex = 48;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(13, 180);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(51, 21);
+            this.label21.TabIndex = 47;
+            this.label21.Text = "Email";
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -819,5 +839,7 @@
         private Button btn_themvoucher;
         private TextBox tbx_giatrivoucher;
         private TextBox tbx_soluongvoucher;
+        private TextBox tbx_emailnhanvien;
+        private Label label21;
     }
 }

@@ -43,5 +43,15 @@ namespace _1.DAL.Repositories
             context.SaveChanges();
             return true;
         }
+        public bool ChangePassWord(NhanVien nv)
+        {
+            if (nv == null) return false;
+            var vina = context.NhanViens.FirstOrDefault(a => a.ID == nv.ID);
+            vina.ID = nv.ID;
+            vina.MatKhau = nv.MatKhau;
+            context.Update(vina);
+            context.SaveChanges();
+            return true;
+        }
     }
 }

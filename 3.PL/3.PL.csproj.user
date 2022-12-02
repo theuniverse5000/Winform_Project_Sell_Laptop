@@ -19,5 +19,8 @@
     <Compile Update="Views\QuanLyLaptopForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\SendEmailResetPassWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
