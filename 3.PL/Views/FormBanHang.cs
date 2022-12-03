@@ -18,6 +18,7 @@ namespace _3.PL.Views
         IHoaDonChiTietService hoaDonChiTietService;
         IHoaDonService hoaDonService;
         IVoucherService voucherService;
+        IImeiService imeiService;
         ImeiDaBanService imeiDaBanService;
         Guid GetIdKhachHang { get; set; }
         Guid GetIdHoaDon { get; set; }
@@ -33,6 +34,7 @@ namespace _3.PL.Views
             hoaDonChiTietService = new HoaDonChiTietService();
             hoaDonService = new HoaDonService();
             voucherService = new VoucherService();
+            imeiService = new ImeiService();
             imeiDaBanService = new ImeiDaBanService();
 
         }
@@ -384,6 +386,8 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show(hoaDonService.Add(hoadon));
                     LoadDataHoaDon(hoaDonService.GetHoaDon());
+                    voucherService.UpdateSoLuong(tbx_mavoucher.Text);
+
                 }
             }
 
@@ -478,7 +482,7 @@ namespace _3.PL.Views
             {
                 HoaDonChiTietView hdctv = new HoaDonChiTietView();
                 hdctv.ID = Guid.NewGuid();
-                hdctv.Ma = tbx_mahoadonchitiet.Text;string ngoc= "HDCT" + Convert.ToString(DateTime.Now);
+                hdctv.Ma = tbx_mahoadonchitiet.Text; string ngoc = "HDCT" + Convert.ToString(DateTime.Now);
                 hdctv.Ma = ngoc;
                 hdctv.IDChiTietLapTop = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).ID;
                 hdctv.IDHoaDon = hoaDonService.GetHoaDon().FirstOrDefault(a => a.Ma == tbx_mahoadon.Text).ID;
@@ -493,17 +497,15 @@ namespace _3.PL.Views
                     gh.ID = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).ID;
                     gh.SoLuong = 0;
                     chiTietLaptopService.UpdateSoLuong(gh);
+                    ImeiView anhs = new ImeiView();
+                    anhs.ID = imeiService.GetImei().FirstOrDefault(a => a.MaCTLT == tbx_hoadon_mactlt.Text).ID;
+                    imeiService.UpdateTrangThai(anhs);
                 }
                 else
                 {
                     hdctv.TinhTrang = 0;
                 }
-                //if (hoaDonChiTietService.CheckMa(tbx_mahoadonchitiet.Text))
-                //{
-                //    MessageBox.Show("Mã đã có", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //}
-                //else
-                //{
+
                 MessageBox.Show(hoaDonChiTietService.Add(hdctv));
                 LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietNoJoin());
                 if (tbx_soimeidaban.Text == "")
@@ -523,13 +525,7 @@ namespace _3.PL.Views
                     MessageBox.Show(imeiDaBanService.Add(i));
                     LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet());
                 }
-                // }
-               
             }
-        }
-
-        private void btn_themimeidaban_Click(object sender, EventArgs e)
-        {
 
 
         }
@@ -576,7 +572,7 @@ namespace _3.PL.Views
                     ListViewItem l1 = new ListViewItem();
                     l1.Text = li.Ma;
                     l1.SubItems.Add(li.TenLaptop);
-                    l1.SubItems.Add(li.TenLaptop);
+
                     l1.SubItems.Add(li.SoImei);
                     l1.SubItems.Add(Convert.ToString(li.Giaban));
                     listview_hoadon.Items.Add(l1);

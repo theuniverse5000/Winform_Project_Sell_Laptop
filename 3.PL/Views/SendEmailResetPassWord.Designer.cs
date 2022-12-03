@@ -44,42 +44,45 @@
             // tb_NhapLaiMatKhau
             // 
             this.tb_NhapLaiMatKhau.Enabled = false;
-            this.tb_NhapLaiMatKhau.Location = new System.Drawing.Point(304, 236);
+            this.tb_NhapLaiMatKhau.Location = new System.Drawing.Point(144, 142);
+            this.tb_NhapLaiMatKhau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_NhapLaiMatKhau.Name = "tb_NhapLaiMatKhau";
-            this.tb_NhapLaiMatKhau.Size = new System.Drawing.Size(272, 27);
+            this.tb_NhapLaiMatKhau.Size = new System.Drawing.Size(186, 23);
             this.tb_NhapLaiMatKhau.TabIndex = 19;
             // 
             // tb_NhapMatKhauMoi
             // 
             this.tb_NhapMatKhauMoi.Enabled = false;
-            this.tb_NhapMatKhauMoi.Location = new System.Drawing.Point(304, 190);
+            this.tb_NhapMatKhauMoi.Location = new System.Drawing.Point(144, 107);
+            this.tb_NhapMatKhauMoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_NhapMatKhauMoi.Name = "tb_NhapMatKhauMoi";
-            this.tb_NhapMatKhauMoi.Size = new System.Drawing.Size(272, 27);
+            this.tb_NhapMatKhauMoi.Size = new System.Drawing.Size(186, 23);
             this.tb_NhapMatKhauMoi.TabIndex = 18;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(101, 243);
+            this.label3.Location = new System.Drawing.Point(21, 149);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 20);
+            this.label3.Size = new System.Drawing.Size(110, 15);
             this.label3.TabIndex = 17;
             this.label3.Text = "Nhập Lại mật khẩu ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(101, 197);
+            this.label4.Location = new System.Drawing.Point(21, 115);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 20);
+            this.label4.Size = new System.Drawing.Size(92, 15);
             this.label4.TabIndex = 16;
             this.label4.Text = "Nhập mật khẩu ";
             // 
             // btn_GuiMA
             // 
-            this.btn_GuiMA.Location = new System.Drawing.Point(605, 99);
+            this.btn_GuiMA.Location = new System.Drawing.Point(336, 40);
+            this.btn_GuiMA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_GuiMA.Name = "btn_GuiMA";
-            this.btn_GuiMA.Size = new System.Drawing.Size(94, 29);
+            this.btn_GuiMA.Size = new System.Drawing.Size(82, 22);
             this.btn_GuiMA.TabIndex = 15;
             this.btn_GuiMA.Text = "Gửi mã ";
             this.btn_GuiMA.UseVisualStyleBackColor = true;
@@ -88,52 +91,56 @@
             // tb_MaXacNhan
             // 
             this.tb_MaXacNhan.Enabled = false;
-            this.tb_MaXacNhan.Location = new System.Drawing.Point(304, 146);
+            this.tb_MaXacNhan.Location = new System.Drawing.Point(144, 75);
+            this.tb_MaXacNhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_MaXacNhan.Name = "tb_MaXacNhan";
-            this.tb_MaXacNhan.Size = new System.Drawing.Size(272, 27);
+            this.tb_MaXacNhan.Size = new System.Drawing.Size(186, 23);
             this.tb_MaXacNhan.TabIndex = 14;
             // 
             // tb_EmailNguoiNhan
             // 
-            this.tb_EmailNguoiNhan.Location = new System.Drawing.Point(304, 100);
+            this.tb_EmailNguoiNhan.Location = new System.Drawing.Point(144, 40);
+            this.tb_EmailNguoiNhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_EmailNguoiNhan.Name = "tb_EmailNguoiNhan";
-            this.tb_EmailNguoiNhan.Size = new System.Drawing.Size(272, 27);
+            this.tb_EmailNguoiNhan.Size = new System.Drawing.Size(186, 23);
             this.tb_EmailNguoiNhan.TabIndex = 13;
             // 
             // btn_DangNhap
             // 
-            this.btn_DangNhap.Location = new System.Drawing.Point(181, 305);
+            this.btn_DangNhap.Location = new System.Drawing.Point(164, 195);
+            this.btn_DangNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_DangNhap.Name = "btn_DangNhap";
-            this.btn_DangNhap.Size = new System.Drawing.Size(179, 47);
+            this.btn_DangNhap.Size = new System.Drawing.Size(157, 35);
             this.btn_DangNhap.TabIndex = 12;
-            this.btn_DangNhap.Text = "Đăng Nhập";
+            this.btn_DangNhap.Text = "Reset PassWord";
             this.btn_DangNhap.UseVisualStyleBackColor = true;
             this.btn_DangNhap.Click += new System.EventHandler(this.btn_DangNhap_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(101, 153);
+            this.label2.Location = new System.Drawing.Point(21, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 20);
+            this.label2.Size = new System.Drawing.Size(101, 15);
             this.label2.TabIndex = 11;
             this.label2.Text = "Mời bạn nhập mã";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(101, 107);
+            this.label1.Location = new System.Drawing.Point(21, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 20);
+            this.label1.Size = new System.Drawing.Size(36, 15);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Email login";
+            this.label1.Text = "Email";
             // 
             // btn_XacnhanMa
             // 
             this.btn_XacnhanMa.Enabled = false;
-            this.btn_XacnhanMa.Location = new System.Drawing.Point(605, 144);
+            this.btn_XacnhanMa.Location = new System.Drawing.Point(336, 74);
+            this.btn_XacnhanMa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_XacnhanMa.Name = "btn_XacnhanMa";
-            this.btn_XacnhanMa.Size = new System.Drawing.Size(94, 29);
+            this.btn_XacnhanMa.Size = new System.Drawing.Size(82, 22);
             this.btn_XacnhanMa.TabIndex = 20;
             this.btn_XacnhanMa.Text = "Xác nhận";
             this.btn_XacnhanMa.UseVisualStyleBackColor = true;
@@ -141,9 +148,9 @@
             // 
             // SendEmailResetPassWord
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(424, 250);
             this.Controls.Add(this.btn_XacnhanMa);
             this.Controls.Add(this.tb_NhapLaiMatKhau);
             this.Controls.Add(this.tb_NhapMatKhauMoi);
@@ -155,6 +162,7 @@
             this.Controls.Add(this.btn_DangNhap);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SendEmailResetPassWord";
             this.Text = "SendEmailResetPassWord";
             this.ResumeLayout(false);

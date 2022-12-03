@@ -73,5 +73,13 @@ namespace _3.PL.Views
             tbx_password.Text = "";
 
         }
+
+        private void btn_quenmatkhau_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SendEmailResetPassWord srp = new SendEmailResetPassWord();
+            srp.ShowDialog();
+            this.Show();
+        }
     }
 }

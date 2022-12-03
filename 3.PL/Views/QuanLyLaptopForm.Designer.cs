@@ -104,6 +104,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabctrl_quanlylaptop = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbt_trangthai0 = new System.Windows.Forms.RadioButton();
+            this.rbt_trangthai1 = new System.Windows.Forms.RadioButton();
             this.btn_themimei = new System.Windows.Forms.Button();
             this.tbx_imei_mactlt = new System.Windows.Forms.TextBox();
             this.tbx_soimei = new System.Windows.Forms.TextBox();
@@ -127,6 +130,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtg_showmausac)).BeginInit();
             this.tabctrl_quanlylaptop.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tp_chitietlaptop
@@ -908,6 +912,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.btn_themimei);
             this.tabPage1.Controls.Add(this.tbx_imei_mactlt);
             this.tabPage1.Controls.Add(this.tbx_soimei);
@@ -919,6 +924,37 @@
             this.tabPage1.Size = new System.Drawing.Size(725, 429);
             this.tabPage1.TabIndex = 7;
             this.tabPage1.Text = "Imei";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rbt_trangthai0);
+            this.panel1.Controls.Add(this.rbt_trangthai1);
+            this.panel1.Location = new System.Drawing.Point(8, 130);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 10;
+            // 
+            // rbt_trangthai0
+            // 
+            this.rbt_trangthai0.AutoSize = true;
+            this.rbt_trangthai0.Location = new System.Drawing.Point(103, 3);
+            this.rbt_trangthai0.Name = "rbt_trangthai0";
+            this.rbt_trangthai0.Size = new System.Drawing.Size(80, 25);
+            this.rbt_trangthai0.TabIndex = 1;
+            this.rbt_trangthai0.TabStop = true;
+            this.rbt_trangthai0.Text = "Đã bán";
+            this.rbt_trangthai0.UseVisualStyleBackColor = true;
+            // 
+            // rbt_trangthai1
+            // 
+            this.rbt_trangthai1.AutoSize = true;
+            this.rbt_trangthai1.Location = new System.Drawing.Point(0, 3);
+            this.rbt_trangthai1.Name = "rbt_trangthai1";
+            this.rbt_trangthai1.Size = new System.Drawing.Size(97, 25);
+            this.rbt_trangthai1.TabIndex = 0;
+            this.rbt_trangthai1.TabStop = true;
+            this.rbt_trangthai1.Text = "Chưa bán";
+            this.rbt_trangthai1.UseVisualStyleBackColor = true;
             // 
             // btn_themimei
             // 
@@ -999,6 +1035,8 @@
             this.tabctrl_quanlylaptop.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1086,5 +1124,8 @@
         private Label label19;
         private Label label20;
         private Button btn_themimei;
+        private Panel panel1;
+        private RadioButton rbt_trangthai0;
+        private RadioButton rbt_trangthai1;
     }
 }

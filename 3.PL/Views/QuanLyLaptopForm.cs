@@ -222,9 +222,17 @@ namespace _3.PL.Views
 
         private void dtg_showmausac_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            GetIdMauSac = Guid.Parse(dtg_showmausac.CurrentRow.Cells[0].Value.ToString());
-            tbx_mams.Text = dtg_showmausac.CurrentRow.Cells[2].Value.ToString();
-            tbx_tenms.Text = dtg_showmausac.CurrentRow.Cells[3].Value.ToString();
+            try
+            {
+                GetIdMauSac = Guid.Parse(dtg_showmausac.CurrentRow.Cells[0].Value.ToString());
+                tbx_mams.Text = dtg_showmausac.CurrentRow.Cells[2].Value.ToString();
+                tbx_tenms.Text = dtg_showmausac.CurrentRow.Cells[3].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         private void btn_themnsx_Click(object sender, EventArgs e)
@@ -263,9 +271,17 @@ namespace _3.PL.Views
 
         private void dtg_shownsx_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            GetIdNsx = Guid.Parse(dtg_shownsx.CurrentRow.Cells[0].Value.ToString());
-            tbx_mansx.Text = dtg_shownsx.CurrentRow.Cells[2].Value.ToString();
-            tbx_tennsx.Text = dtg_shownsx.CurrentRow.Cells[3].Value.ToString();
+            try
+            {
+                GetIdNsx = Guid.Parse(dtg_shownsx.CurrentRow.Cells[0].Value.ToString());
+                tbx_mansx.Text = dtg_shownsx.CurrentRow.Cells[2].Value.ToString();
+                tbx_tennsx.Text = dtg_shownsx.CurrentRow.Cells[3].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         private void btn_themlt_Click(object sender, EventArgs e)
@@ -304,9 +320,17 @@ namespace _3.PL.Views
 
         private void dtg_showlaptop_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            GetIdLaptop = Guid.Parse(dtg_showlaptop.CurrentRow.Cells[0].Value.ToString());
+            try
+            {
+ GetIdLaptop = Guid.Parse(dtg_showlaptop.CurrentRow.Cells[0].Value.ToString());
             tbx_malaptop.Text = dtg_showlaptop.CurrentRow.Cells[2].Value.ToString();
             tbx_tenlaptop.Text = dtg_showlaptop.CurrentRow.Cells[3].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+            }
+           
         }
 
         private void btn_themthuoctinh_Click(object sender, EventArgs e)
@@ -346,10 +370,18 @@ namespace _3.PL.Views
 
         private void dtg_showthuoctinh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            GetIdThuocTinh = Guid.Parse(dtg_showthuoctinh.CurrentRow.Cells[0].Value.ToString());
-            tbx_mathuoctinh.Text = dtg_showthuoctinh.CurrentRow.Cells[2].Value.ToString();
-            tbx_tenthuoctinh.Text = dtg_showthuoctinh.CurrentRow.Cells[4].Value.ToString();
-            cbb_idlaptoptt.Text = dtg_showthuoctinh.CurrentRow.Cells[3].Value.ToString();
+            try
+            {
+                GetIdThuocTinh = Guid.Parse(dtg_showthuoctinh.CurrentRow.Cells[0].Value.ToString());
+                tbx_mathuoctinh.Text = dtg_showthuoctinh.CurrentRow.Cells[2].Value.ToString();
+                tbx_tenthuoctinh.Text = dtg_showthuoctinh.CurrentRow.Cells[4].Value.ToString();
+                cbb_idlaptoptt.Text = dtg_showthuoctinh.CurrentRow.Cells[3].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         private void btn_themgiatri_Click(object sender, EventArgs e)
@@ -389,10 +421,17 @@ namespace _3.PL.Views
 
         private void dtg_showgiatri_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            GetIdGiaTri = Guid.Parse(dtg_showgiatri.CurrentRow.Cells[0].Value.ToString());
-            tbx_magiatri.Text = dtg_showgiatri.CurrentRow.Cells[2].Value.ToString();
-            tbx_thongsogt.Text = dtg_showgiatri.CurrentRow.Cells[4].Value.ToString();
-            cbb_idthuoctinh.Text = dtg_showgiatri.CurrentRow.Cells[3].Value.ToString();
+            try
+            {
+                GetIdGiaTri = Guid.Parse(dtg_showgiatri.CurrentRow.Cells[0].Value.ToString());
+                tbx_magiatri.Text = dtg_showgiatri.CurrentRow.Cells[2].Value.ToString();
+                tbx_thongsogt.Text = dtg_showgiatri.CurrentRow.Cells[4].Value.ToString();
+                cbb_idthuoctinh.Text = dtg_showgiatri.CurrentRow.Cells[3].Value.ToString();
+            }
+            catch (Exception)
+            {
+            }
+
         }
 
         private void btn_themctlt_Click(object sender, EventArgs e)
@@ -441,7 +480,9 @@ namespace _3.PL.Views
 
         private void dtg_showchitietlaptop_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            GetIdChiTietLaptop = Guid.Parse(dtg_showchitietlaptop.CurrentRow.Cells[0].Value.ToString());
+            try
+            {
+ GetIdChiTietLaptop = Guid.Parse(dtg_showchitietlaptop.CurrentRow.Cells[0].Value.ToString());
             tbx_machitietlaptop.Text = dtg_showchitietlaptop.CurrentRow.Cells[2].Value.ToString();
             cbb_malaptopctlt.Text = dtg_showchitietlaptop.CurrentRow.Cells[3].Value.ToString();
             cbb_mansx.Text = dtg_showchitietlaptop.CurrentRow.Cells[7].Value.ToString();
@@ -450,6 +491,12 @@ namespace _3.PL.Views
             tbx_soluongctlt.Text = Convert.ToString(dtg_showchitietlaptop.CurrentRow.Cells[10].Value.ToString());
             tbx_ctltgianhap.Text = dtg_showchitietlaptop.CurrentRow.Cells[11].Value.ToString();
             tbx_ctltgiaban.Text = dtg_showchitietlaptop.CurrentRow.Cells[12].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+            }
+           
         }
 
         private void tbx_ctltgianhap_KeyPress(object sender, KeyPressEventArgs e)
@@ -476,6 +523,14 @@ namespace _3.PL.Views
             th.ID = Guid.NewGuid();
             th.SoEmei = tbx_soimei.Text;
             th.IDChiTietLaptop = chiTietLaptopService.GetChiTietLaptopNoJoin().FirstOrDefault(a => a.Ma == tbx_imei_mactlt.Text).ID;
+            if (rbt_trangthai1.Checked)
+            {
+                th.TrangThai = 1;
+            }
+            else
+            {
+                th.TrangThai = 0;
+            }
             MessageBox.Show(imeiService.Add(th));
         }
     }

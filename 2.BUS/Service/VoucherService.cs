@@ -74,5 +74,16 @@ namespace _2.BUS.Service
             if (voucherRepositories.Update(t)) return "Thành công";
             else return "Thất bại";
         }
+
+        public string UpdateSoLuong(string ma)
+        {
+            var linh = GetVoucher().FirstOrDefault(a => a.Ma == ma);
+            Voucher t = new Voucher();
+            t.ID = linh.ID;
+            t.SoLuong = linh.SoLuong - 1;
+
+            if (voucherRepositories.UpdateSoLuong(t)) return "Thành công";
+            else return "Thất bại";
+        }
     }
 }

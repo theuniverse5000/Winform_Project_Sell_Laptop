@@ -37,6 +37,7 @@
             this.ntf_nhanvien = new System.Windows.Forms.NotifyIcon(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ptb_thoat = new System.Windows.Forms.PictureBox();
+            this.btn_quenmatkhau = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_thoat)).BeginInit();
             this.SuspendLayout();
@@ -121,6 +122,16 @@
             this.ptb_thoat.TabStop = false;
             this.ptb_thoat.Click += new System.EventHandler(this.ptb_thoat_Click);
             // 
+            // btn_quenmatkhau
+            // 
+            this.btn_quenmatkhau.Location = new System.Drawing.Point(35, 254);
+            this.btn_quenmatkhau.Name = "btn_quenmatkhau";
+            this.btn_quenmatkhau.Size = new System.Drawing.Size(103, 23);
+            this.btn_quenmatkhau.TabIndex = 15;
+            this.btn_quenmatkhau.Text = "Quên  mật khẩu";
+            this.btn_quenmatkhau.UseVisualStyleBackColor = true;
+            this.btn_quenmatkhau.Click += new System.EventHandler(this.btn_quenmatkhau_Click);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -129,6 +140,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(390, 289);
+            this.Controls.Add(this.btn_quenmatkhau);
             this.Controls.Add(this.ptb_thoat);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Ibtn_login);
@@ -154,5 +166,6 @@
         private NotifyIcon ntf_nhanvien;
         private PictureBox pictureBox1;
         private PictureBox ptb_thoat;
+        private Button btn_quenmatkhau;
     }
 }

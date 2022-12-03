@@ -6,6 +6,7 @@ namespace _1.DAL.IRepositories
     {
         bool Add(Voucher vc);
         bool Update(Voucher vc);
+        bool UpdateSoLuong(Voucher vc);
         bool Delete(Voucher vc);
         List<Voucher> GetVoucher();
     }
