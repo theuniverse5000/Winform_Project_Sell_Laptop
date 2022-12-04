@@ -17,7 +17,7 @@ namespace _3.PL
             ApplicationConfiguration.Initialize();
             Application.Run(new FormLogin());
             //  Application.Run(new IndexForm());
-            //   Application.Run(new AdminForm());
+              // Application.Run(new AdminForm());
             //
             //  Application.Run(new SendEmailResetPassWord());
         }
