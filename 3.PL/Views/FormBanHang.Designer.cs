@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabcotrol_frombanhang = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btn_xong = new System.Windows.Forms.Button();
             this.btn_thanhtoan = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.rbt_hienthiall = new System.Windows.Forms.RadioButton();
@@ -130,7 +131,6 @@
             this.cbb_timtheonsx = new System.Windows.Forms.ComboBox();
             this.dtg_xemlaptop = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn_xong = new System.Windows.Forms.Button();
             this.tabcotrol_frombanhang.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -189,6 +189,18 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Hóa Đơn";
             this.tabPage1.UseWaitCursor = true;
+            // 
+            // btn_xong
+            // 
+            this.btn_xong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btn_xong.Location = new System.Drawing.Point(373, 435);
+            this.btn_xong.Name = "btn_xong";
+            this.btn_xong.Size = new System.Drawing.Size(114, 37);
+            this.btn_xong.TabIndex = 69;
+            this.btn_xong.Text = "Xong";
+            this.btn_xong.UseVisualStyleBackColor = false;
+            this.btn_xong.UseWaitCursor = true;
+            this.btn_xong.Click += new System.EventHandler(this.btn_xong_Click);
             // 
             // btn_thanhtoan
             // 
@@ -868,7 +880,7 @@
             // 
             // btn_suakhachhang
             // 
-            this.btn_suakhachhang.BackColor = System.Drawing.Color.Yellow;
+            this.btn_suakhachhang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn_suakhachhang.ForeColor = System.Drawing.Color.Black;
             this.btn_suakhachhang.Location = new System.Drawing.Point(323, 51);
             this.btn_suakhachhang.Name = "btn_suakhachhang";
@@ -919,7 +931,7 @@
             // 
             // btn_xoakhachhang
             // 
-            this.btn_xoakhachhang.BackColor = System.Drawing.Color.Red;
+            this.btn_xoakhachhang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btn_xoakhachhang.ForeColor = System.Drawing.Color.Black;
             this.btn_xoakhachhang.Location = new System.Drawing.Point(323, 82);
             this.btn_xoakhachhang.Name = "btn_xoakhachhang";
@@ -941,7 +953,7 @@
             // 
             // btn_themkhachhang
             // 
-            this.btn_themkhachhang.BackColor = System.Drawing.Color.Lime;
+            this.btn_themkhachhang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn_themkhachhang.ForeColor = System.Drawing.Color.Black;
             this.btn_themkhachhang.Location = new System.Drawing.Point(323, 22);
             this.btn_themkhachhang.Name = "btn_themkhachhang";
@@ -1244,16 +1256,6 @@
             // 
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btn_xong
-            // 
-            this.btn_xong.Location = new System.Drawing.Point(380, 435);
-            this.btn_xong.Name = "btn_xong";
-            this.btn_xong.Size = new System.Drawing.Size(96, 37);
-            this.btn_xong.TabIndex = 69;
-            this.btn_xong.Text = "Xong";
-            this.btn_xong.UseVisualStyleBackColor = true;
-            this.btn_xong.Click += new System.EventHandler(this.btn_xong_Click);
             // 
             // FormBanHang
             // 

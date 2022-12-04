@@ -403,33 +403,42 @@ namespace _3.PL.Views
                 //listview_hoadon.Visible = true;
                 //var thao = khachHangService.GetKhachHang();
                 //var linh = thao.FirstOrDefault(a => a.SDT == tbx_sodienthoaikh.Text);
-                tbx_mahoadon.Text = "HoaDon" + DateTime.Now.ToString();
-                HoaDonView hoadon = new HoaDonView();
-                hoadon.ID = Guid.NewGuid();
-                hoadon.Ma = tbx_mahoadon.Text;
-                hoadon.NgayTao = dtp_ngaytaohoadon.Value;
-                hoadon.TenNguoiNhan = tbx_tennguoinhan.Text;
-                hoadon.SdtNguoiNhan = tbx_sdtnguoinhan.Text;
-                hoadon.IdNhanVien = nhanVienService.GetAllNhanVien().FirstOrDefault(a => a.Ma == cbb_manhanvien.Text).ID;
-                hoadon.IdKhachHang = khachHangService.GetKhachHang().FirstOrDefault(a => a.SDT == tbx_sodienthoaikh.Text).ID;
-                hoadon.IdVoucher = voucherService.GetVoucher().FirstOrDefault(a => a.Ma == tbx_mavoucher.Text).ID;
-                if (rbt_chuathanhtoan.Checked)
+                try
                 {
-                    hoadon.TinhTrang = 0;
-                }
-                else { hoadon.TinhTrang = 1; }
+                    tbx_mahoadon.Text = "HoaDon" + DateTime.Now.ToString();
+                    HoaDonView hoadon = new HoaDonView();
+                    hoadon.ID = Guid.NewGuid();
+                    hoadon.Ma = tbx_mahoadon.Text;
+                    hoadon.NgayTao = dtp_ngaytaohoadon.Value;
+                    hoadon.TenNguoiNhan = tbx_tennguoinhan.Text;
+                    hoadon.SdtNguoiNhan = tbx_sdtnguoinhan.Text;
+                    hoadon.IdNhanVien = nhanVienService.GetAllNhanVien().FirstOrDefault(a => a.Ma == cbb_manhanvien.Text).ID;
+                    hoadon.IdKhachHang = khachHangService.GetKhachHang().FirstOrDefault(a => a.SDT == tbx_sodienthoaikh.Text).ID;
+                    hoadon.IdVoucher = voucherService.GetVoucher().FirstOrDefault(a => a.Ma == tbx_mavoucher.Text).ID;
+                    if (rbt_chuathanhtoan.Checked)
+                    {
+                        hoadon.TinhTrang = 0;
+                    }
+                    else { hoadon.TinhTrang = 1; }
 
-                if (hoaDonService.CheckMa(tbx_mahoadon.Text))
-                {
-                    MessageBox.Show("Hóa đơn đã tồn tại", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (hoaDonService.CheckMa(tbx_mahoadon.Text))
+                    {
+                        MessageBox.Show("Hóa đơn đã tồn tại", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show(hoaDonService.Add(hoadon));
+                        LoadDataHoaDon(hoaDonService.GetHoaDon());
+                        voucherService.UpdateSoLuong(tbx_mavoucher.Text);
+
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    MessageBox.Show(hoaDonService.Add(hoadon));
-                    LoadDataHoaDon(hoaDonService.GetHoaDon());
-                    voucherService.UpdateSoLuong(tbx_mavoucher.Text);
+                    MessageBox.Show("Dữ liệu sai", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
+
             }
 
         }
@@ -760,7 +769,7 @@ namespace _3.PL.Views
         private void btn_xong_Click(object sender, EventArgs e)
         {
             ClearData();
-        
+
         }
     }
 }
