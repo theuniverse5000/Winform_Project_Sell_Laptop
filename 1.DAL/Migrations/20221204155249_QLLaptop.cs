@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _1.DAL.Migrations
 {
-    public partial class laptop : Migration
+    public partial class QLLaptop : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

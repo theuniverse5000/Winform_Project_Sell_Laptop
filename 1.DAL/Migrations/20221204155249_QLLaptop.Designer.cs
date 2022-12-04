@@ -12,8 +12,8 @@ using _1.DAL.Models;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(BanHangDbContext))]
-    [Migration("20221202163359_laptop")]
-    partial class laptop
+    [Migration("20221204155249_QLLaptop")]
+    partial class QLLaptop
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -4,6 +4,7 @@ using _2.BUS.ViewModels;
 
 namespace _3.PL.Views
 {
+    //abc
     public partial class DataStatistics : Form
     {
         IHoaDonChiTietService hoaDonChiTietService;
