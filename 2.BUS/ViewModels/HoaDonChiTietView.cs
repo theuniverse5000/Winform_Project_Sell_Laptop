@@ -20,6 +20,10 @@ namespace _2.BUS.ViewModels
         public string MaChiTietLaptop { get; set; }
         public decimal GiamGia { get; set; }
         public decimal GiaNhap { get; set; }
+        public string MaNhanVien { get; set; }
+        public string TenNhanVien{ get; set; }   
+        public string SdtKhachHang { get; set; }
+        public string TenKhachHang{ get; set; }
 
     }
 }

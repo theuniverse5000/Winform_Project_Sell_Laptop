@@ -41,6 +41,7 @@ namespace _3.PL.Views
             }
             else if (nhanVienService.CheckSdtMkNhanVien(tbx_username.Text, tbx_password.Text))
             {
+                CheckAdmin = 0;
                 //Sdtnv = tbx_username.Text;
                 ntf_nhanvien.ShowBalloonTip(5000);
                 IndexForm idf = new IndexForm();

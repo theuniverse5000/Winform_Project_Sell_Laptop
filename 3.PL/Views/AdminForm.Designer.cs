@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.tabctrl_admin = new System.Windows.Forms.TabControl();
-            this.tabp_show = new System.Windows.Forms.TabPage();
             this.tabp_cuahang = new System.Windows.Forms.TabPage();
             this.btn_suach = new System.Windows.Forms.Button();
             this.btn_xoach = new System.Windows.Forms.Button();
@@ -53,6 +52,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tabp_nhanvien = new System.Windows.Forms.TabPage();
+            this.tbx_emailnhanvien = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.nud_ttnhanvien = new System.Windows.Forms.NumericUpDown();
             this.dtg_shownhanvien = new System.Windows.Forms.DataGridView();
             this.cbb_idcuahang = new System.Windows.Forms.ComboBox();
@@ -90,8 +91,6 @@
             this.tbx_tenvoucher = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.tbx_emailnhanvien = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
             this.tabctrl_admin.SuspendLayout();
             this.tabp_cuahang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_cuahang)).BeginInit();
@@ -107,7 +106,6 @@
             // tabctrl_admin
             // 
             this.tabctrl_admin.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabctrl_admin.Controls.Add(this.tabp_show);
             this.tabctrl_admin.Controls.Add(this.tabp_cuahang);
             this.tabctrl_admin.Controls.Add(this.tabp_chucvu);
             this.tabctrl_admin.Controls.Add(this.tabp_nhanvien);
@@ -120,16 +118,6 @@
             this.tabctrl_admin.SelectedIndex = 0;
             this.tabctrl_admin.Size = new System.Drawing.Size(1104, 474);
             this.tabctrl_admin.TabIndex = 0;
-            // 
-            // tabp_show
-            // 
-            this.tabp_show.Location = new System.Drawing.Point(4, 33);
-            this.tabp_show.Name = "tabp_show";
-            this.tabp_show.Padding = new System.Windows.Forms.Padding(3);
-            this.tabp_show.Size = new System.Drawing.Size(1096, 437);
-            this.tabp_show.TabIndex = 0;
-            this.tabp_show.Text = "Thông tin";
-            this.tabp_show.UseVisualStyleBackColor = true;
             // 
             // tabp_cuahang
             // 
@@ -255,7 +243,7 @@
             // 
             this.dtg_cuahang.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dtg_cuahang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_cuahang.Location = new System.Drawing.Point(369, 19);
+            this.dtg_cuahang.Location = new System.Drawing.Point(355, 18);
             this.dtg_cuahang.Name = "dtg_cuahang";
             this.dtg_cuahang.RowTemplate.Height = 25;
             this.dtg_cuahang.Size = new System.Drawing.Size(615, 350);
@@ -387,6 +375,22 @@
             this.tabp_nhanvien.TabIndex = 3;
             this.tabp_nhanvien.Text = "Nhân Viên";
             this.tabp_nhanvien.UseVisualStyleBackColor = true;
+            // 
+            // tbx_emailnhanvien
+            // 
+            this.tbx_emailnhanvien.Location = new System.Drawing.Point(123, 177);
+            this.tbx_emailnhanvien.Name = "tbx_emailnhanvien";
+            this.tbx_emailnhanvien.Size = new System.Drawing.Size(122, 29);
+            this.tbx_emailnhanvien.TabIndex = 48;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(13, 180);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(51, 21);
+            this.label21.TabIndex = 47;
+            this.label21.Text = "Email";
             // 
             // nud_ttnhanvien
             // 
@@ -731,22 +735,6 @@
             this.label20.TabIndex = 47;
             this.label20.Text = "Mã";
             // 
-            // tbx_emailnhanvien
-            // 
-            this.tbx_emailnhanvien.Location = new System.Drawing.Point(123, 177);
-            this.tbx_emailnhanvien.Name = "tbx_emailnhanvien";
-            this.tbx_emailnhanvien.Size = new System.Drawing.Size(122, 29);
-            this.tbx_emailnhanvien.TabIndex = 48;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(13, 180);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(51, 21);
-            this.label21.TabIndex = 47;
-            this.label21.Text = "Email";
-            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -778,7 +766,6 @@
         #endregion
 
         private TabControl tabctrl_admin;
-        private TabPage tabp_show;
         private TabPage tabp_cuahang;
         private DataGridView dtg_cuahang;
         private TextBox tbx_macuahang;

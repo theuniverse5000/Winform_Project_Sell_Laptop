@@ -13,5 +13,6 @@ namespace _2.BUS.IService
         string UpdateTrangThai(ImeiView imv);
         string Delete(ImeiView imv);
         List<ImeiView> GetImei();
+        bool CheckSoImeil(string soimei);
     }
 }

@@ -20,6 +20,8 @@ namespace _3.PL.Views
         IVoucherService voucherService;
         IImeiService imeiService;
         ImeiDaBanService imeiDaBanService;
+        INsxService nsxService;
+
         Guid GetIdKhachHang { get; set; }
         Guid GetIdHoaDon { get; set; }
         Guid GetIdHoaDonChiTiet { get; set; }
@@ -36,6 +38,7 @@ namespace _3.PL.Views
             voucherService = new VoucherService();
             imeiService = new ImeiService();
             imeiDaBanService = new ImeiDaBanService();
+            nsxService = new NsxService();
 
         }
         private void FormBanHang_Load(object sender, EventArgs e)
@@ -44,10 +47,18 @@ namespace _3.PL.Views
             LoadCombobox();
             LoadDataKhachHang(khachHangService.GetKhachHang());
             LoadDataLaptop(chiTietLaptopService.GetChiTietLaptop());
-            LoadDataHoaDon(hoaDonService.GetHoaDon());
-            LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietNoJoin());
-            listview_hoadon.Visible = true;
+            // LoadDataHoaDon(hoaDonService.GetHoaDon());
+            //  LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietNoJoin());
+            dtg_hoadonchitiet.Visible = false;
+            dtg_showhoadon.Visible = false;
+            listview_hoadon.Visible = false;
             btn_thanhtoan.Visible = false;
+            gb_tinhtien.Visible = false;
+            btn_xoahoadonchitiet.Visible = false;
+            btn_xoahoadon.Visible = false;
+            btn_suahoadon.Visible = false;
+            tbx_trathe.Text = "0";
+
             /////
             CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo Device in CaptureDevice)
@@ -69,6 +80,11 @@ namespace _3.PL.Views
             foreach (var s in nhanVienService.GetAllNhanVien())
             {
                 cbb_manhanvien.Items.Add(s.Ma);
+            }
+            cbb_timtheonsx.Items.Clear();
+            foreach (var h in nsxService.GetNsx())
+            {
+                cbb_timtheonsx.Items.Add(h.Ten);
             }
         }
         void LoadDataLaptop(List<ChiTietLaptopView> list)
@@ -168,6 +184,31 @@ namespace _3.PL.Views
             {
                 dtg_hoadonchitiet.Rows.Add(t.ID, t.Ma, t.MaHoaDon, t.MaChiTietLaptop, t.SoImei, t.SoLuong, t.GiaTruoc, t.GiamGia, t.GiaSauKhiGiam, t.NgayTao, t.TinhTrang);
             }
+        }
+        void ClearData()
+        {
+            cbb_manhanvien.Text = "";
+            tbx_sodienthoaikh.Text = "";
+            tbx_tennguoinhan.Text = "";
+            tbx_sdtnguoinhan.Text = "";
+            tbx_mavoucher.Text = "0";
+            rbt_chuathanhtoan.Checked = false;
+            rbt_dathanhtoan.Checked = false;
+            listview_hoadon.Items.Clear();
+            nudz_slhoadon.Value = 0;
+            tbx_tongtien.Text = "";
+            tbx_trathe.Text = "";
+            tbx_tratienmat.Text = "";
+            tbx_tienthua.Text = "";
+            tbx_giagoc.Text = "";
+            tbx_giamgia.Text = "";
+            tbx_thanhtien.Text = "";
+            tbx_mahoadonchitiet.Text = "";
+            tbx_soimeidaban.Text = "";
+            tbx_sdtkhachhang.Text = "";
+            tbx_tenkhachhang.Text = "";
+            tbx_diachikhachhang.Text = "";
+            tbx_timsdtkhachhang.Text = "";
         }
         private void btn_themkhachhang_Click(object sender, EventArgs e)
         {
@@ -270,7 +311,7 @@ namespace _3.PL.Views
 
         private void cbb_timtheonsx_TextChanged(object sender, EventArgs e)
         {
-            var x = chiTietLaptopService.GetChiTietLaptop().Where(a => a.MaNsx.Contains(cbb_timtheonsx.Text)).ToList();
+            var x = chiTietLaptopService.GetChiTietLaptop().Where(a => a.TenNsx.Contains(cbb_timtheonsx.Text)).ToList();
             LoadDataLaptop(x);
         }
         private void btn_opencamera_Click(object sender, EventArgs e)
@@ -471,12 +512,18 @@ namespace _3.PL.Views
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
-
+        int soluongsanphammua = 0;
+        decimal tongtien = 0;
         private void btn_taohoadonchitiet_Click(object sender, EventArgs e)
         {
-            if (tbx_giagoc.Text == "" || tbx_giamgia.Text == "" || tbx_thanhtien.Text == "")
+
+            if (tbx_giagoc.Text == "" || tbx_giamgia.Text == "" || tbx_thanhtien.Text == "" || tbx_soimeidaban.Text == "")
             {
-                MessageBox.Show("Hãy tạo hóa đơn,thêm sản phẩm rồi mới được lưu.");
+                MessageBox.Show("Hãy tạo hóa đơn,thêm sản phẩm hợp lệ rồi mới được lưu.");
+            }
+            else if (hoaDonChiTietService.CheckMaCTLT(tbx_hoadon_mactlt.Text))
+            {
+                MessageBox.Show("Không thể lưu vì sản phẩm không hợp lệ.");
             }
             else
             {
@@ -493,10 +540,12 @@ namespace _3.PL.Views
                 if (rbt_dathanhtoan.Checked)
                 {
                     hdctv.TinhTrang = 1;
+                    // Update sl sản phẩm
                     ChiTietLaptopView gh = new ChiTietLaptopView();
                     gh.ID = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).ID;
                     gh.SoLuong = 0;
                     chiTietLaptopService.UpdateSoLuong(gh);
+                    // Update trạng thái imei là đã bán
                     ImeiView anhs = new ImeiView();
                     anhs.ID = imeiService.GetImei().FirstOrDefault(a => a.MaCTLT == tbx_hoadon_mactlt.Text).ID;
                     imeiService.UpdateTrangThai(anhs);
@@ -508,23 +557,17 @@ namespace _3.PL.Views
 
                 MessageBox.Show(hoaDonChiTietService.Add(hdctv));
                 LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietNoJoin());
-                if (tbx_soimeidaban.Text == "")
-                {
-                    MessageBox.Show("Hãy điền đủ thông tin!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (hoaDonChiTietService.GetHoaDonChiTietNoJoin().FirstOrDefault(a => a.Ma == ngoc).TinhTrang == 0)
-                {
-                    MessageBox.Show("Chưa thanh toán ! Không thể thêm imei đã bán", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    ImeiDaBanView i = new ImeiDaBanView();
-                    i.ID = Guid.NewGuid();
-                    i.IDHoaDonChiTiet = hoaDonChiTietService.GetHoaDonChiTietNoJoin().FirstOrDefault(a => a.Ma == ngoc).ID;
-                    i.SoEmei = tbx_soimeidaban.Text;
-                    MessageBox.Show(imeiDaBanService.Add(i));
-                    LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet());
-                }
+                ImeiDaBanView i = new ImeiDaBanView();
+                i.ID = Guid.NewGuid();
+                i.IDHoaDonChiTiet = hoaDonChiTietService.GetHoaDonChiTietNoJoin().FirstOrDefault(a => a.Ma == ngoc).ID;
+                i.SoEmei = tbx_soimeidaban.Text;
+                imeiDaBanService.Add(i);
+                LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet());
+                soluongsanphammua++;
+                tongtien += chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).Giaban;
+                nudz_slhoadon.Value = soluongsanphammua;
+                tbx_tongtien.Text = Convert.ToString(tongtien);
+
             }
 
 
@@ -535,10 +578,10 @@ namespace _3.PL.Views
 
 
         }
-        int soluongsanphammua = 0;
-        decimal tongtien = 0;
+
         private void btn_createhoadon_Click(object sender, EventArgs e)
         {
+
             var linh = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text);
 
             if (linh == null)
@@ -558,6 +601,9 @@ namespace _3.PL.Views
                 }
                 else
                 {
+                    gb_tinhtien.Visible = true;
+                    listview_hoadon.Visible = true;
+                    //
                     var soimei = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).SoImei;
                     var s = hoaDonService.GetHoaDon().FirstOrDefault(a => a.Ma == tbx_mahoadon.Text).GiaTriVoucher;
                     var h = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).Giaban;
@@ -572,14 +618,13 @@ namespace _3.PL.Views
                     ListViewItem l1 = new ListViewItem();
                     l1.Text = li.Ma;
                     l1.SubItems.Add(li.TenLaptop);
-
                     l1.SubItems.Add(li.SoImei);
                     l1.SubItems.Add(Convert.ToString(li.Giaban));
                     listview_hoadon.Items.Add(l1);
-                    soluongsanphammua++;
-                    tongtien += li.Giaban;
-                    nudz_slhoadon.Value = soluongsanphammua;
-                    tbx_tongtien.Text = Convert.ToString(tongtien);
+                    //soluongsanphammua++;
+                    //tongtien += li.Giaban;
+                    //nudz_slhoadon.Value = soluongsanphammua;
+                    //tbx_tongtien.Text = Convert.ToString(tongtien);
                 }
             }
 
@@ -604,22 +649,37 @@ namespace _3.PL.Views
 
         private void rbt_timhoadonchuatt_CheckedChanged(object sender, EventArgs e)
         {
+            dtg_showhoadon.Visible = true;
+            dtg_hoadonchitiet.Visible = true;
+            btn_xoahoadonchitiet.Visible = true;
+            btn_xoahoadon.Visible = true;
+            btn_suahoadon.Visible = true;
             LoadDataHoaDon(hoaDonService.GetHoaDon().Where(a => a.TinhTrang == 0).ToList());
-            LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietNoJoin().Where(a => a.TinhTrang == 0).ToList());
+            LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet().Where(a => a.TinhTrang == 0).ToList());
             btn_thanhtoan.Visible = true;
         }
 
         private void rbt_timhddathanhtoan_CheckedChanged(object sender, EventArgs e)
         {
+            dtg_showhoadon.Visible = true;
+            dtg_hoadonchitiet.Visible = true;
+            btn_xoahoadonchitiet.Visible = true;
+            btn_xoahoadon.Visible = true;
+            btn_suahoadon.Visible = true;
             LoadDataHoaDon(hoaDonService.GetHoaDon().Where(a => a.TinhTrang == 1).ToList());
-            LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietNoJoin().Where(a => a.TinhTrang == 1).ToList());
+            LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet().Where(a => a.TinhTrang == 1).ToList());
             btn_thanhtoan.Visible = false;
         }
 
         private void rbt_hienthiall_CheckedChanged(object sender, EventArgs e)
         {
+            dtg_showhoadon.Visible = false;
+            dtg_hoadonchitiet.Visible = false;
+            btn_xoahoadonchitiet.Visible = false;
+            btn_xoahoadon.Visible = false;
+            btn_suahoadon.Visible = false;
             LoadDataHoaDon(hoaDonService.GetHoaDon());
-            LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietNoJoin());
+            LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet());
             btn_thanhtoan.Visible = false;
         }
 
@@ -672,6 +732,35 @@ namespace _3.PL.Views
                 MessageBox.Show("Hãy chọn để xóa", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
+        }
+
+        private void rbt_timspcon_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadDataLaptop(chiTietLaptopService.GetChiTietLaptop().Where(a => a.SoLuong == 1).ToList());
+        }
+
+        private void tbx_tratienmat_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal a = Convert.ToDecimal(tbx_trathe.Text);
+                decimal b = Convert.ToDecimal(tbx_tratienmat.Text);
+                decimal c = Convert.ToDecimal(tbx_tongtien.Text);
+                decimal d = (a + b) - c;
+                tbx_tienthua.Text = Convert.ToString(d);
+            }
+            catch (Exception)
+            {
+
+            }
+
+
+        }
+
+        private void btn_xong_Click(object sender, EventArgs e)
+        {
+            ClearData();
+        
         }
     }
 }

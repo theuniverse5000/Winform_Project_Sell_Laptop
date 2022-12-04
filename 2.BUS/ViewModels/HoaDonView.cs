@@ -20,5 +20,7 @@ namespace _2.BUS.ViewModels
         public string SdtKhachHang { get; set; }
         public string MaVoucher { get; set; }
         public decimal GiaTriVoucher { get; set; }
+        public string TenNhanVien { get; set; }
+        public string TenKhachHang { get; set; }
     }
 }

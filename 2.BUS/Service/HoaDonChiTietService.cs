@@ -12,6 +12,8 @@ namespace _2.BUS.Service
         IChiTietLaptopRepositories chiTietLaptopRepositories = new ChiTietLaptopRepositories();
         IHoaDonRepositories hoaDonRepositories = new HoaDonRepositories();
         IImeiDaBanRepositories imeiDaBanRepositories = new ImeiDaBanRepositories();
+        INhanVienRepositories nhanVienRepositories = new NhanVienRepositories();
+        IKhachHangRepositories khachHangRepositories = new KhachHangRepositories();
         public string Add(HoaDonChiTietView hdctview)
         {
             if (hdctview == null) return "Thất bại";
@@ -37,6 +39,14 @@ namespace _2.BUS.Service
                 return true;
             else return false;
 
+        }
+
+        public bool CheckMaCTLT(string mactlt)
+        {
+            var huyen = GetHoaDonChiTiet();
+            var linh = huyen.FirstOrDefault(a => a.MaChiTietLaptop == mactlt);
+            if(linh != null) return true;
+            else return false;
         }
 
         public string Delete(HoaDonChiTietView hdctview)
@@ -70,6 +80,40 @@ namespace _2.BUS.Service
                             //  GiamGia = a.GiaTruoc - a.GiaSauKhiGiam,
                               SoImei = d.SoEmei,
                               GiaNhap = b.GiaNhap
+
+                          }
+                ).ToList();
+            return listssd;
+        }
+
+        public List<HoaDonChiTietView> GetHoaDonChiTietJoinNhanVien()
+        {
+            List<HoaDonChiTietView> listssd = new List<HoaDonChiTietView>();
+            listssd = (
+                          from a in hoaDonChiTietRepositories.GetHoaDonChiTiet()
+                         // join b in chiTietLaptopRepositories.GetChiTietLaptop() on a.IDChiTietLapTop equals b.ID
+                          join c in hoaDonRepositories.GetHoaDon() on a.IDHoaDon equals c.ID
+                       //   join d in imeiDaBanRepositories.GetImeiDB() on a.ID equals d.IDHoaDonChiTiet
+                       join e in nhanVienRepositories.GetNhanVien() on c.IdNhanVien equals e.ID
+                       join f in khachHangRepositories.GetKhachHang() on c.IdKhachHang equals f.ID
+                          select new HoaDonChiTietView
+                          {
+                              ID = a.ID,
+                              Ma = a.Ma,
+                          //    MaChiTietLaptop = b.Ma,
+                              MaHoaDon = c.Ma,
+                              SoLuong = a.SoLuong,
+                              GiaTruoc = a.GiaTruoc,
+                              NgayTao = a.NgayTao,
+                              GiaSauKhiGiam = a.GiaSauKhiGiam,
+                              TinhTrang = a.TinhTrang,
+                              //  GiamGia = a.GiaTruoc - a.GiaSauKhiGiam,
+                           //   SoImei = d.SoEmei,
+                           //   GiaNhap = b.GiaNhap
+                           MaNhanVien =e.Ma,
+                           TenNhanVien=e.HoTen,
+                           SdtKhachHang = f.SDT,
+                           TenKhachHang = f.HoTen
 
                           }
                 ).ToList();

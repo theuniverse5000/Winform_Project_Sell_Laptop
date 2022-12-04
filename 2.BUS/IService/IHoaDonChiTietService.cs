@@ -13,5 +13,7 @@ namespace _2.BUS.IService
         List<HoaDonChiTietView> GetHoaDonChiTiet();
         public List<HoaDonChiTietView> GetHoaDonChiTietNoJoin();
         bool CheckMa(string mahdct);
+        bool CheckMaCTLT(string mactlt);
+        List<HoaDonChiTietView> GetHoaDonChiTietJoinNhanVien();
     }
 }

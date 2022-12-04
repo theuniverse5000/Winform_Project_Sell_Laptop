@@ -22,6 +22,14 @@ namespace _2.BUS.Service
             else return "Thất Bại";
         }
 
+        public bool CheckSoImeil(string soimei)
+        {
+            var ngoc = imeiRepositories.GetImei();
+            var linh = ngoc.FirstOrDefault(a => a.SoEmei == soimei);
+            if(linh!=null) return true;
+            else return false;
+        }
+
         public string Delete(ImeiView imv)
         {
             if (imv == null) return "Thất Bại";

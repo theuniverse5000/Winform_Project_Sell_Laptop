@@ -188,19 +188,27 @@ namespace _3.PL.Views
 
         private void btn_themms_Click(object sender, EventArgs e)
         {
-            MauSacView blue = new MauSacView();
-            blue.ID = Guid.NewGuid();
-            blue.Ma = tbx_mams.Text;
-            blue.Ten = tbx_tenms.Text;
-            if (mauSacService.CheckMa(tbx_mams.Text))
+            if (tbx_mams.Text == "" || tbx_tenms.Text == "")
             {
-                MessageBox.Show("Mã đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hãy điển đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show(mauSacService.Add(blue));
-                LoadDataMauSac(mauSacService.GetMauSac());
+                MauSacView blue = new MauSacView();
+                blue.ID = Guid.NewGuid();
+                blue.Ma = tbx_mams.Text;
+                blue.Ten = tbx_tenms.Text;
+                if (mauSacService.CheckMa(tbx_mams.Text))
+                {
+                    MessageBox.Show("Mã đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(mauSacService.Add(blue));
+                    LoadDataMauSac(mauSacService.GetMauSac());
+                }
             }
+
         }
 
         private void btn_suams_Click(object sender, EventArgs e)
@@ -286,19 +294,27 @@ namespace _3.PL.Views
 
         private void btn_themlt_Click(object sender, EventArgs e)
         {
-            LaptopView lv = new LaptopView();
-            lv.ID = Guid.NewGuid();
-            lv.Ma = tbx_malaptop.Text;
-            lv.Ten = tbx_tenlaptop.Text;
-            if (laptopService.CheckMa(tbx_malaptop.Text))
+            if (tbx_malaptop.Text == "" || tbx_tenlaptop.Text == "")
             {
-                MessageBox.Show("Mã đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hãy điền đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show(laptopService.AddLaptop(lv));
-                LoadDataLaptop(laptopService.GetLaptop());
+                LaptopView lv = new LaptopView();
+                lv.ID = Guid.NewGuid();
+                lv.Ma = tbx_malaptop.Text;
+                lv.Ten = tbx_tenlaptop.Text;
+                if (laptopService.CheckMa(tbx_malaptop.Text))
+                {
+                    MessageBox.Show("Mã đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(laptopService.AddLaptop(lv));
+                    LoadDataLaptop(laptopService.GetLaptop());
+                }
             }
+
         }
 
         private void btn_sualt_Click(object sender, EventArgs e)
@@ -322,15 +338,15 @@ namespace _3.PL.Views
         {
             try
             {
- GetIdLaptop = Guid.Parse(dtg_showlaptop.CurrentRow.Cells[0].Value.ToString());
-            tbx_malaptop.Text = dtg_showlaptop.CurrentRow.Cells[2].Value.ToString();
-            tbx_tenlaptop.Text = dtg_showlaptop.CurrentRow.Cells[3].Value.ToString();
+                GetIdLaptop = Guid.Parse(dtg_showlaptop.CurrentRow.Cells[0].Value.ToString());
+                tbx_malaptop.Text = dtg_showlaptop.CurrentRow.Cells[2].Value.ToString();
+                tbx_tenlaptop.Text = dtg_showlaptop.CurrentRow.Cells[3].Value.ToString();
             }
             catch (Exception)
             {
 
             }
-           
+
         }
 
         private void btn_themthuoctinh_Click(object sender, EventArgs e)
@@ -482,21 +498,21 @@ namespace _3.PL.Views
         {
             try
             {
- GetIdChiTietLaptop = Guid.Parse(dtg_showchitietlaptop.CurrentRow.Cells[0].Value.ToString());
-            tbx_machitietlaptop.Text = dtg_showchitietlaptop.CurrentRow.Cells[2].Value.ToString();
-            cbb_malaptopctlt.Text = dtg_showchitietlaptop.CurrentRow.Cells[3].Value.ToString();
-            cbb_mansx.Text = dtg_showchitietlaptop.CurrentRow.Cells[7].Value.ToString();
-            cbb_mams.Text = dtg_showchitietlaptop.CurrentRow.Cells[8].Value.ToString();
-            tbx_mota.Text = dtg_showchitietlaptop.CurrentRow.Cells[9].Value.ToString();
-            tbx_soluongctlt.Text = Convert.ToString(dtg_showchitietlaptop.CurrentRow.Cells[10].Value.ToString());
-            tbx_ctltgianhap.Text = dtg_showchitietlaptop.CurrentRow.Cells[11].Value.ToString();
-            tbx_ctltgiaban.Text = dtg_showchitietlaptop.CurrentRow.Cells[12].Value.ToString();
+                GetIdChiTietLaptop = Guid.Parse(dtg_showchitietlaptop.CurrentRow.Cells[0].Value.ToString());
+                tbx_machitietlaptop.Text = dtg_showchitietlaptop.CurrentRow.Cells[2].Value.ToString();
+                cbb_malaptopctlt.Text = dtg_showchitietlaptop.CurrentRow.Cells[3].Value.ToString();
+                cbb_mansx.Text = dtg_showchitietlaptop.CurrentRow.Cells[7].Value.ToString();
+                cbb_mams.Text = dtg_showchitietlaptop.CurrentRow.Cells[8].Value.ToString();
+                tbx_mota.Text = dtg_showchitietlaptop.CurrentRow.Cells[9].Value.ToString();
+                tbx_soluongctlt.Text = Convert.ToString(dtg_showchitietlaptop.CurrentRow.Cells[10].Value.ToString());
+                tbx_ctltgianhap.Text = dtg_showchitietlaptop.CurrentRow.Cells[11].Value.ToString();
+                tbx_ctltgiaban.Text = dtg_showchitietlaptop.CurrentRow.Cells[12].Value.ToString();
             }
             catch (Exception)
             {
 
             }
-           
+
         }
 
         private void tbx_ctltgianhap_KeyPress(object sender, KeyPressEventArgs e)
@@ -519,19 +535,27 @@ namespace _3.PL.Views
 
         private void btn_themimei_Click(object sender, EventArgs e)
         {
-            ImeiView th = new ImeiView();
-            th.ID = Guid.NewGuid();
-            th.SoEmei = tbx_soimei.Text;
-            th.IDChiTietLaptop = chiTietLaptopService.GetChiTietLaptopNoJoin().FirstOrDefault(a => a.Ma == tbx_imei_mactlt.Text).ID;
-            if (rbt_trangthai1.Checked)
+            if (imeiService.CheckSoImeil(tbx_soimei.Text))
             {
-                th.TrangThai = 1;
+                MessageBox.Show("Số Imei đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                th.TrangThai = 0;
+                ImeiView th = new ImeiView();
+                th.ID = Guid.NewGuid();
+                th.SoEmei = tbx_soimei.Text;
+                th.IDChiTietLaptop = chiTietLaptopService.GetChiTietLaptopNoJoin().FirstOrDefault(a => a.Ma == tbx_imei_mactlt.Text).ID;
+                if (rbt_trangthai1.Checked)
+                {
+                    th.TrangThai = 1;
+                }
+                else
+                {
+                    th.TrangThai = 0;
+                }
+                MessageBox.Show(imeiService.Add(th));
             }
-            MessageBox.Show(imeiService.Add(th));
+
         }
     }
 }

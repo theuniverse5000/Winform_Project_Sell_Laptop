@@ -147,11 +147,20 @@ namespace _3.PL.Views
 
         private void dtg_cuahang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            GetIdCuaHang = Guid.Parse(dtg_cuahang.CurrentRow.Cells[0].Value.ToString());
-            tbx_macuahang.Text = dtg_cuahang.CurrentRow.Cells[2].Value.ToString();
-            tbx_tencuahang.Text = dtg_cuahang.CurrentRow.Cells[3].Value.ToString();
-            tbx_diachicuahang.Text = dtg_cuahang.CurrentRow.Cells[4].Value.ToString();
-            tbx_sdtcuahang.Text = dtg_cuahang.CurrentRow.Cells[5].Value.ToString();
+            try
+            {
+                GetIdCuaHang = Guid.Parse(dtg_cuahang.CurrentRow.Cells[0].Value.ToString());
+                tbx_macuahang.Text = dtg_cuahang.CurrentRow.Cells[2].Value.ToString();
+                tbx_tencuahang.Text = dtg_cuahang.CurrentRow.Cells[3].Value.ToString();
+                tbx_diachicuahang.Text = dtg_cuahang.CurrentRow.Cells[4].Value.ToString();
+                tbx_sdtcuahang.Text = dtg_cuahang.CurrentRow.Cells[5].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+
+            }
+
         }
 
         private void btn_suach_Click(object sender, EventArgs e)
@@ -210,9 +219,17 @@ namespace _3.PL.Views
 
         private void dtg_chucvu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            GetIdChucVu = Guid.Parse(dtg_chucvu.CurrentRow.Cells[0].Value.ToString());
-            tbx_machucvu.Text = dtg_chucvu.CurrentRow.Cells[2].Value.ToString();
-            tbx_tenchucvu.Text = dtg_chucvu.CurrentRow.Cells[3].Value.ToString();
+            try
+            {
+                GetIdChucVu = Guid.Parse(dtg_chucvu.CurrentRow.Cells[0].Value.ToString());
+                tbx_machucvu.Text = dtg_chucvu.CurrentRow.Cells[2].Value.ToString();
+                tbx_tenchucvu.Text = dtg_chucvu.CurrentRow.Cells[3].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         private void btn_themnhanvien_Click(object sender, EventArgs e)
@@ -265,15 +282,22 @@ namespace _3.PL.Views
 
         private void dtg_shownhanvien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            GetIdNhanVien = Guid.Parse(dtg_shownhanvien.CurrentRow.Cells[0].Value.ToString());
-            tbx_manhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[2].Value.ToString();
-            tbx_hotennhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[3].Value.ToString();
-            tbx_diachinhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[4].Value.ToString();
-            tbx_sdtnhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[5].Value.ToString();
-            tbx_matkhaunhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[6].Value.ToString();
-            nud_ttnhanvien.Value = Convert.ToDecimal(dtg_shownhanvien.CurrentRow.Cells[7].Value.ToString());
-            cbb_idchucvu.Text = dtg_shownhanvien.CurrentRow.Cells[9].Value.ToString();
-            cbb_idcuahang.Text = dtg_shownhanvien.CurrentRow.Cells[8].Value.ToString();
+            try
+            {
+                GetIdNhanVien = Guid.Parse(dtg_shownhanvien.CurrentRow.Cells[0].Value.ToString());
+                tbx_manhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[2].Value.ToString();
+                tbx_hotennhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[3].Value.ToString();
+                tbx_diachinhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[4].Value.ToString();
+                tbx_sdtnhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[5].Value.ToString();
+                tbx_matkhaunhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[6].Value.ToString();
+                nud_ttnhanvien.Value = Convert.ToDecimal(dtg_shownhanvien.CurrentRow.Cells[7].Value.ToString());
+                cbb_idchucvu.Text = dtg_shownhanvien.CurrentRow.Cells[9].Value.ToString();
+                cbb_idcuahang.Text = dtg_shownhanvien.CurrentRow.Cells[8].Value.ToString();
+            }
+            catch (Exception)
+            {
+            }
+
         }
 
         private void btn_themvoucher_Click(object sender, EventArgs e)
@@ -320,13 +344,21 @@ namespace _3.PL.Views
 
         private void dtg_showvoucher_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            GetIdVoucher = Guid.Parse(dtg_showvoucher.CurrentRow.Cells[0].Value.ToString());
-            tbx_mavoucher.Text = dtg_showvoucher.CurrentRow.Cells[2].Value.ToString();
-            tbx_tenvoucher.Text = dtg_showvoucher.CurrentRow.Cells[3].Value.ToString();
-            dtp_ngaybdvc.Value = Convert.ToDateTime(dtg_showvoucher.CurrentRow.Cells[4].Value.ToString());
-            dtp_ngayktvc.Value = Convert.ToDateTime(dtg_showvoucher.CurrentRow.Cells[5].Value.ToString());
-            tbx_giatrivoucher.Text = dtg_showvoucher.CurrentRow.Cells[6].Value.ToString();
-            tbx_soluongvoucher.Text = Convert.ToString(dtg_showvoucher.CurrentRow.Cells[7].Value.ToString());
+            try
+            {
+                GetIdVoucher = Guid.Parse(dtg_showvoucher.CurrentRow.Cells[0].Value.ToString());
+                tbx_mavoucher.Text = dtg_showvoucher.CurrentRow.Cells[2].Value.ToString();
+                tbx_tenvoucher.Text = dtg_showvoucher.CurrentRow.Cells[3].Value.ToString();
+                dtp_ngaybdvc.Value = Convert.ToDateTime(dtg_showvoucher.CurrentRow.Cells[4].Value.ToString());
+                dtp_ngayktvc.Value = Convert.ToDateTime(dtg_showvoucher.CurrentRow.Cells[5].Value.ToString());
+                tbx_giatrivoucher.Text = dtg_showvoucher.CurrentRow.Cells[6].Value.ToString();
+                tbx_soluongvoucher.Text = Convert.ToString(dtg_showvoucher.CurrentRow.Cells[7].Value.ToString());
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         private void tbx_giatrivoucher_KeyPress(object sender, KeyPressEventArgs e)

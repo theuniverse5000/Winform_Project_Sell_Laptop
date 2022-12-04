@@ -37,6 +37,12 @@
             this.rbt_timhoadonchuatt = new System.Windows.Forms.RadioButton();
             this.rbt_timhddathanhtoan = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tbx_tratienmat = new System.Windows.Forms.TextBox();
+            this.tbx_tienthua = new System.Windows.Forms.TextBox();
+            this.tbx_trathe = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.tbx_tongtien = new System.Windows.Forms.TextBox();
@@ -49,7 +55,7 @@
             this.dtg_showhoadon = new System.Windows.Forms.DataGridView();
             this.dtg_hoadonchitiet = new System.Windows.Forms.DataGridView();
             this.btn_xoahoadonchitiet = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gb_tinhtien = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
@@ -101,6 +107,9 @@
             this.btn_xoahoadon = new System.Windows.Forms.Button();
             this.btn_themhoadon = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.rbt_timspcon = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.tbx_xemlaptop_soimei = new System.Windows.Forms.TextBox();
             this.btn_closecamera = new System.Windows.Forms.Button();
@@ -121,6 +130,7 @@
             this.cbb_timtheonsx = new System.Windows.Forms.ComboBox();
             this.dtg_xemlaptop = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btn_xong = new System.Windows.Forms.Button();
             this.tabcotrol_frombanhang.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -128,13 +138,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudz_slhoadon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_showhoadon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_hoadonchitiet)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gb_tinhtien.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_hdctsoluong)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_showkhachhang)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_qrcode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_xemlaptop)).BeginInit();
             this.SuspendLayout();
@@ -155,6 +166,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.btn_xong);
             this.tabPage1.Controls.Add(this.btn_thanhtoan);
             this.tabPage1.Controls.Add(this.panel3);
             this.tabPage1.Controls.Add(this.panel1);
@@ -162,7 +174,7 @@
             this.tabPage1.Controls.Add(this.dtg_showhoadon);
             this.tabPage1.Controls.Add(this.dtg_hoadonchitiet);
             this.tabPage1.Controls.Add(this.btn_xoahoadonchitiet);
-            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.gb_tinhtien);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.tbx_hoadon_mactlt);
             this.tabPage1.Controls.Add(this.btn_createhoadon);
@@ -180,12 +192,13 @@
             // 
             // btn_thanhtoan
             // 
-            this.btn_thanhtoan.Location = new System.Drawing.Point(373, 491);
+            this.btn_thanhtoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btn_thanhtoan.Location = new System.Drawing.Point(373, 478);
             this.btn_thanhtoan.Name = "btn_thanhtoan";
-            this.btn_thanhtoan.Size = new System.Drawing.Size(114, 23);
+            this.btn_thanhtoan.Size = new System.Drawing.Size(114, 36);
             this.btn_thanhtoan.TabIndex = 68;
             this.btn_thanhtoan.Text = "Thanh Toán";
-            this.btn_thanhtoan.UseVisualStyleBackColor = true;
+            this.btn_thanhtoan.UseVisualStyleBackColor = false;
             this.btn_thanhtoan.UseWaitCursor = true;
             this.btn_thanhtoan.Click += new System.EventHandler(this.btn_thanhtoan_Click);
             // 
@@ -205,10 +218,10 @@
             this.rbt_hienthiall.AutoSize = true;
             this.rbt_hienthiall.Location = new System.Drawing.Point(3, 53);
             this.rbt_hienthiall.Name = "rbt_hienthiall";
-            this.rbt_hienthiall.Size = new System.Drawing.Size(56, 19);
+            this.rbt_hienthiall.Size = new System.Drawing.Size(40, 19);
             this.rbt_hienthiall.TabIndex = 67;
             this.rbt_hienthiall.TabStop = true;
-            this.rbt_hienthiall.Text = "Tất cả";
+            this.rbt_hienthiall.Text = "Ẩn";
             this.rbt_hienthiall.UseVisualStyleBackColor = true;
             this.rbt_hienthiall.UseWaitCursor = true;
             this.rbt_hienthiall.CheckedChanged += new System.EventHandler(this.rbt_hienthiall_CheckedChanged);
@@ -241,20 +254,82 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label20);
+            this.panel1.Controls.Add(this.tbx_tratienmat);
+            this.panel1.Controls.Add(this.tbx_tienthua);
+            this.panel1.Controls.Add(this.tbx_trathe);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label26);
             this.panel1.Controls.Add(this.label25);
             this.panel1.Controls.Add(this.tbx_tongtien);
             this.panel1.Controls.Add(this.nudz_slhoadon);
-            this.panel1.Location = new System.Drawing.Point(376, 296);
+            this.panel1.Location = new System.Drawing.Point(348, 267);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(181, 65);
+            this.panel1.Size = new System.Drawing.Size(181, 155);
             this.panel1.TabIndex = 63;
             this.panel1.UseWaitCursor = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(9, 122);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(56, 15);
+            this.label20.TabIndex = 70;
+            this.label20.Text = "Tiền thừa";
+            this.label20.UseWaitCursor = true;
+            // 
+            // tbx_tratienmat
+            // 
+            this.tbx_tratienmat.Location = new System.Drawing.Point(68, 93);
+            this.tbx_tratienmat.Name = "tbx_tratienmat";
+            this.tbx_tratienmat.Size = new System.Drawing.Size(100, 23);
+            this.tbx_tratienmat.TabIndex = 69;
+            this.tbx_tratienmat.UseWaitCursor = true;
+            this.tbx_tratienmat.TextChanged += new System.EventHandler(this.tbx_tratienmat_TextChanged);
+            // 
+            // tbx_tienthua
+            // 
+            this.tbx_tienthua.Location = new System.Drawing.Point(68, 122);
+            this.tbx_tienthua.Name = "tbx_tienthua";
+            this.tbx_tienthua.ReadOnly = true;
+            this.tbx_tienthua.Size = new System.Drawing.Size(100, 23);
+            this.tbx_tienthua.TabIndex = 68;
+            this.tbx_tienthua.UseWaitCursor = true;
+            // 
+            // tbx_trathe
+            // 
+            this.tbx_trathe.Location = new System.Drawing.Point(68, 64);
+            this.tbx_trathe.Name = "tbx_trathe";
+            this.tbx_trathe.Size = new System.Drawing.Size(100, 23);
+            this.tbx_trathe.TabIndex = 67;
+            this.tbx_trathe.UseWaitCursor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(9, 93);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(53, 15);
+            this.label15.TabIndex = 66;
+            this.label15.Text = "Tiền mặt";
+            this.label15.UseWaitCursor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(9, 67);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(42, 15);
+            this.label14.TabIndex = 65;
+            this.label14.Text = "Trả thẻ";
+            this.label14.UseWaitCursor = true;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(-1, 35);
+            this.label26.Location = new System.Drawing.Point(5, 40);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(57, 15);
             this.label26.TabIndex = 64;
@@ -273,8 +348,9 @@
             // 
             // tbx_tongtien
             // 
-            this.tbx_tongtien.Location = new System.Drawing.Point(66, 32);
+            this.tbx_tongtien.Location = new System.Drawing.Point(68, 32);
             this.tbx_tongtien.Name = "tbx_tongtien";
+            this.tbx_tongtien.ReadOnly = true;
             this.tbx_tongtien.Size = new System.Drawing.Size(100, 23);
             this.tbx_tongtien.TabIndex = 62;
             this.tbx_tongtien.UseWaitCursor = true;
@@ -283,6 +359,7 @@
             // 
             this.nudz_slhoadon.Location = new System.Drawing.Point(66, 3);
             this.nudz_slhoadon.Name = "nudz_slhoadon";
+            this.nudz_slhoadon.ReadOnly = true;
             this.nudz_slhoadon.Size = new System.Drawing.Size(31, 23);
             this.nudz_slhoadon.TabIndex = 61;
             this.nudz_slhoadon.UseWaitCursor = true;
@@ -294,9 +371,9 @@
             this.clh_tenlaptop,
             this.clh_soimei,
             this.clh_dongia});
-            this.listview_hoadon.Location = new System.Drawing.Point(3, 299);
+            this.listview_hoadon.Location = new System.Drawing.Point(3, 296);
             this.listview_hoadon.Name = "listview_hoadon";
-            this.listview_hoadon.Size = new System.Drawing.Size(366, 189);
+            this.listview_hoadon.Size = new System.Drawing.Size(333, 189);
             this.listview_hoadon.TabIndex = 60;
             this.listview_hoadon.UseCompatibleStateImageBehavior = false;
             this.listview_hoadon.UseWaitCursor = true;
@@ -334,45 +411,45 @@
             // dtg_hoadonchitiet
             // 
             this.dtg_hoadonchitiet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_hoadonchitiet.Location = new System.Drawing.Point(532, 378);
+            this.dtg_hoadonchitiet.Location = new System.Drawing.Point(532, 416);
             this.dtg_hoadonchitiet.Name = "dtg_hoadonchitiet";
             this.dtg_hoadonchitiet.RowTemplate.Height = 25;
-            this.dtg_hoadonchitiet.Size = new System.Drawing.Size(847, 352);
+            this.dtg_hoadonchitiet.Size = new System.Drawing.Size(847, 314);
             this.dtg_hoadonchitiet.TabIndex = 58;
             this.dtg_hoadonchitiet.UseWaitCursor = true;
             this.dtg_hoadonchitiet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_hoadonchitiet_CellClick);
             // 
             // btn_xoahoadonchitiet
             // 
-            this.btn_xoahoadonchitiet.BackColor = System.Drawing.Color.Red;
-            this.btn_xoahoadonchitiet.Location = new System.Drawing.Point(591, 326);
+            this.btn_xoahoadonchitiet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_xoahoadonchitiet.Location = new System.Drawing.Point(600, 344);
             this.btn_xoahoadonchitiet.Name = "btn_xoahoadonchitiet";
-            this.btn_xoahoadonchitiet.Size = new System.Drawing.Size(44, 26);
+            this.btn_xoahoadonchitiet.Size = new System.Drawing.Size(76, 28);
             this.btn_xoahoadonchitiet.TabIndex = 54;
             this.btn_xoahoadonchitiet.Text = "Xóa";
             this.btn_xoahoadonchitiet.UseVisualStyleBackColor = false;
             this.btn_xoahoadonchitiet.UseWaitCursor = true;
             this.btn_xoahoadonchitiet.Click += new System.EventHandler(this.btn_xoahoadonchitiet_Click);
             // 
-            // groupBox1
+            // gb_tinhtien
             // 
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.panel2);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.tbx_thanhtien);
-            this.groupBox1.Controls.Add(this.btn_taohoadonchitiet);
-            this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.tbx_giagoc);
-            this.groupBox1.Controls.Add(this.tbx_giamgia);
-            this.groupBox1.Controls.Add(this.nud_hdctsoluong);
-            this.groupBox1.Location = new System.Drawing.Point(535, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(227, 284);
-            this.groupBox1.TabIndex = 43;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tính tiền";
-            this.groupBox1.UseWaitCursor = true;
+            this.gb_tinhtien.Controls.Add(this.label19);
+            this.gb_tinhtien.Controls.Add(this.panel2);
+            this.gb_tinhtien.Controls.Add(this.label16);
+            this.gb_tinhtien.Controls.Add(this.label18);
+            this.gb_tinhtien.Controls.Add(this.tbx_thanhtien);
+            this.gb_tinhtien.Controls.Add(this.btn_taohoadonchitiet);
+            this.gb_tinhtien.Controls.Add(this.label21);
+            this.gb_tinhtien.Controls.Add(this.tbx_giagoc);
+            this.gb_tinhtien.Controls.Add(this.tbx_giamgia);
+            this.gb_tinhtien.Controls.Add(this.nud_hdctsoluong);
+            this.gb_tinhtien.Location = new System.Drawing.Point(535, 6);
+            this.gb_tinhtien.Name = "gb_tinhtien";
+            this.gb_tinhtien.Size = new System.Drawing.Size(227, 284);
+            this.gb_tinhtien.TabIndex = 43;
+            this.gb_tinhtien.TabStop = false;
+            this.gb_tinhtien.Text = "Tính tiền";
+            this.gb_tinhtien.UseWaitCursor = true;
             // 
             // label19
             // 
@@ -465,7 +542,7 @@
             // 
             // btn_taohoadonchitiet
             // 
-            this.btn_taohoadonchitiet.BackColor = System.Drawing.Color.Lime;
+            this.btn_taohoadonchitiet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn_taohoadonchitiet.Location = new System.Drawing.Point(6, 154);
             this.btn_taohoadonchitiet.Name = "btn_taohoadonchitiet";
             this.btn_taohoadonchitiet.Size = new System.Drawing.Size(221, 43);
@@ -638,10 +715,10 @@
             // 
             // tbx_mahoadon
             // 
-            this.tbx_mahoadon.Location = new System.Drawing.Point(103, 21);
+            this.tbx_mahoadon.Location = new System.Drawing.Point(58, 21);
             this.tbx_mahoadon.Name = "tbx_mahoadon";
             this.tbx_mahoadon.ReadOnly = true;
-            this.tbx_mahoadon.Size = new System.Drawing.Size(145, 23);
+            this.tbx_mahoadon.Size = new System.Drawing.Size(190, 23);
             this.tbx_mahoadon.TabIndex = 14;
             this.tbx_mahoadon.UseWaitCursor = true;
             // 
@@ -720,7 +797,7 @@
             // btn_createhoadon
             // 
             this.btn_createhoadon.BackColor = System.Drawing.Color.Fuchsia;
-            this.btn_createhoadon.Location = new System.Drawing.Point(146, 261);
+            this.btn_createhoadon.Location = new System.Drawing.Point(150, 267);
             this.btn_createhoadon.Name = "btn_createhoadon";
             this.btn_createhoadon.Size = new System.Drawing.Size(117, 33);
             this.btn_createhoadon.TabIndex = 39;
@@ -743,9 +820,9 @@
             this.groupBox2.Controls.Add(this.btn_xoakhachhang);
             this.groupBox2.Controls.Add(this.tbx_sdtkhachhang);
             this.groupBox2.Controls.Add(this.btn_themkhachhang);
-            this.groupBox2.Location = new System.Drawing.Point(944, 26);
+            this.groupBox2.Location = new System.Drawing.Point(768, 25);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(435, 296);
+            this.groupBox2.Size = new System.Drawing.Size(475, 346);
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Khách Hàng";
@@ -808,7 +885,7 @@
             this.dtg_showkhachhang.Location = new System.Drawing.Point(6, 117);
             this.dtg_showkhachhang.Name = "dtg_showkhachhang";
             this.dtg_showkhachhang.RowTemplate.Height = 25;
-            this.dtg_showkhachhang.Size = new System.Drawing.Size(416, 135);
+            this.dtg_showkhachhang.Size = new System.Drawing.Size(416, 190);
             this.dtg_showkhachhang.TabIndex = 35;
             this.dtg_showkhachhang.UseWaitCursor = true;
             this.dtg_showkhachhang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_showkhachhang_CellClick);
@@ -816,7 +893,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(48, 255);
+            this.label13.Location = new System.Drawing.Point(39, 310);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(30, 15);
             this.label13.TabIndex = 36;
@@ -825,7 +902,7 @@
             // 
             // tbx_timsdtkhachhang
             // 
-            this.tbx_timsdtkhachhang.Location = new System.Drawing.Point(84, 258);
+            this.tbx_timsdtkhachhang.Location = new System.Drawing.Point(75, 313);
             this.tbx_timsdtkhachhang.Name = "tbx_timsdtkhachhang";
             this.tbx_timsdtkhachhang.Size = new System.Drawing.Size(228, 23);
             this.tbx_timsdtkhachhang.TabIndex = 37;
@@ -877,11 +954,11 @@
             // 
             // btn_suahoadon
             // 
-            this.btn_suahoadon.BackColor = System.Drawing.Color.Yellow;
+            this.btn_suahoadon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn_suahoadon.ForeColor = System.Drawing.Color.Black;
-            this.btn_suahoadon.Location = new System.Drawing.Point(154, 169);
+            this.btn_suahoadon.Location = new System.Drawing.Point(154, 175);
             this.btn_suahoadon.Name = "btn_suahoadon";
-            this.btn_suahoadon.Size = new System.Drawing.Size(103, 25);
+            this.btn_suahoadon.Size = new System.Drawing.Size(103, 54);
             this.btn_suahoadon.TabIndex = 20;
             this.btn_suahoadon.Text = "Sửa thông tin";
             this.btn_suahoadon.UseVisualStyleBackColor = false;
@@ -890,11 +967,11 @@
             // 
             // btn_xoahoadon
             // 
-            this.btn_xoahoadon.BackColor = System.Drawing.Color.Red;
+            this.btn_xoahoadon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btn_xoahoadon.ForeColor = System.Drawing.Color.Black;
-            this.btn_xoahoadon.Location = new System.Drawing.Point(258, 169);
+            this.btn_xoahoadon.Location = new System.Drawing.Point(273, 175);
             this.btn_xoahoadon.Name = "btn_xoahoadon";
-            this.btn_xoahoadon.Size = new System.Drawing.Size(103, 25);
+            this.btn_xoahoadon.Size = new System.Drawing.Size(103, 54);
             this.btn_xoahoadon.TabIndex = 19;
             this.btn_xoahoadon.Text = "Xóa Hóa Đơn";
             this.btn_xoahoadon.UseVisualStyleBackColor = false;
@@ -903,11 +980,11 @@
             // 
             // btn_themhoadon
             // 
-            this.btn_themhoadon.BackColor = System.Drawing.Color.Fuchsia;
-            this.btn_themhoadon.ForeColor = System.Drawing.Color.Red;
-            this.btn_themhoadon.Location = new System.Drawing.Point(19, 173);
+            this.btn_themhoadon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btn_themhoadon.ForeColor = System.Drawing.Color.Black;
+            this.btn_themhoadon.Location = new System.Drawing.Point(19, 175);
             this.btn_themhoadon.Name = "btn_themhoadon";
-            this.btn_themhoadon.Size = new System.Drawing.Size(129, 66);
+            this.btn_themhoadon.Size = new System.Drawing.Size(129, 54);
             this.btn_themhoadon.TabIndex = 18;
             this.btn_themhoadon.Text = "Tạo Hóa Đơn";
             this.btn_themhoadon.UseVisualStyleBackColor = false;
@@ -917,6 +994,8 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.panel4);
+            this.tabPage3.Controls.Add(this.label4);
             this.tabPage3.Controls.Add(this.label24);
             this.tabPage3.Controls.Add(this.tbx_xemlaptop_soimei);
             this.tabPage3.Controls.Add(this.btn_closecamera);
@@ -944,6 +1023,38 @@
             this.tabPage3.Text = "Xem Laptop";
             this.tabPage3.UseWaitCursor = true;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.rbt_timspcon);
+            this.panel4.Location = new System.Drawing.Point(363, 61);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(143, 28);
+            this.panel4.TabIndex = 58;
+            this.panel4.UseWaitCursor = true;
+            // 
+            // rbt_timspcon
+            // 
+            this.rbt_timspcon.AutoSize = true;
+            this.rbt_timspcon.Location = new System.Drawing.Point(15, 4);
+            this.rbt_timspcon.Name = "rbt_timspcon";
+            this.rbt_timspcon.Size = new System.Drawing.Size(115, 19);
+            this.rbt_timspcon.TabIndex = 57;
+            this.rbt_timspcon.TabStop = true;
+            this.rbt_timspcon.Text = "Laptop còn hàng";
+            this.rbt_timspcon.UseVisualStyleBackColor = true;
+            this.rbt_timspcon.UseWaitCursor = true;
+            this.rbt_timspcon.CheckedChanged += new System.EventHandler(this.rbt_timspcon_CheckedChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(223, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(124, 15);
+            this.label4.TabIndex = 56;
+            this.label4.Text = "Tìm theo nhà sản xuất";
+            this.label4.UseWaitCursor = true;
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -965,7 +1076,7 @@
             // 
             // btn_closecamera
             // 
-            this.btn_closecamera.BackColor = System.Drawing.Color.LimeGreen;
+            this.btn_closecamera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn_closecamera.Location = new System.Drawing.Point(553, 211);
             this.btn_closecamera.Name = "btn_closecamera";
             this.btn_closecamera.Size = new System.Drawing.Size(89, 69);
@@ -977,7 +1088,7 @@
             // 
             // btn_showcode
             // 
-            this.btn_showcode.BackColor = System.Drawing.Color.Yellow;
+            this.btn_showcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn_showcode.Location = new System.Drawing.Point(553, 139);
             this.btn_showcode.Name = "btn_showcode";
             this.btn_showcode.Size = new System.Drawing.Size(89, 76);
@@ -989,7 +1100,7 @@
             // 
             // btn_opencamera
             // 
-            this.btn_opencamera.BackColor = System.Drawing.Color.Red;
+            this.btn_opencamera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btn_opencamera.Location = new System.Drawing.Point(553, 65);
             this.btn_opencamera.Name = "btn_opencamera";
             this.btn_opencamera.Size = new System.Drawing.Size(89, 79);
@@ -1111,9 +1222,7 @@
             // cbb_timtheonsx
             // 
             this.cbb_timtheonsx.FormattingEnabled = true;
-            this.cbb_timtheonsx.Items.AddRange(new object[] {
-            "8 GB"});
-            this.cbb_timtheonsx.Location = new System.Drawing.Point(196, 21);
+            this.cbb_timtheonsx.Location = new System.Drawing.Point(353, 31);
             this.cbb_timtheonsx.Name = "cbb_timtheonsx";
             this.cbb_timtheonsx.Size = new System.Drawing.Size(121, 23);
             this.cbb_timtheonsx.TabIndex = 4;
@@ -1135,6 +1244,16 @@
             // 
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btn_xong
+            // 
+            this.btn_xong.Location = new System.Drawing.Point(380, 435);
+            this.btn_xong.Name = "btn_xong";
+            this.btn_xong.Size = new System.Drawing.Size(96, 37);
+            this.btn_xong.TabIndex = 69;
+            this.btn_xong.Text = "Xong";
+            this.btn_xong.UseVisualStyleBackColor = true;
+            this.btn_xong.Click += new System.EventHandler(this.btn_xong_Click);
             // 
             // FormBanHang
             // 
@@ -1158,8 +1277,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudz_slhoadon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_showhoadon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_hoadonchitiet)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gb_tinhtien.ResumeLayout(false);
+            this.gb_tinhtien.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_hdctsoluong)).EndInit();
@@ -1170,6 +1289,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtg_showkhachhang)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_qrcode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_xemlaptop)).EndInit();
             this.ResumeLayout(false);
@@ -1198,7 +1319,6 @@
         private TextBox tbx_mavoucher;
         private TabPage tabPage3;
         private DataGridView dtg_xemlaptop;
-        private ComboBox cbb_timtheonsx;
         private TextBox tbx_qrtimtheoma;
         private TextBox tbx_machitietlaptop;
         private TextBox tbx_ctltgianhap;
@@ -1238,7 +1358,7 @@
         private Button btn_createhoadon;
         private TextBox tbx_hoadon_mactlt;
         private GroupBox groupBox3;
-        private GroupBox groupBox1;
+        private GroupBox gb_tinhtien;
         private Label label19;
         private Label label16;
         private Label label18;
@@ -1270,5 +1390,16 @@
         private RadioButton rbt_timhoadonchuatt;
         private RadioButton rbt_timhddathanhtoan;
         private Button btn_thanhtoan;
+        private ComboBox cbb_timtheonsx;
+        private Panel panel4;
+        private RadioButton rbt_timspcon;
+        private Label label4;
+        private Label label15;
+        private Label label14;
+        private TextBox tbx_tratienmat;
+        private TextBox tbx_tienthua;
+        private TextBox tbx_trathe;
+        private Label label20;
+        private Button btn_xong;
     }
 }
