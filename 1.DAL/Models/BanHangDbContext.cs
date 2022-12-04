@@ -35,6 +35,7 @@ namespace _1.DAL.Models
             //base.OnConfiguring((optionsBuilder.
             //    UseSqlServer("Data Source=LAPTOP-ANRHQ1OI\\SQLEXPRESS;Initial Catalog=QuanLyBanLaptop_da1;" +
             //    "Persist Security Info=True;User ID=huongpdph27798;Password=1701huong")));
+            //abc
 
         }
 
