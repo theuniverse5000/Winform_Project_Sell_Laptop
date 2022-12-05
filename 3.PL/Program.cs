@@ -12,6 +12,9 @@ namespace _3.PL
         {
             // Data Source=DE
             // SKTOP-3S9P0UC\SQLEXPRESS;Initial Catalog=QLBanLaptop;Persist Security Info=True;User ID=theuniverse
+            //  base.OnConfiguring((optionsBuilder.
+            //   UseSqlServer("Data Source=DESKTOP-3S9P0UC\\SQLEXPRESS;Initial Catalog=QuanLyBanLaptop_da1;" +
+            // "Persist Security Info=True;User ID=theuniverse;Password=theuniverse")));
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
