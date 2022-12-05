@@ -50,10 +50,12 @@ namespace _3.PL.Views
             //  mni_username.Text = Sdtnv;
             IBtn_quanlylaptop.Visible = false;
             IBtn_AdminForm.Visible = false;
+            IBtn_thongke.Visible = false;
             if (FormLogin.CheckAdmin == 1)
             {
                 IBtn_quanlylaptop.Visible = true;
                 IBtn_AdminForm.Visible = true;
+                IBtn_thongke.Visible = true;
             }
         }
         private void mni_admin_Click(object sender, EventArgs e)

@@ -63,7 +63,9 @@ namespace _3.PL.Views
 
         private void btn_doanhthuhomnay_Click(object sender, EventArgs e)
         {
-            decimal doanhthu = 0;
+            try
+            {
+decimal doanhthu = 0;
             int soluongdaban = 0;
             decimal gianhap = 0;
             foreach (var a in hoaDonChiTietService.GetHoaDonChiTiet().Where(h => h.TinhTrang == 1 && h.NgayTao.Day == DateTime.Now.Day))
@@ -81,6 +83,12 @@ namespace _3.PL.Views
             tbx_hotennhanvien.Text = linh.TenNhanVien;
             tbx_sdtkhachhang.Text = linh.SdtKhachHang;
             tbx_tenkh.Text = linh.TenKhachHang;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không có dữ liệu", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+            
         }
 
         private void btn_doanhthuthang_Click(object sender, EventArgs e)

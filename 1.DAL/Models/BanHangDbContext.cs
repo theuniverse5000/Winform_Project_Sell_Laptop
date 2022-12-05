@@ -29,15 +29,15 @@ namespace _1.DAL.Models
         public virtual DbSet<ImeiDaBan> ImeiDaBans { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //base.OnConfiguring((optionsBuilder.
-            //    UseSqlServer("Data Source=DESKTOP-3S9P0UC\\SQLEXPRESS;Initial Catalog=QuanLyBanLaptop_da1;" +
-            //    "Persist Security Info=True;User ID=theuniverse;Password=theuniverse")));
+            base.OnConfiguring((optionsBuilder.
+                UseSqlServer("Data Source=DESKTOP-3S9P0UC\\SQLEXPRESS;Initial Catalog=QuanLyBanLaptop_da1;" +
+                "Persist Security Info=True;User ID=theuniverse;Password=theuniverse")));
             //base.OnConfiguring((optionsBuilder.
             //    UseSqlServer("Data Source=LAPTOP-ANRHQ1OI\\SQLEXPRESS;Initial Catalog=QuanLyBanLaptop_da1;" +
             //    "Persist Security Info=True;User ID=huongpdph27798;Password=1701huong")));
-            base.OnConfiguring((optionsBuilder.
-            UseSqlServer("Data Source=LAPTOP-NBBU942O\\SQLEXPRESS;Initial Catalog=QuanLyBanLaptop_da1;" +
-            "Persist Security Info=True;User ID=sa;Password=1342003")));
+            //base.OnConfiguring((optionsBuilder.
+            //UseSqlServer("Data Source=LAPTOP-NBBU942O\\SQLEXPRESS;Initial Catalog=QuanLyBanLaptop_da1;" +
+            //"Persist Security Info=True;User ID=sa;Password=1342003")));
 
         }
 
