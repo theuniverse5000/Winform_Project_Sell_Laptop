@@ -57,6 +57,7 @@ namespace _3.PL.Views
             btn_xoahoadonchitiet.Visible = false;
             btn_xoahoadon.Visible = false;
             btn_suahoadon.Visible = false;
+            pl_tinhtien.Visible = false;
             tbx_trathe.Text = "0";
 
             /////
@@ -187,6 +188,7 @@ namespace _3.PL.Views
         }
         void ClearData()
         {
+            tbx_mahoadon.Text = "";
             cbb_manhanvien.Text = "";
             tbx_sodienthoaikh.Text = "";
             tbx_tennguoinhan.Text = "";
@@ -209,6 +211,9 @@ namespace _3.PL.Views
             tbx_tenkhachhang.Text = "";
             tbx_diachikhachhang.Text = "";
             tbx_timsdtkhachhang.Text = "";
+            listview_hoadon.Visible = false;
+            gb_tinhtien.Visible = false;
+            pl_tinhtien.Visible = false;
         }
         private void btn_themkhachhang_Click(object sender, EventArgs e)
         {
@@ -216,22 +221,34 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("Hãy điền đầy đủ thông tin khách hàng", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if (khachHangService.CheckSDT(tbx_sdtkhachhang.Text))
+            {
+                MessageBox.Show("Khách hàng đã có ", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else
             {
-                KhachHangView thao = new KhachHangView();
-                thao.ID = Guid.NewGuid();
-                thao.HoTen = tbx_tenkhachhang.Text;
-                thao.DiaChi = tbx_diachikhachhang.Text;
-                thao.SDT = tbx_sdtkhachhang.Text;
-                if (khachHangService.CheckSDT(tbx_sdtkhachhang.Text))
+                try
                 {
-                    MessageBox.Show("Khách hàng đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    KhachHangView thao = new KhachHangView();
+                    thao.ID = Guid.NewGuid();
+                    thao.HoTen = tbx_tenkhachhang.Text;
+                    thao.DiaChi = tbx_diachikhachhang.Text;
+                    thao.SDT = tbx_sdtkhachhang.Text;
+                    if (khachHangService.CheckSDT(tbx_sdtkhachhang.Text))
+                    {
+                        MessageBox.Show("Khách hàng đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show(khachHangService.AddKhachHang(thao));
+                        LoadDataKhachHang(khachHangService.GetKhachHang());
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    MessageBox.Show(khachHangService.AddKhachHang(thao));
-                    LoadDataKhachHang(khachHangService.GetKhachHang());
+                    MessageBox.Show("Hãy kiểm tra lại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
 
             }
 
@@ -245,12 +262,20 @@ namespace _3.PL.Views
             }
             else
             {
-                KhachHangView thao = new KhachHangView();
-                thao.ID = GetIdKhachHang;
-                thao.HoTen = tbx_tenkhachhang.Text;
-                thao.DiaChi = tbx_diachikhachhang.Text;
-                MessageBox.Show(khachHangService.UpdateKhachHang(thao));
-                LoadDataKhachHang(khachHangService.GetKhachHang());
+                try
+                {
+                    KhachHangView thao = new KhachHangView();
+                    thao.ID = GetIdKhachHang;
+                    thao.HoTen = tbx_tenkhachhang.Text;
+                    thao.DiaChi = tbx_diachikhachhang.Text;
+                    MessageBox.Show(khachHangService.UpdateKhachHang(thao));
+                    LoadDataKhachHang(khachHangService.GetKhachHang());
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Hãy kiểm tra lại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
             }
 
         }
@@ -536,50 +561,58 @@ namespace _3.PL.Views
             }
             else
             {
-                HoaDonChiTietView hdctv = new HoaDonChiTietView();
-                hdctv.ID = Guid.NewGuid();
-                hdctv.Ma = tbx_mahoadonchitiet.Text; string ngoc = "HDCT" + Convert.ToString(DateTime.Now);
-                hdctv.Ma = ngoc;
-                hdctv.IDChiTietLapTop = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).ID;
-                hdctv.IDHoaDon = hoaDonService.GetHoaDon().FirstOrDefault(a => a.Ma == tbx_mahoadon.Text).ID;
-                hdctv.SoLuong = Convert.ToInt32(nud_hdctsoluong.Value);
-                hdctv.GiaTruoc = Convert.ToDecimal(tbx_giagoc.Text);
-                hdctv.NgayTao = dtp_ngaytaohoadon.Value;
-                hdctv.GiaSauKhiGiam = Convert.ToDecimal(tbx_thanhtien.Text);
-                if (rbt_dathanhtoan.Checked)
+                try
                 {
-                    hdctv.TinhTrang = 1;
-                    // Update sl sản phẩm
-                    ChiTietLaptopView gh = new ChiTietLaptopView();
-                    gh.ID = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).ID;
-                    gh.SoLuong = 0;
-                    chiTietLaptopService.UpdateSoLuong(gh);
-                    // Update trạng thái imei là đã bán
-                    ImeiView anhs = new ImeiView();
-                    anhs.ID = imeiService.GetImei().FirstOrDefault(a => a.MaCTLT == tbx_hoadon_mactlt.Text).ID;
-                    imeiService.UpdateTrangThai(anhs);
-                }
-                else
-                {
-                    hdctv.TinhTrang = 0;
-                }
 
-                MessageBox.Show(hoaDonChiTietService.Add(hdctv));
-                LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietNoJoin());
-                ImeiDaBanView i = new ImeiDaBanView();
-                i.ID = Guid.NewGuid();
-                i.IDHoaDonChiTiet = hoaDonChiTietService.GetHoaDonChiTietNoJoin().FirstOrDefault(a => a.Ma == ngoc).ID;
-                i.SoEmei = tbx_soimeidaban.Text;
-                imeiDaBanService.Add(i);
-                LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet());
-                soluongsanphammua++;
-                tongtien += chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).Giaban;
-                nudz_slhoadon.Value = soluongsanphammua;
-                tbx_tongtien.Text = Convert.ToString(tongtien);
+                    HoaDonChiTietView hdctv = new HoaDonChiTietView();
+                    hdctv.ID = Guid.NewGuid();
+                    hdctv.Ma = tbx_mahoadonchitiet.Text; string ngoc = "HDCT" + Convert.ToString(DateTime.Now);
+                    hdctv.Ma = ngoc;
+                    hdctv.IDChiTietLapTop = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).ID;
+                    hdctv.IDHoaDon = hoaDonService.GetHoaDon().FirstOrDefault(a => a.Ma == tbx_mahoadon.Text).ID;
+                    hdctv.SoLuong = Convert.ToInt32(nud_hdctsoluong.Value);
+                    hdctv.GiaTruoc = Convert.ToDecimal(tbx_giagoc.Text);
+                    hdctv.NgayTao = dtp_ngaytaohoadon.Value;
+                    hdctv.GiaSauKhiGiam = Convert.ToDecimal(tbx_thanhtien.Text);
+                    if (rbt_dathanhtoan.Checked)
+                    {
+                        hdctv.TinhTrang = 1;
+                        // Update sl sản phẩm
+                        ChiTietLaptopView gh = new ChiTietLaptopView();
+                        gh.ID = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).ID;
+                        gh.SoLuong = 0;
+                        chiTietLaptopService.UpdateSoLuong(gh);
+                        // Update trạng thái imei là đã bán
+                        ImeiView anhs = new ImeiView();
+                        anhs.ID = imeiService.GetImei().FirstOrDefault(a => a.MaCTLT == tbx_hoadon_mactlt.Text).ID;
+                        imeiService.UpdateTrangThai(anhs);
+                    }
+                    else
+                    {
+                        hdctv.TinhTrang = 0;
+                    }
+
+                    MessageBox.Show(hoaDonChiTietService.Add(hdctv));
+                    LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietNoJoin());
+                    ImeiDaBanView i = new ImeiDaBanView();
+                    i.ID = Guid.NewGuid();
+                    i.IDHoaDonChiTiet = hoaDonChiTietService.GetHoaDonChiTietNoJoin().FirstOrDefault(a => a.Ma == ngoc).ID;
+                    i.SoEmei = tbx_soimeidaban.Text;
+                    imeiDaBanService.Add(i);
+                    LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet());
+                    soluongsanphammua++;
+                    tongtien += chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).Giaban;
+                    nudz_slhoadon.Value = soluongsanphammua;
+                    tbx_tongtien.Text = Convert.ToString(tongtien);
+
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Hãy kiểm tra dữ liệu nhập vào");
+                }
 
             }
-
-
         }
 
         void LoadDataCreateHoaDon()
@@ -610,30 +643,39 @@ namespace _3.PL.Views
                 }
                 else
                 {
-                    gb_tinhtien.Visible = true;
-                    listview_hoadon.Visible = true;
-                    //
-                    var soimei = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).SoImei;
-                    var s = hoaDonService.GetHoaDon().FirstOrDefault(a => a.Ma == tbx_mahoadon.Text).GiaTriVoucher;
-                    var h = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).Giaban;
-                    decimal x = h * nud_hdctsoluong.Value - s;
-                    tbx_giamgia.Text = Convert.ToString(s);
-                    tbx_giagoc.Text = Convert.ToString(h);
-                    tbx_thanhtien.Text = Convert.ToString(x);
-                    tbx_soimeidaban.Text = soimei;
-                    var li = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text);
-                    listview_hoadon.FullRowSelect = true;
-                    listview_hoadon.GridLines = true;
-                    ListViewItem l1 = new ListViewItem();
-                    l1.Text = li.Ma;
-                    l1.SubItems.Add(li.TenLaptop);
-                    l1.SubItems.Add(li.SoImei);
-                    l1.SubItems.Add(Convert.ToString(li.Giaban));
-                    listview_hoadon.Items.Add(l1);
-                    //soluongsanphammua++;
-                    //tongtien += li.Giaban;
-                    //nudz_slhoadon.Value = soluongsanphammua;
-                    //tbx_tongtien.Text = Convert.ToString(tongtien);
+                    try
+                    {
+                        gb_tinhtien.Visible = true;
+                        listview_hoadon.Visible = true;
+                        pl_tinhtien.Visible = true;
+                        //
+                        var soimei = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).SoImei;
+                        var s = hoaDonService.GetHoaDon().FirstOrDefault(a => a.Ma == tbx_mahoadon.Text).GiaTriVoucher;
+                        var h = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text).Giaban;
+                        decimal x = h * nud_hdctsoluong.Value - s;
+                        tbx_giamgia.Text = Convert.ToString(s);
+                        tbx_giagoc.Text = Convert.ToString(h);
+                        tbx_thanhtien.Text = Convert.ToString(x);
+                        tbx_soimeidaban.Text = soimei;
+                        var li = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == tbx_hoadon_mactlt.Text);
+                        listview_hoadon.FullRowSelect = true;
+                        listview_hoadon.GridLines = true;
+                        ListViewItem l1 = new ListViewItem();
+                        l1.Text = li.Ma;
+                        l1.SubItems.Add(li.TenLaptop);
+                        l1.SubItems.Add(li.SoImei);
+                        l1.SubItems.Add(Convert.ToString(li.Giaban));
+                        listview_hoadon.Items.Add(l1);
+                        //soluongsanphammua++;
+                        //tongtien += li.Giaban;
+                        //nudz_slhoadon.Value = soluongsanphammua;
+                        //tbx_tongtien.Text = Convert.ToString(tongtien);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Hãy kiểm tra dữ liệu nhập vào");
+                    }
+
                 }
             }
 
@@ -711,7 +753,7 @@ namespace _3.PL.Views
             }
             catch (Exception)
             {
-
+                MessageBox.Show("Hãy kiểm tra lại");
             }
         }
 

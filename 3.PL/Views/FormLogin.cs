@@ -65,12 +65,14 @@ namespace _3.PL.Views
 
         private void tbx_username_Enter(object sender, EventArgs e)
         {
-
+            tbx_username.ForeColor = System.Drawing.Color.Red;
             tbx_username.Text = "";
         }
 
         private void tbx_password_Enter(object sender, EventArgs e)
         {
+            tbx_password.ForeColor = System.Drawing.Color.Red;
+            tbx_password.PasswordChar = '*';
             tbx_password.Text = "";
 
         }
