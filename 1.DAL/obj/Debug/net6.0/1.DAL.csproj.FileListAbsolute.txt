@@ -68,3 +68,17 @@ G:\My Drive\Study\Project_One_DotNet\CODE\g\DA1_QLBanLaptop\1.DAL\obj\Debug\net6
 G:\My Drive\Study\Project_One_DotNet\CODE\g\DA1_QLBanLaptop\1.DAL\obj\Debug\net6.0\1.DAL.pdb
 G:\My Drive\Study\Project_One_DotNet\CODE\g\DA1_QLBanLaptop\1.DAL\obj\Debug\net6.0\1.DAL.genruntimeconfig.cache
 G:\My Drive\Study\Project_One_DotNet\CODE\g\DA1_QLBanLaptop\1.DAL\obj\Debug\net6.0\ref\1.DAL.dll
+C:\Users\Admin\Desktop\git\1.DAL\bin\Debug\net6.0\1.DAL.deps.json
+C:\Users\Admin\Desktop\git\1.DAL\bin\Debug\net6.0\1.DAL.runtimeconfig.json
+C:\Users\Admin\Desktop\git\1.DAL\bin\Debug\net6.0\1.DAL.dll
+C:\Users\Admin\Desktop\git\1.DAL\bin\Debug\net6.0\1.DAL.pdb
+C:\Users\Admin\Desktop\git\1.DAL\obj\Debug\net6.0\1.DAL.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\git\1.DAL\obj\Debug\net6.0\1.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\git\1.DAL\obj\Debug\net6.0\1.DAL.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\git\1.DAL\obj\Debug\net6.0\1.DAL.AssemblyInfo.cs
+C:\Users\Admin\Desktop\git\1.DAL\obj\Debug\net6.0\1.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\git\1.DAL\obj\Debug\net6.0\1.DAL.dll
+C:\Users\Admin\Desktop\git\1.DAL\obj\Debug\net6.0\refint\1.DAL.dll
+C:\Users\Admin\Desktop\git\1.DAL\obj\Debug\net6.0\1.DAL.pdb
+C:\Users\Admin\Desktop\git\1.DAL\obj\Debug\net6.0\1.DAL.genruntimeconfig.cache
+C:\Users\Admin\Desktop\git\1.DAL\obj\Debug\net6.0\ref\1.DAL.dll

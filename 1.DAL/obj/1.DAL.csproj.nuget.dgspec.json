@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\git\\1.DAL\\1.DAL.csproj": {}
   },
   "projects": {
-    "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj": {
+    "C:\\Users\\Admin\\Desktop\\git\\1.DAL\\1.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\git\\1.DAL\\1.DAL.csproj",
         "projectName": "1.DAL",
-        "projectPath": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj",
-        "packagesPath": "C:\\Users\\theun\\.nuget\\packages\\",
-        "outputPath": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\1.DAL\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\git\\1.DAL\\1.DAL.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\git\\1.DAL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\theun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,8 +65,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -71,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
