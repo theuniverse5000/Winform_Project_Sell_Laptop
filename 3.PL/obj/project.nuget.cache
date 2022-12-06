@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Kjw9iSm05Tk+AJcHMdKCHkb9FtaXqfuMBbZ6FwXIsQZgTEu+UE66aUVQ41ATNgZpd6/x5l90b3q+MbSrXV3zHg==",
+  "dgSpecHash": "xNDDAkekJzqo8sYfXxe4fCZ620AkcEpmYCtxMpREMmaYHNGZGOuMi7mNTxUiFigvLNBMtA26ncoNwlUpafAebw==",
   "success": true,
-  "projectFilePath": "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\3.PL\\3.PL.csproj",
+  "projectFilePath": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\3.PL\\3.PL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\theun\\.nuget\\packages\\aforge\\2.2.5\\aforge.2.2.5.nupkg.sha512",
     "C:\\Users\\theun\\.nuget\\packages\\aforge.video\\2.2.5\\aforge.video.2.2.5.nupkg.sha512",

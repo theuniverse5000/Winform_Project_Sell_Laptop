@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\3.PL\\3.PL.csproj": {}
+    "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\3.PL\\3.PL.csproj": {}
   },
   "projects": {
-    "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj": {
+    "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj",
+        "projectUniqueName": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj",
         "projectName": "1.DAL",
-        "projectPath": "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj",
+        "projectPath": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj",
         "packagesPath": "C:\\Users\\theun\\.nuget\\packages\\",
-        "outputPath": "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\1.DAL\\obj\\",
+        "outputPath": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\1.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\theun\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -75,14 +75,14 @@
         }
       }
     },
-    "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\2.BUS\\2.BUS.csproj": {
+    "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\2.BUS\\2.BUS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\2.BUS\\2.BUS.csproj",
+        "projectUniqueName": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\2.BUS\\2.BUS.csproj",
         "projectName": "2.BUS",
-        "projectPath": "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\2.BUS\\2.BUS.csproj",
+        "projectPath": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\2.BUS\\2.BUS.csproj",
         "packagesPath": "C:\\Users\\theun\\.nuget\\packages\\",
-        "outputPath": "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\2.BUS\\obj\\",
+        "outputPath": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\2.BUS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\theun\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -99,8 +99,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj": {
-                "projectPath": "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj"
+              "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj": {
+                "projectPath": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\1.DAL\\1.DAL.csproj"
               }
             }
           }
@@ -134,14 +134,14 @@
         }
       }
     },
-    "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\3.PL\\3.PL.csproj": {
+    "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\3.PL\\3.PL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\3.PL\\3.PL.csproj",
+        "projectUniqueName": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\3.PL\\3.PL.csproj",
         "projectName": "3.PL",
-        "projectPath": "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\3.PL\\3.PL.csproj",
+        "projectPath": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\3.PL\\3.PL.csproj",
         "packagesPath": "C:\\Users\\theun\\.nuget\\packages\\",
-        "outputPath": "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\3.PL\\obj\\",
+        "outputPath": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\3.PL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\theun\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -158,8 +158,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\2.BUS\\2.BUS.csproj": {
-                "projectPath": "G:\\My Drive\\Study\\Dự án 1 .net\\DA1_QLBanLaptop\\2.BUS\\2.BUS.csproj"
+              "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\2.BUS\\2.BUS.csproj": {
+                "projectPath": "G:\\My Drive\\Study\\Project_One_DotNet\\CODE\\g\\DA1_QLBanLaptop\\2.BUS\\2.BUS.csproj"
               }
             }
           }
