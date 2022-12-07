@@ -778,5 +778,34 @@ namespace _3.PL.Views
             }
 
         }
+        private void ShowImei(List<ImeiView> imeiViews)
+        {
+            dtg_showimei.Rows.Clear();
+            dtg_showimei.ColumnCount = 4;
+            dtg_showimei.Columns[0].Name = "ID";
+            dtg_showimei.Columns[0].Visible = false;
+            dtg_showimei.Columns[1].Name = "Mã";
+            dtg_showimei.Columns[2].Name = "Tên";
+            dtg_showimei.Columns[3].Name = "Trạng thái";
+            foreach (var d in imeiViews)
+            {
+                string trangthai;
+                if (d.TrangThai ==  1)
+                    trangthai = "chưa bán";
+                else
+                {
+                    trangthai = "đã bán rồi";
+                }
+
+                dtg_showimei.Rows.Add(d.ID, d.SoEmei,trangthai);
+            }
+
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
