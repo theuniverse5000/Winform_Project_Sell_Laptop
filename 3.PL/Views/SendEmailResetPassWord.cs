@@ -26,7 +26,6 @@ namespace _3.PL.Views
         string rand_num = Convert.ToString(new Random().Next(1000, 9999));
         private void btn_GuiMA_Click(object sender, EventArgs e)
         {
-
             if (tb_EmailNguoiNhan.Text == "")
             {
                 MessageBox.Show("Mời bạn nhập email nhân viên quán ");
@@ -59,7 +58,7 @@ namespace _3.PL.Views
                         smtp.Send(mail);
                         MessageBox.Show("email đã gửi thành công ", "Email", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tb_MaXacNhan.Enabled = true;
-                        btn_XacnhanMa.Enabled = true;
+                        btn_XacNhan.Enabled = true;
                     }
                     catch (Exception ex)
                     {
@@ -94,21 +93,21 @@ namespace _3.PL.Views
 
         static bool CheckPassword(string psw)
         {
-            
+
             if (psw.Length < 8)
                 return false;
             bool hasLower = false;
             bool hasUpper = false;
             bool hasDigit = false;
-            for(int i = 0; i < psw.Length; i++)
+            for (int i = 0; i < psw.Length; i++)
             {
-                if(psw[i] >= 'a' && psw[i] < 'z')
+                if (psw[i] >= 'a' && psw[i] < 'z')
                     hasLower = true;
                 if (psw[i] >= 'A' && psw[i] < 'Z')
                     hasUpper = true;
                 if (psw[i] >= '0' && psw[i] < '9')
                     hasDigit = true;
-                if(hasLower && hasUpper && hasDigit)
+                if (hasLower && hasUpper && hasDigit)
                     return true;
             }
             return false;
@@ -120,27 +119,29 @@ namespace _3.PL.Views
             cc.ID = GetIdnvtoDMK;
             cc.MatKhau = tb_NhapLaiMatKhau.Text;
             bool check = CheckPassword(tb_NhapMatKhauMoi.Text);
-            if(check == true)
+            if (check == true)
             {
-                if(tb_NhapMatKhauMoi.Text == "" && tb_NhapLaiMatKhau.Text == "")
+                if (tb_NhapMatKhauMoi.Text == "" && tb_NhapLaiMatKhau.Text == "")
                 {
-                    if(tb_NhapMatKhauMoi.Text != tb_NhapMatKhauMoi.Text)
+                    MessageBox.Show("Mời bạn nhập mật khẩu ");
+                }
+                else
+                {
+
+                    if (tb_NhapMatKhauMoi.Text != tb_NhapMatKhauMoi.Text)
                     {
+                        MessageBox.Show("Mật khẩu không trùng nhau");
+                    }
+                    else
+                    {
+                        nhanVienService.ChangePassWord(cc);
                         MessageBox.Show("Doi Mat khau thanh cong moi ban dang nhap");
                         this.Hide();
                         FormLogin laf = new FormLogin();
                         laf.ShowDialog();
                         this.Show();
                     }
-                    else
-                    {
-                        MessageBox.Show("Mật khẩu không trùng nhau");
-                    }
-                }else
-                {
-                    MessageBox.Show("Mời bạn nhập mật khẩu ");
                 }
-                MessageBox.Show("");
             }
             else
             {

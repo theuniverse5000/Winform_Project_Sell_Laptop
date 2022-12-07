@@ -654,6 +654,7 @@
             this.dtp_ngayktvc.Name = "dtp_ngayktvc";
             this.dtp_ngayktvc.Size = new System.Drawing.Size(260, 34);
             this.dtp_ngayktvc.TabIndex = 64;
+            this.dtp_ngayktvc.ValueChanged += new System.EventHandler(this.dtp_ngayktvc_ValueChanged);
             // 
             // dtp_ngaybdvc
             // 

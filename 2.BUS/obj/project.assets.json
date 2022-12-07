@@ -1929,19 +1929,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\theun\\.nuget\\packages\\": {}
+    "C:\\Users\\dinht\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\2.BUS\\2.BUS.csproj",
+      "projectUniqueName": "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12\\2.BUS\\2.BUS.csproj",
       "projectName": "2.BUS",
-      "projectPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\2.BUS\\2.BUS.csproj",
-      "packagesPath": "C:\\Users\\theun\\.nuget\\packages\\",
-      "outputPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\2.BUS\\obj\\",
+      "projectPath": "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12\\2.BUS\\2.BUS.csproj",
+      "packagesPath": "C:\\Users\\dinht\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12\\2.BUS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\theun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dinht\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1955,8 +1955,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\1.DAL\\1.DAL.csproj": {
-              "projectPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\1.DAL\\1.DAL.csproj"
+            "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12\\1.DAL\\1.DAL.csproj": {
+              "projectPath": "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12\\1.DAL\\1.DAL.csproj"
             }
           }
         }
