@@ -58,7 +58,7 @@ namespace _3.PL.Views
                         smtp.Send(mail);
                         MessageBox.Show("email đã gửi thành công ", "Email", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tb_MaXacNhan.Enabled = true;
-                        btn_XacNhan.Enabled = true;
+                        btn_XacnhanMa.Enabled = true;
                     }
                     catch (Exception ex)
                     {
@@ -82,6 +82,7 @@ namespace _3.PL.Views
                 MessageBox.Show("Nhập mật khẩu mới");
                 tb_NhapLaiMatKhau.Enabled = true;
                 tb_NhapMatKhauMoi.Enabled = true;
+                btn_DangNhap.Enabled = true;
 
             }
             else
