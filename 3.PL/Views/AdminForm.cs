@@ -127,21 +127,29 @@ namespace _3.PL.Views
 
         private void btn_themch_Click(object sender, EventArgs e)
         {
-            CuaHangView thao = new CuaHangView();
-            thao.ID = Guid.NewGuid();
-            thao.Ma = tbx_macuahang.Text;
-            thao.Ten = tbx_tencuahang.Text;
-            thao.DiaChi = tbx_diachicuahang.Text;
-            thao.Sdt = tbx_sdtcuahang.Text;
-            if (cuaHangService.CheckMa(tbx_macuahang.Text))
+            if (tbx_macuahang.Text == "" || tbx_tencuahang.Text == "" || tbx_diachicuahang.Text == "" || tbx_sdtcuahang.Text == "")
             {
-                MessageBox.Show("Mã đã tồn tại");
+                MessageBox.Show("Hãy điền đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show(cuaHangService.Add(thao));
-                LoadCuaHang(cuaHangService.GetCuaHang());
+                CuaHangView thao = new CuaHangView();
+                thao.ID = Guid.NewGuid();
+                thao.Ma = tbx_macuahang.Text;
+                thao.Ten = tbx_tencuahang.Text;
+                thao.DiaChi = tbx_diachicuahang.Text;
+                thao.Sdt = tbx_sdtcuahang.Text;
+                if (cuaHangService.CheckMa(tbx_macuahang.Text))
+                {
+                    MessageBox.Show("Hãy kiểm tra mã cửa hàng", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(cuaHangService.Add(thao));
+                    LoadCuaHang(cuaHangService.GetCuaHang());
+                }
             }
+
 
         }
 
@@ -157,7 +165,7 @@ namespace _3.PL.Views
             }
             catch (Exception)
             {
-
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
 
@@ -165,56 +173,96 @@ namespace _3.PL.Views
 
         private void btn_suach_Click(object sender, EventArgs e)
         {
-            CuaHangView thao = new CuaHangView();
-            thao.ID = GetIdCuaHang;
-            // thao.Ma = tbx_macuahang.Text;
-            thao.Ten = tbx_tencuahang.Text;
-            thao.DiaChi = tbx_diachicuahang.Text;
-            thao.Sdt = tbx_sdtcuahang.Text;
-            MessageBox.Show(cuaHangService.Update(thao));
-            LoadCuaHang(cuaHangService.GetCuaHang());
+            try
+            {
+                CuaHangView thao = new CuaHangView();
+                thao.ID = GetIdCuaHang;
+                // thao.Ma = tbx_macuahang.Text;
+                thao.Ten = tbx_tencuahang.Text;
+                thao.DiaChi = tbx_diachicuahang.Text;
+                thao.Sdt = tbx_sdtcuahang.Text;
+                MessageBox.Show(cuaHangService.Update(thao));
+                LoadCuaHang(cuaHangService.GetCuaHang());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void btn_xoach_Click(object sender, EventArgs e)
         {
-            CuaHangView thao = new CuaHangView();
-            thao.ID = GetIdCuaHang;
-            MessageBox.Show(cuaHangService.Delete(thao));
-            LoadCuaHang(cuaHangService.GetCuaHang());
+            try
+            {
+                CuaHangView thao = new CuaHangView();
+                thao.ID = GetIdCuaHang;
+                MessageBox.Show(cuaHangService.Delete(thao));
+                LoadCuaHang(cuaHangService.GetCuaHang());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void btn_themchucvu_Click(object sender, EventArgs e)
         {
-            ChucVuView chucvuu = new ChucVuView();
-            chucvuu.ID = Guid.NewGuid();
-            chucvuu.Ma = tbx_machucvu.Text;
-            chucvuu.Ten = tbx_tenchucvu.Text;
-            if (chucVuService.CheckMa(tbx_machucvu.Text))
+            if (tbx_machucvu.Text == "" || tbx_tenchucvu.Text == "")
             {
-                MessageBox.Show("Mã đã tồn tại");
+                MessageBox.Show("Hãy điền đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show(chucVuService.Add(chucvuu));
-                LoadChucVu(chucVuService.GetChucVu());
+                ChucVuView chucvuu = new ChucVuView();
+                chucvuu.ID = Guid.NewGuid();
+                chucvuu.Ma = tbx_machucvu.Text;
+                chucvuu.Ten = tbx_tenchucvu.Text;
+                if (chucVuService.CheckMa(tbx_machucvu.Text))
+                {
+                    MessageBox.Show("Hãy kiểm tra mã", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(chucVuService.Add(chucvuu));
+                    LoadChucVu(chucVuService.GetChucVu());
+                }
             }
+
         }
 
         private void btn_suachucvu_Click(object sender, EventArgs e)
         {
-            ChucVuView chucvuu = new ChucVuView();
-            chucvuu.ID = GetIdChucVu;
-            chucvuu.Ten = tbx_tenchucvu.Text;
-            MessageBox.Show(chucVuService.Update(chucvuu));
-            LoadChucVu(chucVuService.GetChucVu());
+            try
+            {
+                ChucVuView chucvuu = new ChucVuView();
+                chucvuu.ID = GetIdChucVu;
+                chucvuu.Ten = tbx_tenchucvu.Text;
+                MessageBox.Show(chucVuService.Update(chucvuu));
+                LoadChucVu(chucVuService.GetChucVu());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void btn_xoachucvu_Click(object sender, EventArgs e)
         {
-            ChucVuView chucvuu = new ChucVuView();
-            chucvuu.ID = GetIdChucVu;
-            MessageBox.Show(chucVuService.Delete(chucvuu));
-            LoadChucVu(chucVuService.GetChucVu());
+            try
+            {
+                ChucVuView chucvuu = new ChucVuView();
+                chucvuu.ID = GetIdChucVu;
+                MessageBox.Show(chucVuService.Delete(chucvuu));
+                LoadChucVu(chucVuService.GetChucVu());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void dtg_chucvu_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -227,57 +275,89 @@ namespace _3.PL.Views
             }
             catch (Exception)
             {
-
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
 
         private void btn_themnhanvien_Click(object sender, EventArgs e)
         {
-            NhanVienView t = new NhanVienView();
-            t.ID = Guid.NewGuid();
-            t.Ma = tbx_manhanvien.Text;
-            t.HoTen = tbx_hotennhanvien.Text;
-            t.DiaChi = tbx_diachinhanvien.Text;
-            t.Gmail = tbx_emailnhanvien.Text;
-            t.SDT = tbx_sdtnhanvien.Text;
-            t.MatKhau = tbx_matkhaunhanvien.Text;
-            t.TrangThai = Convert.ToInt32(nud_ttnhanvien.Value);
-            t.IdCuaHang = cuaHangService.GetCuaHang().FirstOrDefault(a => a.Ma == cbb_idcuahang.Text).ID;
-            t.IdChucVu = chucVuService.GetChucVu().FirstOrDefault(a => a.Ma == cbb_idchucvu.Text).ID;
-            if (nhanVienService.CheckMa(tbx_manhanvien.Text))
+            try
             {
-                MessageBox.Show("Mã đã có");
+                if (tbx_manhanvien.Text == "" || tbx_hotennhanvien.Text == "" || tbx_diachinhanvien.Text == "" || tbx_sdtnhanvien.Text == "" || tbx_emailnhanvien.Text == "" || tbx_matkhaunhanvien.Text == "" || cbb_idcuahang.Text == "" || cbb_idchucvu.Text == "")
+                {
+                    MessageBox.Show("Hãy điền đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    NhanVienView t = new NhanVienView();
+                    t.ID = Guid.NewGuid();
+                    t.Ma = tbx_manhanvien.Text;
+                    t.HoTen = tbx_hotennhanvien.Text;
+                    t.DiaChi = tbx_diachinhanvien.Text;
+                    t.Gmail = tbx_emailnhanvien.Text;
+                    t.SDT = tbx_sdtnhanvien.Text;
+                    t.MatKhau = tbx_matkhaunhanvien.Text;
+                    t.TrangThai = Convert.ToInt32(nud_ttnhanvien.Value);
+                    t.IdCuaHang = cuaHangService.GetCuaHang().FirstOrDefault(a => a.Ma == cbb_idcuahang.Text).ID;
+                    t.IdChucVu = chucVuService.GetChucVu().FirstOrDefault(a => a.Ma == cbb_idchucvu.Text).ID;
+                    if (nhanVienService.CheckMa(tbx_manhanvien.Text))
+                    {
+                        MessageBox.Show("Mã đã có");
+                    }
+                    else
+                    {
+                        MessageBox.Show(nhanVienService.AddNhanVien(t));
+                        LoadNhanVien(nhanVienService.GetAllNhanVien());
+                    }
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show(nhanVienService.AddNhanVien(t));
-                LoadNhanVien(nhanVienService.GetAllNhanVien());
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+
         }
 
         private void btn_suanhanvien_Click(object sender, EventArgs e)
         {
-            NhanVienView t = new NhanVienView();
-            t.ID = GetIdNhanVien;
-            t.HoTen = tbx_hotennhanvien.Text;
-            t.DiaChi = tbx_diachinhanvien.Text;
-            t.Gmail = tbx_emailnhanvien.Text;
-            t.SDT = tbx_sdtnhanvien.Text;
-            t.MatKhau = tbx_matkhaunhanvien.Text;
-            t.TrangThai = Convert.ToInt32(nud_ttnhanvien.Value);
-            //t.IdCuaHang = cuaHangService.GetCuaHang().FirstOrDefault(a => a.Ma == cbb_idcuahang.Text).ID;
-            //t.IdChucVu = chucVuService.GetChucVu().FirstOrDefault(a => a.Ma == cbb_idchucvu.Text).ID;
-            MessageBox.Show(nhanVienService.UpdateNhanVien(t));
-            LoadNhanVien(nhanVienService.GetAllNhanVien());
+            try
+            {
+                NhanVienView t = new NhanVienView();
+                t.ID = GetIdNhanVien;
+                t.HoTen = tbx_hotennhanvien.Text;
+                t.DiaChi = tbx_diachinhanvien.Text;
+                t.Gmail = tbx_emailnhanvien.Text;
+                t.SDT = tbx_sdtnhanvien.Text;
+                t.MatKhau = tbx_matkhaunhanvien.Text;
+                t.TrangThai = Convert.ToInt32(nud_ttnhanvien.Value);
+                //t.IdCuaHang = cuaHangService.GetCuaHang().FirstOrDefault(a => a.Ma == cbb_idcuahang.Text).ID;
+                //t.IdChucVu = chucVuService.GetChucVu().FirstOrDefault(a => a.Ma == cbb_idchucvu.Text).ID;
+                MessageBox.Show(nhanVienService.UpdateNhanVien(t));
+                LoadNhanVien(nhanVienService.GetAllNhanVien());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void btn_xoanhanvien_Click(object sender, EventArgs e)
         {
-            NhanVienView t = new NhanVienView();
-            t.ID = GetIdNhanVien;
-            MessageBox.Show(nhanVienService.DeleteNhanVien(t));
-            LoadNhanVien(nhanVienService.GetAllNhanVien());
+            try
+            {
+                NhanVienView t = new NhanVienView();
+                t.ID = GetIdNhanVien;
+                MessageBox.Show(nhanVienService.DeleteNhanVien(t));
+                LoadNhanVien(nhanVienService.GetAllNhanVien());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void dtg_shownhanvien_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -296,12 +376,14 @@ namespace _3.PL.Views
             }
             catch (Exception)
             {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
 
         private void btn_themvoucher_Click(object sender, EventArgs e)
         {
+
             VoucherView v = new VoucherView();
             v.ID = Guid.NewGuid();
             v.Ma = tbx_mavoucher.Text;
@@ -323,23 +405,39 @@ namespace _3.PL.Views
 
         private void btn_suavoucher_Click(object sender, EventArgs e)
         {
-            VoucherView v = new VoucherView();
-            v.ID = GetIdVoucher;
-            v.Ten = tbx_tenvoucher.Text;
-            v.StartDay = Convert.ToDateTime(dtp_ngaybdvc.Value.ToString("yyyy/MM/dd"));
-            v.EndDay = Convert.ToDateTime(dtp_ngayktvc.Value.ToString("yyyy/MM/dd"));
-            v.GiaTri = Convert.ToDecimal(tbx_giatrivoucher.Text);
-            v.SoLuong = Convert.ToInt32(tbx_soluongvoucher.Text);
-            MessageBox.Show(voucherService.Update(v));
-            LoadDataVoucher(voucherService.GetVoucher());
+            try
+            {
+                VoucherView v = new VoucherView();
+                v.ID = GetIdVoucher;
+                v.Ten = tbx_tenvoucher.Text;
+                v.StartDay = Convert.ToDateTime(dtp_ngaybdvc.Value.ToString("yyyy/MM/dd"));
+                v.EndDay = Convert.ToDateTime(dtp_ngayktvc.Value.ToString("yyyy/MM/dd"));
+                v.GiaTri = Convert.ToDecimal(tbx_giatrivoucher.Text);
+                v.SoLuong = Convert.ToInt32(tbx_soluongvoucher.Text);
+                MessageBox.Show(voucherService.Update(v));
+                LoadDataVoucher(voucherService.GetVoucher());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void btn_xoavoucher_Click(object sender, EventArgs e)
         {
-            VoucherView v = new VoucherView();
-            v.ID = GetIdVoucher;
-            MessageBox.Show(voucherService.Delete(v));
-            LoadDataVoucher(voucherService.GetVoucher());
+            try
+            {
+                VoucherView v = new VoucherView();
+                v.ID = GetIdVoucher;
+                MessageBox.Show(voucherService.Delete(v));
+                LoadDataVoucher(voucherService.GetVoucher());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void dtg_showvoucher_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -356,7 +454,7 @@ namespace _3.PL.Views
             }
             catch (Exception)
             {
-
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }

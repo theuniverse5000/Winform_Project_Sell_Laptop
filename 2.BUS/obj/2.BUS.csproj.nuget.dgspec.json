@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\git\\2.BUS\\2.BUS.csproj": {}
+    "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\2.BUS\\2.BUS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\git\\1.DAL\\1.DAL.csproj": {
+    "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\1.DAL\\1.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\git\\1.DAL\\1.DAL.csproj",
+        "projectUniqueName": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\1.DAL\\1.DAL.csproj",
         "projectName": "1.DAL",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\git\\1.DAL\\1.DAL.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\git\\1.DAL\\obj\\",
+        "projectPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\1.DAL\\1.DAL.csproj",
+        "packagesPath": "C:\\Users\\theun\\.nuget\\packages\\",
+        "outputPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\1.DAL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\theun\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,7 +61,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -74,25 +71,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\git\\2.BUS\\2.BUS.csproj": {
+    "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\2.BUS\\2.BUS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\git\\2.BUS\\2.BUS.csproj",
+        "projectUniqueName": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\2.BUS\\2.BUS.csproj",
         "projectName": "2.BUS",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\git\\2.BUS\\2.BUS.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\git\\2.BUS\\obj\\",
+        "projectPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\2.BUS\\2.BUS.csproj",
+        "packagesPath": "C:\\Users\\theun\\.nuget\\packages\\",
+        "outputPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\2.BUS\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\theun\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -106,8 +99,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\git\\1.DAL\\1.DAL.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\git\\1.DAL\\1.DAL.csproj"
+              "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\1.DAL\\1.DAL.csproj": {
+                "projectPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_DuAnOne\\1.DAL\\1.DAL.csproj"
               }
             }
           }
@@ -127,7 +120,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -136,7 +130,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

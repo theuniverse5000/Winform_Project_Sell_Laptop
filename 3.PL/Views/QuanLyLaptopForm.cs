@@ -213,19 +213,42 @@ namespace _3.PL.Views
 
         private void btn_suams_Click(object sender, EventArgs e)
         {
-            MauSacView blue = new MauSacView();
-            blue.ID = GetIdMauSac;
-            blue.Ten = tbx_tenms.Text;
-            MessageBox.Show(mauSacService.Update(blue));
-            LoadDataMauSac(mauSacService.GetMauSac());
+            if (tbx_tenms.Text == "")
+            {
+                MessageBox.Show("Hãy điển đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                try
+                {
+                    MauSacView blue = new MauSacView();
+                    blue.ID = GetIdMauSac;
+                    blue.Ten = tbx_tenms.Text;
+                    MessageBox.Show(mauSacService.Update(blue));
+                    LoadDataMauSac(mauSacService.GetMauSac());
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Hãy chọn để sửa", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void btn_xoams_Click(object sender, EventArgs e)
         {
-            MauSacView blue = new MauSacView();
-            blue.ID = GetIdMauSac;
-            MessageBox.Show(mauSacService.Delete(blue));
-            LoadDataMauSac(mauSacService.GetMauSac());
+            try
+            {
+                MauSacView blue = new MauSacView();
+                blue.ID = GetIdMauSac;
+                MessageBox.Show(mauSacService.Delete(blue));
+                LoadDataMauSac(mauSacService.GetMauSac());
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Hãy chọn để xóa", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         private void dtg_showmausac_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -245,36 +268,66 @@ namespace _3.PL.Views
 
         private void btn_themnsx_Click(object sender, EventArgs e)
         {
-            NsxView apple = new NsxView();
-            apple.ID = Guid.NewGuid();
-            apple.Ma = tbx_mansx.Text;
-            apple.Ten = tbx_tennsx.Text;
-            if (nsxService.CheckMa(tbx_mansx.Text))
+            if (tbx_mansx.Text == "" || tbx_tennsx.Text == "")
             {
-                MessageBox.Show("Mã đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hãy điển đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show(nsxService.Add(apple));
-                LoadDataNsx(nsxService.GetNsx());
+                NsxView apple = new NsxView();
+                apple.ID = Guid.NewGuid();
+                apple.Ma = tbx_mansx.Text;
+                apple.Ten = tbx_tennsx.Text;
+                if (nsxService.CheckMa(tbx_mansx.Text))
+                {
+                    MessageBox.Show("Mã đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(nsxService.Add(apple));
+                    LoadDataNsx(nsxService.GetNsx());
+                }
             }
+
         }
 
         private void btn_suansx_Click(object sender, EventArgs e)
         {
-            NsxView apple = new NsxView();
-            apple.ID = GetIdNsx;
-            apple.Ten = tbx_tennsx.Text;
-            MessageBox.Show(nsxService.Update(apple));
-            LoadDataNsx(nsxService.GetNsx());
+            if (tbx_tennsx.Text == "")
+            {
+                MessageBox.Show("Hãy điển đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                try
+                {
+                    NsxView apple = new NsxView();
+                    apple.ID = GetIdNsx;
+                    apple.Ten = tbx_tennsx.Text;
+                    MessageBox.Show(nsxService.Update(apple));
+                    LoadDataNsx(nsxService.GetNsx());
+                }
+                catch (Exception)
+                {
+
+                }
+
+            }
         }
 
         private void btn_xoansx_Click(object sender, EventArgs e)
         {
-            NsxView apple = new NsxView();
-            apple.ID = GetIdNsx;
-            MessageBox.Show(nsxService.Delete(apple));
-            LoadDataNsx(nsxService.GetNsx());
+            try
+            {
+                NsxView apple = new NsxView();
+                apple.ID = GetIdNsx;
+                MessageBox.Show(nsxService.Delete(apple));
+                LoadDataNsx(nsxService.GetNsx());
+            }
+            catch (Exception)
+            {
+            }
+
         }
 
         private void dtg_shownsx_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -319,19 +372,43 @@ namespace _3.PL.Views
 
         private void btn_sualt_Click(object sender, EventArgs e)
         {
-            LaptopView lv = new LaptopView();
-            lv.ID = GetIdLaptop;
-            lv.Ten = tbx_tenlaptop.Text;
-            MessageBox.Show(laptopService.UpdateLaptop(lv));
-            LoadDataLaptop(laptopService.GetLaptop());
+            if (tbx_malaptop.Text == "" || tbx_tenlaptop.Text == "")
+            {
+                MessageBox.Show("Hãy điền đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                try
+                {
+                    LaptopView lv = new LaptopView();
+                    lv.ID = GetIdLaptop;
+                    lv.Ten = tbx_tenlaptop.Text;
+                    MessageBox.Show(laptopService.UpdateLaptop(lv));
+                    LoadDataLaptop(laptopService.GetLaptop());
+                }
+                catch (Exception)
+                {
+
+
+                }
+
+            }
         }
 
         private void btn_xoalt_Click(object sender, EventArgs e)
         {
-            LaptopView lv = new LaptopView();
-            lv.ID = GetIdLaptop;
-            MessageBox.Show(laptopService.DeleteLaptop(lv));
-            LoadDataLaptop(laptopService.GetLaptop());
+            try
+            {
+                LaptopView lv = new LaptopView();
+                lv.ID = GetIdLaptop;
+                MessageBox.Show(laptopService.DeleteLaptop(lv));
+                LoadDataLaptop(laptopService.GetLaptop());
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         private void dtg_showlaptop_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -351,37 +428,77 @@ namespace _3.PL.Views
 
         private void btn_themthuoctinh_Click(object sender, EventArgs e)
         {
-            ThuocTinhView xinh = new ThuocTinhView();
-            xinh.ID = Guid.NewGuid();
-            xinh.IDLaptop = laptopService.GetLaptop().FirstOrDefault(a => a.Ma == cbb_idlaptoptt.Text).ID;
-            xinh.Ma = tbx_mathuoctinh.Text;
-            xinh.Ten = tbx_tenthuoctinh.Text;
-            if (thuocTinhService.CheckMaTt(tbx_mathuoctinh.Text))
+            if (tbx_tenthuoctinh.Text == "" || tbx_mathuoctinh.Text == "" || cbb_idlaptoptt.Text == "")
             {
-                MessageBox.Show("Mã đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show("Hãy điền đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show(thuocTinhService.AddTt(xinh));
-                LoadDataThuocTinh(thuocTinhService.GetThuocTinh());
+                try
+                {
+                    ThuocTinhView xinh = new ThuocTinhView();
+                    xinh.ID = Guid.NewGuid();
+                    xinh.IDLaptop = laptopService.GetLaptop().FirstOrDefault(a => a.Ma == cbb_idlaptoptt.Text).ID;
+                    xinh.Ma = tbx_mathuoctinh.Text;
+                    xinh.Ten = tbx_tenthuoctinh.Text;
+                    if (thuocTinhService.CheckMaTt(tbx_mathuoctinh.Text))
+                    {
+                        MessageBox.Show("Mã đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show(thuocTinhService.AddTt(xinh));
+                        LoadDataThuocTinh(thuocTinhService.GetThuocTinh());
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
+
+
         }
 
         private void btn_suathuoctinh_Click(object sender, EventArgs e)
         {
-            ThuocTinhView xinh = new ThuocTinhView();
-            xinh.ID = GetIdThuocTinh;
-            xinh.Ten = tbx_tenthuoctinh.Text;
-            MessageBox.Show(thuocTinhService.UpdateTt(xinh));
-            LoadDataThuocTinh(thuocTinhService.GetThuocTinh());
+            if (tbx_mathuoctinh.Text == "")
+            {
+
+                MessageBox.Show("Hãy điền đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                try
+                {
+                    ThuocTinhView xinh = new ThuocTinhView();
+                    xinh.ID = GetIdThuocTinh;
+                    xinh.Ten = tbx_tenthuoctinh.Text;
+                    MessageBox.Show(thuocTinhService.UpdateTt(xinh));
+                    LoadDataThuocTinh(thuocTinhService.GetThuocTinh());
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Hãy kiểm tra lại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
 
         private void btn_xoathuoctinh_Click(object sender, EventArgs e)
         {
-            ThuocTinhView xinh = new ThuocTinhView();
-            xinh.ID = GetIdThuocTinh;
-            MessageBox.Show(thuocTinhService.DeleteTt(xinh));
-            LoadDataThuocTinh(thuocTinhService.GetThuocTinh());
+            try
+            {
+                ThuocTinhView xinh = new ThuocTinhView();
+                xinh.ID = GetIdThuocTinh;
+                MessageBox.Show(thuocTinhService.DeleteTt(xinh));
+                LoadDataThuocTinh(thuocTinhService.GetThuocTinh());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void dtg_showthuoctinh_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -395,44 +512,76 @@ namespace _3.PL.Views
             }
             catch (Exception)
             {
-
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
 
         private void btn_themgiatri_Click(object sender, EventArgs e)
         {
-            GiaTriView gtv = new GiaTriView();
-            gtv.ID = Guid.NewGuid();
-            gtv.IDThuocTinh = thuocTinhService.GetThuocTinh().FirstOrDefault(a => a.Ma == cbb_idthuoctinh.Text).ID;
-            gtv.Ma = tbx_magiatri.Text;
-            gtv.ThongSo = tbx_thongsogt.Text;
-            if (giaTriService.CheckMaGt(tbx_magiatri.Text))
+            if (tbx_magiatri.Text == "" || tbx_thongsogt.Text == "" || cbb_idthuoctinh.Text == "")
             {
-                MessageBox.Show("Mã đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hãy điền đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show(giaTriService.AddGt(gtv));
-                LoadDataGiaTri(giaTriService.GetGiaTri());
+                try
+                {
+                    GiaTriView gtv = new GiaTriView();
+                    gtv.ID = Guid.NewGuid();
+                    gtv.IDThuocTinh = thuocTinhService.GetThuocTinh().FirstOrDefault(a => a.Ma == cbb_idthuoctinh.Text).ID;
+                    gtv.Ma = tbx_magiatri.Text;
+                    gtv.ThongSo = tbx_thongsogt.Text;
+                    if (giaTriService.CheckMaGt(tbx_magiatri.Text))
+                    {
+                        MessageBox.Show("Mã đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show(giaTriService.AddGt(gtv));
+                        LoadDataGiaTri(giaTriService.GetGiaTri());
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Hãy điền kiểm tra lại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
+
+
         }
 
         private void btn_suagiatri_Click(object sender, EventArgs e)
         {
-            GiaTriView gtv = new GiaTriView();
-            gtv.ID = GetIdGiaTri;
-            gtv.ThongSo = tbx_thongsogt.Text;
-            MessageBox.Show(giaTriService.UpDateGt(gtv));
-            LoadDataGiaTri(giaTriService.GetGiaTri());
+            try
+            {
+                GiaTriView gtv = new GiaTriView();
+                gtv.ID = GetIdGiaTri;
+                gtv.ThongSo = tbx_thongsogt.Text;
+                MessageBox.Show(giaTriService.UpDateGt(gtv));
+                LoadDataGiaTri(giaTriService.GetGiaTri());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void btn_xoagiatri_Click(object sender, EventArgs e)
         {
-            GiaTriView gtv = new GiaTriView();
-            gtv.ID = GetIdGiaTri;
-            MessageBox.Show(giaTriService.DeleteGt(gtv));
-            LoadDataGiaTri(giaTriService.GetGiaTri());
+            try
+            {
+                GiaTriView gtv = new GiaTriView();
+                gtv.ID = GetIdGiaTri;
+                MessageBox.Show(giaTriService.DeleteGt(gtv));
+                LoadDataGiaTri(giaTriService.GetGiaTri());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void dtg_showgiatri_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -446,52 +595,108 @@ namespace _3.PL.Views
             }
             catch (Exception)
             {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
 
         private void btn_themctlt_Click(object sender, EventArgs e)
         {
-            ChiTietLaptopView thao = new ChiTietLaptopView();
-            thao.ID = Guid.NewGuid();
-            thao.Ma = tbx_machitietlaptop.Text;
-            thao.IDLaptop = laptopService.GetLaptop().FirstOrDefault(a => a.Ma == cbb_malaptopctlt.Text).ID;
-            thao.IDMauSac = mauSacService.GetMauSac().FirstOrDefault(a => a.Ma == cbb_mams.Text).ID;
-            thao.IDNsx = nsxService.GetNsx().FirstOrDefault(a => a.Ma == cbb_mansx.Text).ID;
-            thao.MoTa = tbx_mota.Text;
-            thao.SoLuong = Convert.ToInt32(tbx_soluongctlt.Text);
-            thao.GiaNhap = Convert.ToDecimal(tbx_ctltgianhap.Text);
-            thao.Giaban = Convert.ToDecimal(tbx_ctltgiaban.Text);
-            if (chiTietLaptopService.CheckMa(tbx_machitietlaptop.Text))
+            try
             {
-                MessageBox.Show("Mã đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                decimal gianhap = Convert.ToDecimal(tbx_ctltgianhap.Text);
+                decimal giaban = Convert.ToDecimal(tbx_ctltgiaban.Text);
+                if (tbx_machitietlaptop.Text == "" || cbb_malaptopctlt.Text == "" || cbb_mansx.Text == "" || cbb_mams.Text == "" || tbx_mota.Text == "")
+                {
+                    MessageBox.Show("Hãy điền đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (gianhap <= 0 || giaban <= 0 || giaban < gianhap)
+                {
+                    MessageBox.Show("Kiểm tra lại giá nhập giá bán", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+
+                    ChiTietLaptopView thao = new ChiTietLaptopView();
+                    thao.ID = Guid.NewGuid();
+                    thao.Ma = tbx_machitietlaptop.Text;
+                    thao.IDLaptop = laptopService.GetLaptop().FirstOrDefault(a => a.Ma == cbb_malaptopctlt.Text).ID;
+                    thao.IDMauSac = mauSacService.GetMauSac().FirstOrDefault(a => a.Ma == cbb_mams.Text).ID;
+                    thao.IDNsx = nsxService.GetNsx().FirstOrDefault(a => a.Ma == cbb_mansx.Text).ID;
+                    thao.MoTa = tbx_mota.Text;
+                    thao.SoLuong = Convert.ToInt32(tbx_soluongctlt.Text);
+                    thao.GiaNhap = Convert.ToDecimal(tbx_ctltgianhap.Text);
+                    thao.Giaban = Convert.ToDecimal(tbx_ctltgiaban.Text);
+                    if (chiTietLaptopService.CheckMa(tbx_machitietlaptop.Text))
+                    {
+                        MessageBox.Show("Mã đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show(chiTietLaptopService.Add(thao));
+                        LoadDataChiTietLaptop(chiTietLaptopService.GetChiTietLaptop());
+                    }
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show(chiTietLaptopService.Add(thao));
-                LoadDataChiTietLaptop(chiTietLaptopService.GetChiTietLaptop());
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+
+
 
         }
 
         private void btn_suactlt_Click(object sender, EventArgs e)
         {
-            ChiTietLaptopView thao = new ChiTietLaptopView();
-            thao.ID = GetIdChiTietLaptop;
-            thao.MoTa = tbx_mota.Text;
-            thao.SoLuong = Convert.ToInt32(tbx_soluongctlt.Text);
-            thao.GiaNhap = Convert.ToDecimal(tbx_ctltgianhap.Text);
-            thao.Giaban = Convert.ToDecimal(tbx_ctltgiaban.Text);
-            MessageBox.Show(chiTietLaptopService.Update(thao));
-            LoadDataChiTietLaptop(chiTietLaptopService.GetChiTietLaptop());
+            decimal gianhap = Convert.ToDecimal(tbx_ctltgianhap.Text);
+            decimal giaban = Convert.ToDecimal(tbx_ctltgiaban.Text);
+            if (tbx_mota.Text == "")
+            {
+                MessageBox.Show("Hãy điền đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (gianhap <= 0 || giaban <= 0 || giaban < gianhap)
+            {
+                MessageBox.Show("Kiểm tra lại giá nhập giá bán", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                try
+                {
+                    ChiTietLaptopView thao = new ChiTietLaptopView();
+                    thao.ID = GetIdChiTietLaptop;
+                    thao.MoTa = tbx_mota.Text;
+                    thao.SoLuong = Convert.ToInt32(tbx_soluongctlt.Text);
+                    thao.GiaNhap = Convert.ToDecimal(tbx_ctltgianhap.Text);
+                    thao.Giaban = Convert.ToDecimal(tbx_ctltgiaban.Text);
+                    MessageBox.Show(chiTietLaptopService.Update(thao));
+                    LoadDataChiTietLaptop(chiTietLaptopService.GetChiTietLaptop());
+
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
 
         private void btn_xoactlt_Click(object sender, EventArgs e)
         {
-            ChiTietLaptopView thao = new ChiTietLaptopView();
-            thao.ID = GetIdChiTietLaptop;
-            MessageBox.Show(chiTietLaptopService.Delete(thao));
-            LoadDataChiTietLaptop(chiTietLaptopService.GetChiTietLaptop());
+            try
+            {
+                ChiTietLaptopView thao = new ChiTietLaptopView();
+                thao.ID = GetIdChiTietLaptop;
+                MessageBox.Show(chiTietLaptopService.Delete(thao));
+                LoadDataChiTietLaptop(chiTietLaptopService.GetChiTietLaptop());
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void dtg_showchitietlaptop_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -510,7 +715,7 @@ namespace _3.PL.Views
             }
             catch (Exception)
             {
-
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -535,25 +740,41 @@ namespace _3.PL.Views
 
         private void btn_themimei_Click(object sender, EventArgs e)
         {
-            if (imeiService.CheckSoImeil(tbx_soimei.Text))
+            if (tbx_imei_mactlt.Text == "" || tbx_soimei.Text == "")
+            {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (rbt_trangthai1.Checked == false && rbt_trangthai0.Checked == false)
+            {
+                MessageBox.Show("Hãy chọn trạng thái", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (imeiService.CheckSoImeil(tbx_soimei.Text))
             {
                 MessageBox.Show("Số Imei đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                ImeiView th = new ImeiView();
-                th.ID = Guid.NewGuid();
-                th.SoEmei = tbx_soimei.Text;
-                th.IDChiTietLaptop = chiTietLaptopService.GetChiTietLaptopNoJoin().FirstOrDefault(a => a.Ma == tbx_imei_mactlt.Text).ID;
-                if (rbt_trangthai1.Checked)
+                try
                 {
-                    th.TrangThai = 1;
+                    ImeiView th = new ImeiView();
+                    th.ID = Guid.NewGuid();
+                    th.SoEmei = tbx_soimei.Text;
+                    th.IDChiTietLaptop = chiTietLaptopService.GetChiTietLaptopNoJoin().FirstOrDefault(a => a.Ma == tbx_imei_mactlt.Text).ID;
+                    if (rbt_trangthai1.Checked)
+                    {
+                        th.TrangThai = 1;
+                    }
+                    else
+                    {
+                        th.TrangThai = 0;
+                    }
+                    MessageBox.Show(imeiService.Add(th));
                 }
-                else
+                catch (Exception)
                 {
-                    th.TrangThai = 0;
+                    MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                MessageBox.Show(imeiService.Add(th));
+
             }
 
         }
