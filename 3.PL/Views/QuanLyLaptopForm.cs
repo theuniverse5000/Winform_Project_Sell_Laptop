@@ -183,6 +183,7 @@ namespace _3.PL.Views
             LoadDataThuocTinh(thuocTinhService.GetThuocTinh());
             LoadDataGiaTri(giaTriService.GetGiaTri());
             LoadDataChiTietLaptop(chiTietLaptopService.GetChiTietLaptop());
+            ShowImei(imeiService.GetImei());    
 
         }
 
@@ -785,7 +786,7 @@ namespace _3.PL.Views
             dtg_showimei.Columns[0].Name = "ID";
             dtg_showimei.Columns[0].Visible = false;
             dtg_showimei.Columns[1].Name = "Mã";
-            dtg_showimei.Columns[2].Name = "Tên";
+            dtg_showimei.Columns[2].Name = "Số Imei";
             dtg_showimei.Columns[3].Name = "Trạng thái";
             foreach (var d in imeiViews)
             {
@@ -797,7 +798,7 @@ namespace _3.PL.Views
                     trangthai = "đã bán rồi";
                 }
 
-                dtg_showimei.Rows.Add(d.ID, d.SoEmei,trangthai);
+                dtg_showimei.Rows.Add(d.ID,d.MaCTLT ,d.SoEmei,trangthai);
             }
 
 
