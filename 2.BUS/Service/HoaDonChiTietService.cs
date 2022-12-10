@@ -14,6 +14,7 @@ namespace _2.BUS.Service
         IImeiDaBanRepositories imeiDaBanRepositories = new ImeiDaBanRepositories();
         INhanVienRepositories nhanVienRepositories = new NhanVienRepositories();
         IKhachHangRepositories khachHangRepositories = new KhachHangRepositories();
+        ILaptopService laptopService = new LaptopService();
         public string Add(HoaDonChiTietView hdctview)
         {
             if (hdctview == null) return "Thất bại";
@@ -34,7 +35,7 @@ namespace _2.BUS.Service
         public bool CheckMa(string mahdct)
         {
             var a = hoaDonChiTietRepositories.GetHoaDonChiTiet();
-           var linh = a.FirstOrDefault(a=>a.Ma==mahdct);
+            var linh = a.FirstOrDefault(a => a.Ma == mahdct);
             if (a != null)
                 return true;
             else return false;
@@ -45,7 +46,7 @@ namespace _2.BUS.Service
         {
             var huyen = GetHoaDonChiTiet();
             var linh = huyen.FirstOrDefault(a => a.MaChiTietLaptop == mactlt);
-            if(linh != null) return true;
+            if (linh != null) return true;
             else return false;
         }
 
@@ -77,7 +78,7 @@ namespace _2.BUS.Service
                               NgayTao = a.NgayTao,
                               GiaSauKhiGiam = a.GiaSauKhiGiam,
                               TinhTrang = a.TinhTrang,
-                            //  GiamGia = a.GiaTruoc - a.GiaSauKhiGiam,
+                              //  GiamGia = a.GiaTruoc - a.GiaSauKhiGiam,
                               SoImei = d.SoEmei,
                               GiaNhap = b.GiaNhap
 
@@ -86,21 +87,58 @@ namespace _2.BUS.Service
             return listssd;
         }
 
+        public List<HoaDonChiTietView> GetHoaDonChiTietAllData()
+        {
+            List<HoaDonChiTietView> listall = new List<HoaDonChiTietView>();
+            listall = (
+                          from a in hoaDonChiTietRepositories.GetHoaDonChiTiet()
+                          join b in chiTietLaptopRepositories.GetChiTietLaptop() on a.IDChiTietLapTop equals b.ID
+                          join c in hoaDonRepositories.GetHoaDon() on a.IDHoaDon equals c.ID
+                          join d in imeiDaBanRepositories.GetImeiDB() on a.ID equals d.IDHoaDonChiTiet
+                          join e in nhanVienRepositories.GetNhanVien() on c.IdNhanVien equals e.ID
+                          join f in khachHangRepositories.GetKhachHang() on c.IdKhachHang equals f.ID
+                          join g in laptopService.GetLaptop() on b.IDLaptop equals g.ID
+                          select new HoaDonChiTietView
+                          {
+                              ID = a.ID,
+                              Ma = a.Ma,
+                              MaChiTietLaptop = b.Ma,
+                              MaHoaDon = c.Ma,
+                              SoLuong = a.SoLuong,
+                              GiaTruoc = a.GiaTruoc,
+                              NgayTao = a.NgayTao,
+                              GiaSauKhiGiam = a.GiaSauKhiGiam,
+                              TinhTrang = a.TinhTrang,
+                              GiamGia = a.GiaTruoc - a.GiaSauKhiGiam,
+                              SoImei = d.SoEmei,
+                              GiaNhap = b.GiaNhap,
+                              MaNhanVien = e.Ma,
+                              TenNhanVien = e.HoTen,
+                              SdtKhachHang = f.SDT,
+                              TenKhachHang = f.HoTen,
+                              TenLaptop = g.Ten,
+                              SdtNhanVien = e.SDT
+
+                          }
+                ).ToList();
+            return listall;
+        }
+
         public List<HoaDonChiTietView> GetHoaDonChiTietJoinNhanVien()
         {
             List<HoaDonChiTietView> listssd = new List<HoaDonChiTietView>();
             listssd = (
                           from a in hoaDonChiTietRepositories.GetHoaDonChiTiet()
-                         // join b in chiTietLaptopRepositories.GetChiTietLaptop() on a.IDChiTietLapTop equals b.ID
+                              // join b in chiTietLaptopRepositories.GetChiTietLaptop() on a.IDChiTietLapTop equals b.ID
                           join c in hoaDonRepositories.GetHoaDon() on a.IDHoaDon equals c.ID
-                       //   join d in imeiDaBanRepositories.GetImeiDB() on a.ID equals d.IDHoaDonChiTiet
-                       join e in nhanVienRepositories.GetNhanVien() on c.IdNhanVien equals e.ID
-                       join f in khachHangRepositories.GetKhachHang() on c.IdKhachHang equals f.ID
+                          //   join d in imeiDaBanRepositories.GetImeiDB() on a.ID equals d.IDHoaDonChiTiet
+                          join e in nhanVienRepositories.GetNhanVien() on c.IdNhanVien equals e.ID
+                          join f in khachHangRepositories.GetKhachHang() on c.IdKhachHang equals f.ID
                           select new HoaDonChiTietView
                           {
                               ID = a.ID,
                               Ma = a.Ma,
-                          //    MaChiTietLaptop = b.Ma,
+                              //    MaChiTietLaptop = b.Ma,
                               MaHoaDon = c.Ma,
                               SoLuong = a.SoLuong,
                               GiaTruoc = a.GiaTruoc,
@@ -108,12 +146,12 @@ namespace _2.BUS.Service
                               GiaSauKhiGiam = a.GiaSauKhiGiam,
                               TinhTrang = a.TinhTrang,
                               //  GiamGia = a.GiaTruoc - a.GiaSauKhiGiam,
-                           //   SoImei = d.SoEmei,
-                           //   GiaNhap = b.GiaNhap
-                           MaNhanVien =e.Ma,
-                           TenNhanVien=e.HoTen,
-                           SdtKhachHang = f.SDT,
-                           TenKhachHang = f.HoTen
+                              //   SoImei = d.SoEmei,
+                              //   GiaNhap = b.GiaNhap
+                              MaNhanVien = e.Ma,
+                              TenNhanVien = e.HoTen,
+                              SdtKhachHang = f.SDT,
+                              TenKhachHang = f.HoTen
 
                           }
                 ).ToList();
@@ -127,7 +165,7 @@ namespace _2.BUS.Service
                           from a in hoaDonChiTietRepositories.GetHoaDonChiTiet()
                           join b in chiTietLaptopRepositories.GetChiTietLaptop() on a.IDChiTietLapTop equals b.ID
                           join c in hoaDonRepositories.GetHoaDon() on a.IDHoaDon equals c.ID
-           
+
                           select new HoaDonChiTietView
                           {
                               ID = a.ID,
@@ -140,7 +178,7 @@ namespace _2.BUS.Service
                               GiaSauKhiGiam = a.GiaSauKhiGiam,
                               TinhTrang = a.TinhTrang,
                               GiamGia = a.GiaTruoc - a.GiaSauKhiGiam
-                              
+
                           }
                 ).ToList();
             return listssd;

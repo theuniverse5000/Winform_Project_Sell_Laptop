@@ -45,7 +45,7 @@ namespace _1.DAL.Repositories
         public bool UpdateSoLuong(Voucher vc)
         {
             if (vc == null) return false;
-            var t = context.Vouchers.FirstOrDefault(a =>a.ID==vc.ID);
+            var t = context.Vouchers.FirstOrDefault(a => a.ID == vc.ID);
             t.SoLuong = vc.SoLuong;
             context.Update(t);
             context.SaveChanges();

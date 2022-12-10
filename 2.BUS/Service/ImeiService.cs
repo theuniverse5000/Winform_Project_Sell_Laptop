@@ -17,7 +17,7 @@ namespace _2.BUS.Service
             i.ID = imv.ID;
             i.SoEmei = imv.SoEmei;
             i.IDChiTietLaptop = imv.IDChiTietLaptop;
-            i.TrangThai= imv.TrangThai;
+            i.TrangThai = imv.TrangThai;
             if (imeiRepositories.Add(i)) return "Thành Công";
             else return "Thất Bại";
         }
@@ -26,7 +26,7 @@ namespace _2.BUS.Service
         {
             var ngoc = imeiRepositories.GetImei();
             var linh = ngoc.FirstOrDefault(a => a.SoEmei == soimei);
-            if(linh!=null) return true;
+            if (linh != null) return true;
             else return false;
         }
 

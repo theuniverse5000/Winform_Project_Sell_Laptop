@@ -10,6 +10,7 @@ namespace _2.BUS.IService
         bool CheckMa(string ma);
         List<ChiTietLaptopView> GetChiTietLaptop();
         List<ChiTietLaptopView> GetChiTietLaptopNoJoin();
+        List<ChiTietLaptopView> GetChiTietLaptopNo();
         string UpdateSoLuong(ChiTietLaptopView ctltview);
     }
 }

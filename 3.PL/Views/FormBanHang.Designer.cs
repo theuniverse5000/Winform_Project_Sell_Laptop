@@ -317,7 +317,7 @@
             // btn_thanhtoan
             // 
             this.btn_thanhtoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btn_thanhtoan.Location = new System.Drawing.Point(396, 449);
+            this.btn_thanhtoan.Location = new System.Drawing.Point(385, 433);
             this.btn_thanhtoan.Name = "btn_thanhtoan";
             this.btn_thanhtoan.Size = new System.Drawing.Size(114, 36);
             this.btn_thanhtoan.TabIndex = 68;
@@ -331,7 +331,7 @@
             this.panel3.Controls.Add(this.rbt_hienthiall);
             this.panel3.Controls.Add(this.rbt_timhoadonchuatt);
             this.panel3.Controls.Add(this.rbt_timhddathanhtoan);
-            this.panel3.Location = new System.Drawing.Point(395, 365);
+            this.panel3.Location = new System.Drawing.Point(382, 349);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(128, 78);
             this.panel3.TabIndex = 67;
@@ -900,7 +900,7 @@
             this.dtg_showkhachhang.Name = "dtg_showkhachhang";
             this.dtg_showkhachhang.RowHeadersWidth = 51;
             this.dtg_showkhachhang.RowTemplate.Height = 25;
-            this.dtg_showkhachhang.Size = new System.Drawing.Size(416, 190);
+            this.dtg_showkhachhang.Size = new System.Drawing.Size(451, 190);
             this.dtg_showkhachhang.TabIndex = 35;
             this.dtg_showkhachhang.UseWaitCursor = true;
             this.dtg_showkhachhang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_showkhachhang_CellClick);
@@ -1251,7 +1251,7 @@
             this.dtg_xemlaptop.Name = "dtg_xemlaptop";
             this.dtg_xemlaptop.RowHeadersWidth = 51;
             this.dtg_xemlaptop.RowTemplate.Height = 25;
-            this.dtg_xemlaptop.Size = new System.Drawing.Size(281, 460);
+            this.dtg_xemlaptop.Size = new System.Drawing.Size(268, 460);
             this.dtg_xemlaptop.TabIndex = 0;
             this.dtg_xemlaptop.UseWaitCursor = true;
             this.dtg_xemlaptop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_xemlaptop_CellClick);

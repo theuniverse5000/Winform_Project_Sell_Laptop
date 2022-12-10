@@ -60,7 +60,14 @@ namespace _3.PL.Views
         }
         private void mni_admin_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Convert.ToString(FormLogin.CheckAdmin));
+            if (FormLogin.CheckAdmin == 1)
+            {
+                MessageBox.Show("Bạn đăng đăng nhập với quyền Admin", "Thông báo !!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Bạn đăng đăng nhập với quyền nhân viên", "Thông báo !!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             //this.Hide();
             //LoginAdminForm laf = new LoginAdminForm();
             //laf.ShowDialog();

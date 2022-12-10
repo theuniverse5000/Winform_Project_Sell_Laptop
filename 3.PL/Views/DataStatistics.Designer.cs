@@ -57,8 +57,16 @@
             this.label12 = new System.Windows.Forms.Label();
             this.tbx_mahoadon = new System.Windows.Forms.TextBox();
             this.tbx_macthoadon = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbx_timsdtnv = new System.Windows.Forms.TextBox();
+            this.tbx_timsdtkh = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tbx_ngaytaohdct = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_hoadonchitiet)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtg_hoadonchitiet
@@ -66,11 +74,11 @@
             this.dtg_hoadonchitiet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_hoadonchitiet.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtg_hoadonchitiet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_hoadonchitiet.Location = new System.Drawing.Point(276, 107);
+            this.dtg_hoadonchitiet.Location = new System.Drawing.Point(270, 195);
             this.dtg_hoadonchitiet.Name = "dtg_hoadonchitiet";
             this.dtg_hoadonchitiet.RowHeadersWidth = 51;
             this.dtg_hoadonchitiet.RowTemplate.Height = 25;
-            this.dtg_hoadonchitiet.Size = new System.Drawing.Size(1121, 605);
+            this.dtg_hoadonchitiet.Size = new System.Drawing.Size(1121, 538);
             this.dtg_hoadonchitiet.TabIndex = 32;
             this.dtg_hoadonchitiet.UseWaitCursor = true;
             this.dtg_hoadonchitiet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_hoadonchitiet_CellClick);
@@ -178,9 +186,18 @@
             // cbb_timtheonam
             // 
             this.cbb_timtheonam.FormattingEnabled = true;
+            this.cbb_timtheonam.Items.AddRange(new object[] {
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027"});
             this.cbb_timtheonam.Location = new System.Drawing.Point(11, 207);
             this.cbb_timtheonam.Name = "cbb_timtheonam";
-            this.cbb_timtheonam.Size = new System.Drawing.Size(56, 23);
+            this.cbb_timtheonam.Size = new System.Drawing.Size(69, 23);
             this.cbb_timtheonam.TabIndex = 44;
             // 
             // label10
@@ -306,7 +323,7 @@
             // 
             // dtp_loctheongay
             // 
-            this.dtp_loctheongay.Location = new System.Drawing.Point(1027, 84);
+            this.dtp_loctheongay.Location = new System.Drawing.Point(1001, 161);
             this.dtp_loctheongay.Name = "dtp_loctheongay";
             this.dtp_loctheongay.Size = new System.Drawing.Size(200, 23);
             this.dtp_loctheongay.TabIndex = 44;
@@ -315,7 +332,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(888, 89);
+            this.label8.Location = new System.Drawing.Point(862, 166);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(126, 15);
             this.label8.TabIndex = 45;
@@ -353,12 +370,78 @@
             this.tbx_macthoadon.Size = new System.Drawing.Size(193, 23);
             this.tbx_macthoadon.TabIndex = 49;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tbx_timsdtnv);
+            this.groupBox2.Controls.Add(this.tbx_timsdtkh);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Location = new System.Drawing.Point(316, 110);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(428, 82);
+            this.groupBox2.TabIndex = 50;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tìm kiếm";
+            // 
+            // tbx_timsdtnv
+            // 
+            this.tbx_timsdtnv.Location = new System.Drawing.Point(94, 45);
+            this.tbx_timsdtnv.Name = "tbx_timsdtnv";
+            this.tbx_timsdtnv.Size = new System.Drawing.Size(120, 23);
+            this.tbx_timsdtnv.TabIndex = 5;
+            this.tbx_timsdtnv.TextChanged += new System.EventHandler(this.tbx_timsdtnv_TextChanged);
+            // 
+            // tbx_timsdtkh
+            // 
+            this.tbx_timsdtkh.Location = new System.Drawing.Point(94, 16);
+            this.tbx_timsdtkh.Name = "tbx_timsdtkh";
+            this.tbx_timsdtkh.Size = new System.Drawing.Size(120, 23);
+            this.tbx_timsdtkh.TabIndex = 4;
+            this.tbx_timsdtkh.TextChanged += new System.EventHandler(this.tbx_timsdtkh_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 45);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(82, 15);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "SĐT nhân viên";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 19);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(92, 15);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "SĐT khách hàng";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(301, 89);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(55, 15);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Ngày tạo";
+            // 
+            // tbx_ngaytaohdct
+            // 
+            this.tbx_ngaytaohdct.Location = new System.Drawing.Point(417, 81);
+            this.tbx_ngaytaohdct.Name = "tbx_ngaytaohdct";
+            this.tbx_ngaytaohdct.Size = new System.Drawing.Size(193, 23);
+            this.tbx_ngaytaohdct.TabIndex = 6;
+            // 
             // DataStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1577, 745);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.tbx_ngaytaohdct);
             this.Controls.Add(this.tbx_macthoadon);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.tbx_mahoadon);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -372,6 +455,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtg_hoadonchitiet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,5 +493,12 @@
         private Label label12;
         private TextBox tbx_mahoadon;
         private TextBox tbx_macthoadon;
+        private GroupBox groupBox2;
+        private TextBox tbx_ngaytaohdct;
+        private TextBox tbx_timsdtnv;
+        private TextBox tbx_timsdtkh;
+        private Label label16;
+        private Label label14;
+        private Label label13;
     }
 }

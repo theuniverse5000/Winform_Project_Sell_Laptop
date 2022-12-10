@@ -148,6 +148,32 @@ namespace _1.DAL.Migrations
                     b.ToTable("GiaTri", (string)null);
                 });
 
+            modelBuilder.Entity("_1.DAL.Models.HinhAnh", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LinkAnh")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("LinkAnh");
+
+                    b.Property<string>("Ma")
+                        .IsRequired()
+                        .HasColumnType("varchar(30)")
+                        .HasColumnName("Ma");
+
+                    b.Property<string>("Ten")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("Ten");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HinhAnh", (string)null);
+                });
+
             modelBuilder.Entity("_1.DAL.Models.HoaDon", b =>
                 {
                     b.Property<Guid>("ID")
@@ -321,6 +347,9 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("IDHinhAnh")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Ma")
                         .IsRequired()
                         .HasColumnType("varchar(30)")
@@ -332,6 +361,8 @@ namespace _1.DAL.Migrations
                         .HasColumnName("Ten");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("IDHinhAnh");
 
                     b.ToTable("Laptop", (string)null);
                 });
@@ -601,6 +632,17 @@ namespace _1.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("HoaDonChiTiet");
+                });
+
+            modelBuilder.Entity("_1.DAL.Models.Laptop", b =>
+                {
+                    b.HasOne("_1.DAL.Models.HinhAnh", "HinhAnh")
+                        .WithMany()
+                        .HasForeignKey("IDHinhAnh")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HinhAnh");
                 });
 
             modelBuilder.Entity("_1.DAL.Models.NhanVien", b =>

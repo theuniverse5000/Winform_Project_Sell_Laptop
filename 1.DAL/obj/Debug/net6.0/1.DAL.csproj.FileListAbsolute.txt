@@ -96,3 +96,17 @@ E:\Study\Project_One_DotNet\QuanLyBanLaptop_DuAnOne\1.DAL\obj\Debug\net6.0\refin
 E:\Study\Project_One_DotNet\QuanLyBanLaptop_DuAnOne\1.DAL\obj\Debug\net6.0\1.DAL.pdb
 E:\Study\Project_One_DotNet\QuanLyBanLaptop_DuAnOne\1.DAL\obj\Debug\net6.0\1.DAL.genruntimeconfig.cache
 E:\Study\Project_One_DotNet\QuanLyBanLaptop_DuAnOne\1.DAL\obj\Debug\net6.0\ref\1.DAL.dll
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\bin\Debug\net6.0\1.DAL.deps.json
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\bin\Debug\net6.0\1.DAL.runtimeconfig.json
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\bin\Debug\net6.0\1.DAL.dll
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\bin\Debug\net6.0\1.DAL.pdb
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\obj\Debug\net6.0\1.DAL.csproj.AssemblyReference.cache
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\obj\Debug\net6.0\1.DAL.GeneratedMSBuildEditorConfig.editorconfig
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\obj\Debug\net6.0\1.DAL.AssemblyInfoInputs.cache
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\obj\Debug\net6.0\1.DAL.AssemblyInfo.cs
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\obj\Debug\net6.0\1.DAL.csproj.CoreCompileInputs.cache
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\obj\Debug\net6.0\1.DAL.dll
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\obj\Debug\net6.0\refint\1.DAL.dll
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\obj\Debug\net6.0\1.DAL.pdb
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\obj\Debug\net6.0\1.DAL.genruntimeconfig.cache
+E:\Study\Project_One_DotNet\QuanLyBanLaptop_PRJONE\1.DAL\obj\Debug\net6.0\ref\1.DAL.dll

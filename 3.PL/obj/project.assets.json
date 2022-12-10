@@ -2756,24 +2756,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\theun\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\New folder\\3.PL\\3.PL.csproj",
+      "projectUniqueName": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PRJONE\\3.PL\\3.PL.csproj",
       "projectName": "3.PL",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\New folder\\3.PL\\3.PL.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Desktop\\New folder\\3.PL\\obj\\",
+      "projectPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PRJONE\\3.PL\\3.PL.csproj",
+      "packagesPath": "C:\\Users\\theun\\.nuget\\packages\\",
+      "outputPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PRJONE\\3.PL\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\theun\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2787,8 +2782,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Administrator\\Desktop\\New folder\\2.BUS\\2.BUS.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Desktop\\New folder\\2.BUS\\2.BUS.csproj"
+            "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PRJONE\\2.BUS\\2.BUS.csproj": {
+              "projectPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PRJONE\\2.BUS\\2.BUS.csproj"
             }
           }
         }
@@ -2839,7 +2834,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   },

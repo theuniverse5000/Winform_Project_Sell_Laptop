@@ -124,7 +124,7 @@ namespace _2.BUS.Service
         public bool CheckMa(string ma)
         {
             var th = chiTietLaptopRepositories.GetChiTietLaptop();
-            var linh = th.FirstOrDefault(a=>a.Ma== ma);
+            var linh = th.FirstOrDefault(a => a.Ma == ma);
             if (linh != null)
             {
                 return true;
@@ -140,6 +140,26 @@ namespace _2.BUS.Service
             t.SoLuong = ctltview.SoLuong;
             if (chiTietLaptopRepositories.UpdateSoLuong(t)) return "Thành công";
             else return "Thất bại";
+        }
+
+        public List<ChiTietLaptopView> GetChiTietLaptopNo()
+        {
+            List<ChiTietLaptopView> listview = new List<ChiTietLaptopView>();
+            listview = (
+                         from a in chiTietLaptopRepositories.GetChiTietLaptop()
+
+                         select new ChiTietLaptopView
+                         {
+                             ID = a.ID,
+                             Ma = a.Ma,
+                             MoTa = a.MoTa,
+                             SoLuong = a.SoLuong,
+                             GiaNhap = a.GiaNhap,
+                             Giaban = a.Giaban
+                         }
+
+                ).ToList();
+            return listview;
         }
     }
 }

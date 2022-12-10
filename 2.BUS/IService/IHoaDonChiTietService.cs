@@ -1,5 +1,4 @@
-﻿using _1.DAL.Models;
-using _2.BUS.ViewModels;
+﻿using _2.BUS.ViewModels;
 
 namespace _2.BUS.IService
 {
@@ -15,5 +14,6 @@ namespace _2.BUS.IService
         bool CheckMa(string mahdct);
         bool CheckMaCTLT(string mactlt);
         List<HoaDonChiTietView> GetHoaDonChiTietJoinNhanVien();
+        List<HoaDonChiTietView> GetHoaDonChiTietAllData();
     }
 }

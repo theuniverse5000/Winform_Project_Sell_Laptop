@@ -40,11 +40,11 @@ namespace _1.DAL.Repositories
             context.SaveChanges();
             return true;
         }
-       public bool UpdateTrangThai(HoaDonChiTiet hdct)
+        public bool UpdateTrangThai(HoaDonChiTiet hdct)
         {
             if (hdct == null) return false;
             var t = context.HoaDonChiTiets.Find(hdct.ID);
-      
+
             t.TinhTrang = hdct.TinhTrang;
             context.Update(t);
             context.SaveChanges();

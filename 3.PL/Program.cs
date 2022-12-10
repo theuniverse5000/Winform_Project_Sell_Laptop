@@ -19,9 +19,9 @@ namespace _3.PL
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new FormLogin());
-              //Application.Run(new IndexForm());
-              //Application.Run(new AdminForm());
-            //
+            //Application.Run(new IndexForm());
+            //Application.Run(new AdminForm());
+            //Application.Run(new FormBanHang());
             //  Application.Run(new SendEmailResetPassWord());
         }
     }

@@ -83,7 +83,7 @@ namespace _2.BUS.Service
                     DiaChi = a.DiaChi,
                     SDT = a.SDT,
                     MatKhau = a.MatKhau,
-                    
+
                     TrangThai = a.TrangThai,
                     IdChucVu = a.IdChucVu,
                     IdCuaHang = a.IdCuaHang,

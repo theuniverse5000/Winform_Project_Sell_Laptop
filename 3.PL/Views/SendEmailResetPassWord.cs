@@ -1,17 +1,8 @@
 ﻿using _2.BUS.IService;
 using _2.BUS.Service;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Mail;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using _2.BUS.ViewModels;
+using System.Net;
+using System.Net.Mail;
 
 namespace _3.PL.Views
 {

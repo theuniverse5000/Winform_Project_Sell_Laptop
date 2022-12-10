@@ -180,7 +180,7 @@ namespace _3.PL.Views
         }
         private void btn_suach_Click(object sender, EventArgs e)
         {
-            if (tbx_tencuahang.Text == "" || tbx_macuahang.Text == "" || tbx_diachicuahang.Text == "" || tbx_sdtcuahang.Text == "")
+            if (tbx_tencuahang.Text == "" || tbx_diachicuahang.Text == "" || tbx_sdtcuahang.Text == "")
             {
                 MessageBox.Show("Mời bạn nhập dữ liệu");
             }
@@ -407,9 +407,9 @@ namespace _3.PL.Views
             }
             else
             {
-                if (Convert.ToInt32(tbx_soluongvoucher.Text) > 99990)
+                if (Convert.ToInt32(tbx_soluongvoucher.Text) > 9999|| Convert.ToInt32(tbx_soluongvoucher.Text)<=0)
                 {
-                    MessageBox.Show("Số lượng bạn nhập quá lớn");
+                    MessageBox.Show("Số lượng không hợp lệ");
                 }
                 else
                 {
@@ -443,8 +443,8 @@ namespace _3.PL.Views
 
         private void btn_suavoucher_Click(object sender, EventArgs e)
         {
-    
-            if (tbx_mavoucher.Text == "" || tbx_soluongvoucher.Text == "" || tbx_tenvoucher.Text == "" || tbx_giatrivoucher.Text == "")
+
+            if (tbx_soluongvoucher.Text == "" || tbx_tenvoucher.Text == "" || tbx_giatrivoucher.Text == "")
             {
                 MessageBox.Show("Mời bạn nhập nhữ liệu!!");
             }

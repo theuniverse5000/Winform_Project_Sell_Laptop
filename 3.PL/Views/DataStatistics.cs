@@ -4,7 +4,7 @@ using _2.BUS.ViewModels;
 
 namespace _3.PL.Views
 {
-    //abc
+
     public partial class DataStatistics : Form
     {
         IHoaDonChiTietService hoaDonChiTietService;
@@ -37,7 +37,7 @@ namespace _3.PL.Views
             dtg_hoadonchitiet.Columns[14].Name = "Ngày tạo";
             dtg_hoadonchitiet.Columns[15].Name = "Tình trạng";
             dtg_hoadonchitiet.Columns[1].Visible = false;
-            dtg_hoadonchitiet.Columns[2].Visible = false;
+            dtg_hoadonchitiet.Columns[2].Visible = false; dtg_hoadonchitiet.Columns[14].Visible = false;
             string thanhtoan;
             foreach (var t in listhdctv)
             {
@@ -47,7 +47,7 @@ namespace _3.PL.Views
                 {
                     thanhtoan = "Chưa thanh toán";
                 }
-                dtg_hoadonchitiet.Rows.Add(t.ID, t.Ma, t.MaHoaDon, t.MaChiTietLaptop,t.TenLaptop,t.SdtKhachHang,t.TenKhachHang,t.SdtNhanVien,t.TenNhanVien, t.SoImei, t.SoLuong, t.GiaTruoc, t.GiamGia, t.GiaSauKhiGiam, t.NgayTao, thanhtoan);
+                dtg_hoadonchitiet.Rows.Add(t.ID, t.Ma, t.MaHoaDon, t.MaChiTietLaptop, t.TenLaptop, t.SdtKhachHang, t.TenKhachHang, t.SdtNhanVien, t.TenNhanVien, t.SoImei, t.SoLuong, t.GiaTruoc, t.GiamGia, t.GiaSauKhiGiam, t.NgayTao, thanhtoan);
             }
         }
 
@@ -55,7 +55,7 @@ namespace _3.PL.Views
         {
             cbb_12thang.Text = Convert.ToString(DateTime.Now.Month);
             cbb_timtheonam.Text = Convert.ToString(DateTime.Now.Year);
-         //   LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet());
+            //   LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet());
             LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietAllData());
             HelloBaBy();
 
@@ -99,6 +99,10 @@ namespace _3.PL.Views
             }
             catch (Exception)
             {
+                tbx_manhanvien.Text = "";
+                tbx_hotennhanvien.Text = "";
+                tbx_sdtkhachhang.Text = "";
+                tbx_tenkh.Text = "";
                 MessageBox.Show("Không có dữ liệu", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
 
@@ -155,42 +159,81 @@ namespace _3.PL.Views
 
         private void btn_theonam_Click(object sender, EventArgs e)
         {
-            int nam = Convert.ToInt32(cbb_timtheonam.Text);
-            decimal doanhthu = 0;
-            int soluongdaban = 0;
-            decimal gianhap = 0;
-            foreach (var a in hoaDonChiTietService.GetHoaDonChiTiet().Where(h => h.TinhTrang == 1 && h.NgayTao.Year == nam))
+            try
             {
-                doanhthu += a.GiaSauKhiGiam;
-                soluongdaban += a.SoLuong;
-                gianhap += a.GiaNhap;
+                int nam = Convert.ToInt32(cbb_timtheonam.Text);
+                decimal doanhthu = 0;
+                int soluongdaban = 0;
+                decimal gianhap = 0;
+                foreach (var a in hoaDonChiTietService.GetHoaDonChiTiet().Where(h => h.TinhTrang == 1 && h.NgayTao.Year == nam))
+                {
+                    doanhthu += a.GiaSauKhiGiam;
+                    soluongdaban += a.SoLuong;
+                    gianhap += a.GiaNhap;
+                }
+                tbx_tongdoanhthu.Text = Convert.ToString(doanhthu);
+                tbx_soluongdaban.Text = Convert.ToString(soluongdaban);
+                decimal tienlai = doanhthu - gianhap;
+                tbx_tongtienlai.Text = Convert.ToString(tienlai);
+                var linh = hoaDonChiTietService.GetHoaDonChiTietJoinNhanVien().Where(h => h.NgayTao.Year == nam).OrderBy(x => x.MaHoaDon).First();
+                tbx_manhanvien.Text = linh.MaNhanVien;
+                tbx_hotennhanvien.Text = linh.TenNhanVien;
+                tbx_sdtkhachhang.Text = linh.SdtKhachHang;
+                tbx_tenkh.Text = linh.TenKhachHang;
             }
-            tbx_tongdoanhthu.Text = Convert.ToString(doanhthu);
-            tbx_soluongdaban.Text = Convert.ToString(soluongdaban);
-            decimal tienlai = doanhthu - gianhap;
-            tbx_tongtienlai.Text = Convert.ToString(tienlai);
-            var linh = hoaDonChiTietService.GetHoaDonChiTietJoinNhanVien().Where(h => h.NgayTao.Year == nam).OrderBy(x => x.MaHoaDon).First();
-            tbx_manhanvien.Text = linh.MaNhanVien;
-            tbx_hotennhanvien.Text = linh.TenNhanVien;
-            tbx_sdtkhachhang.Text = linh.SdtKhachHang;
-            tbx_tenkh.Text = linh.TenKhachHang;
+            catch (Exception)
+            {
+                tbx_manhanvien.Text = "";
+                tbx_hotennhanvien.Text = "";
+                tbx_sdtkhachhang.Text = "";
+                tbx_tenkh.Text = "";
+                MessageBox.Show("Không có dữ liệu", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+
         }
         private void dtp_loctheongay_ValueChanged(object sender, EventArgs e)
         {
-            LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet().Where(a => a.NgayTao.Day == dtp_loctheongay.Value.Day).ToList());
+            LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietAllData().Where(a => a.NgayTao.Day == dtp_loctheongay.Value.Day).ToList());
         }
 
         private void dtg_hoadonchitiet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-               tbx_macthoadon.Text= dtg_hoadonchitiet.CurrentRow.Cells[1].Value.ToString();
+                tbx_macthoadon.Text = dtg_hoadonchitiet.CurrentRow.Cells[1].Value.ToString();
                 tbx_mahoadon.Text = dtg_hoadonchitiet.CurrentRow.Cells[2].Value.ToString();
+                tbx_ngaytaohdct.Text = dtg_hoadonchitiet.CurrentRow.Cells[14].Value.ToString();
             }
             catch (Exception)
             {
 
             }
+        }
+
+        private void tbx_timsdtkh_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietAllData().Where(a => a.SdtKhachHang.Contains(tbx_timsdtkh.Text)).ToList());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không có dữ liệu", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+
+        }
+
+        private void tbx_timsdtnv_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietAllData().Where(a => a.SdtNhanVien.Contains(tbx_timsdtnv.Text)).ToList());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không có dữ liệu", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+
         }
     }
 }

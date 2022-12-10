@@ -1,9 +1,4 @@
 ﻿using _1.DAL.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _2.BUS.ViewModels
 {
@@ -14,6 +9,6 @@ namespace _2.BUS.ViewModels
         public string SoEmei { get; set; }
         public virtual ChiTietLaptop ChiTietLaptop { get; set; }
         public string MaCTLT { get; set; }
-        public int TrangThai { get; set; }  
+        public int TrangThai { get; set; }
     }
 }
