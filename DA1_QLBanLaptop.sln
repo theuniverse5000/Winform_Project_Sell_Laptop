@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.BUS", "2.BUS\2.BUS.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.PL", "3.PL\3.PL.csproj", "{C0F7C5CD-033D-45F8-AD46-FD783BB3B724}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupLaptop", "SetupLaptop\SetupLaptop.vdproj", "{EA094FDE-EC31-4072-B7C0-377FCD24FEF6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,8 +27,6 @@ Global
 		{C0F7C5CD-033D-45F8-AD46-FD783BB3B724}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0F7C5CD-033D-45F8-AD46-FD783BB3B724}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0F7C5CD-033D-45F8-AD46-FD783BB3B724}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EA094FDE-EC31-4072-B7C0-377FCD24FEF6}.Debug|Any CPU.ActiveCfg = Debug
-		{EA094FDE-EC31-4072-B7C0-377FCD24FEF6}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
