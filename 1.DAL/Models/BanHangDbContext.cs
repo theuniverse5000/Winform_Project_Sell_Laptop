@@ -34,7 +34,7 @@ namespace _1.DAL.Models
             //base.OnConfiguring((optionsBuilder.
             //    UseSqlServer("Data Source=DESKTOP-3S9P0UC\\SQLEXPRESS;Initial Catalog=QuanLyBanLaptop_da1;" +
             //    "Persist Security Info=True;User ID=theuniverse;Password=theuniverse")));
-            base.OnConfiguring((optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=QuanLyBanLaptop_da1;Trusted_Connection=True;")));
+            //base.OnConfiguring((optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=QuanLyBanLaptop_da1;Trusted_Connection=True;")));
             //base.OnConfiguring((optionsBuilder.
             //    UseSqlServer("Data Source=LAPTOP-ANRHQ1OI\\SQLEXPRESS;Initial Catalog=QuanLyBanLaptop_da1;" +
             //    "Persist Security Info=True;User ID=huongpdph27798;Password=1701huong")));
@@ -42,7 +42,7 @@ namespace _1.DAL.Models
             //UseSqlServer("Data Source=LAPTOP-NBBU942O\\SQLEXPRESS;Initial Catalog=QuanLyBanLaptop_da1;" +
             //"Persist Security Info=True;User ID=sa;Password=1342003")));
             // base.OnConfiguring((optionsBuilder.UseSqlServer(@"Server=DESKTOP-5A4GKR7\SQLEXPRESS;Database=Database_DA1;Trusted_Connection=True;")));
-
+            base.OnConfiguring((optionsBuilder.UseSqlServer(@"Server=DESKTOP-VVKT5NE\SQLEXPRESS;Database=QuanLyBanLaptop_da1;Trusted_Connection=True;")));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

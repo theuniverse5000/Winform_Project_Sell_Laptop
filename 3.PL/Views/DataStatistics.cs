@@ -1,7 +1,7 @@
 ﻿using _2.BUS.IService;
 using _2.BUS.Service;
 using _2.BUS.ViewModels;
-
+using excel = Microsoft.Office.Interop.Excel;
 namespace _3.PL.Views
 {
 
@@ -234,6 +234,38 @@ namespace _3.PL.Views
                 MessageBox.Show("Không có dữ liệu", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
 
+        }
+
+        private void btn_exportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                excel.Application app = new excel.Application();
+                excel.Workbook workbook = app.Workbooks.Add();
+                excel.Worksheet worksheet = null;
+                app.Visible = true;
+
+
+                worksheet = workbook.ActiveSheet;
+
+                for (int i = 0; i < dtg_hoadonchitiet.Columns.Count; i++)
+                {
+                    worksheet.Cells[1, i + 1] = dtg_hoadonchitiet.Columns[i].HeaderText;
+                }
+
+                for (int j = 0; j < dtg_hoadonchitiet.Rows.Count; j++)
+                {
+                    for (int i = 0; i < dtg_hoadonchitiet.Columns.Count - 1; i++)
+                    {
+                        worksheet.Cells[j + 2, i + 1] = dtg_hoadonchitiet.Rows[j].Cells[i].Value.ToString();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Đã xuất ra excel");
+            }
         }
     }
 }

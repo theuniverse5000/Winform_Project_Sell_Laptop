@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PRJONE\\1.DAL\\1.DAL.csproj": {}
+    "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12345\\1.DAL\\1.DAL.csproj": {}
   },
   "projects": {
-    "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PRJONE\\1.DAL\\1.DAL.csproj": {
+    "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12345\\1.DAL\\1.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PRJONE\\1.DAL\\1.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12345\\1.DAL\\1.DAL.csproj",
         "projectName": "1.DAL",
-        "projectPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PRJONE\\1.DAL\\1.DAL.csproj",
-        "packagesPath": "C:\\Users\\theun\\.nuget\\packages\\",
-        "outputPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PRJONE\\1.DAL\\obj\\",
+        "projectPath": "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12345\\1.DAL\\1.DAL.csproj",
+        "packagesPath": "C:\\Users\\dinht\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12345\\1.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\theun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dinht\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
