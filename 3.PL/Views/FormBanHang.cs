@@ -102,8 +102,9 @@ namespace _3.PL.Views
         {
             int sttctlt = 0;
             dtg_xemlaptop.Rows.Clear();
-            dtg_xemlaptop.ColumnCount = 14;
+            dtg_xemlaptop.ColumnCount = 15;
             dtg_xemlaptop.Columns[0].Name = "ID";
+            
             dtg_xemlaptop.Columns[0].Visible = false;
             dtg_xemlaptop.Columns[1].Name = "STT";
             dtg_xemlaptop.Columns[2].Name = "Mã";
@@ -118,6 +119,7 @@ namespace _3.PL.Views
             dtg_xemlaptop.Columns[11].Name = "Giá nhập";
             dtg_xemlaptop.Columns[12].Name = "Giá bán";
             dtg_xemlaptop.Columns[13].Name = "Số Imei";
+            dtg_xemlaptop.Columns[14].Name = "Link ảnh";
             dtg_xemlaptop.Columns[1].Visible = false;
             dtg_xemlaptop.Columns[2].Visible = false;
             dtg_xemlaptop.Columns[3].Visible = false;
@@ -129,10 +131,12 @@ namespace _3.PL.Views
             dtg_xemlaptop.Columns[11].Visible = false;
             dtg_xemlaptop.Columns[12].Visible = false;
             dtg_xemlaptop.Columns[13].Visible = false;
+            dtg_xemlaptop.Columns[14].Visible = false;
+
             foreach (var s in list)
             {
                 sttctlt++;
-                dtg_xemlaptop.Rows.Add(s.ID, sttctlt, s.Ma, s.MaLaptop, s.TenLaptop, s.TenThuocTinh, s.ThongSoGiaTri, s.TenNsx, s.TenMauSac, s.MoTa, s.SoLuong, s.GiaNhap, s.Giaban, s.SoImei);
+                dtg_xemlaptop.Rows.Add(s.ID, sttctlt, s.Ma, s.MaLaptop, s.TenLaptop, s.TenThuocTinh, s.ThongSoGiaTri, s.TenNsx, s.TenMauSac, s.MoTa, s.SoLuong, s.GiaNhap, s.Giaban, s.SoImei , s.Linkanh);
             }
         }
         void LoadDataKhachHang(List<KhachHangView> list)
@@ -422,6 +426,7 @@ namespace _3.PL.Views
                 tbx_ctltgianhap.Text = dtg_xemlaptop.CurrentRow.Cells[11].Value.ToString();
                 tbx_ctltgiaban.Text = dtg_xemlaptop.CurrentRow.Cells[12].Value.ToString();
                 tbx_xemlaptop_soimei.Text = dtg_xemlaptop.CurrentRow.Cells[13].Value.ToString();
+                tbx_linkanhh.Text = dtg_xemlaptop.CurrentRow.Cells[14].Value.ToString();
             }
             catch (Exception)
             {
@@ -859,6 +864,19 @@ namespace _3.PL.Views
         {
             ClearData();
 
+        }
+
+        private void tbx_linkanhh_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                pcb_anhlaptop.Image = new Bitmap(tbx_linkanhh.Text);
+            }
+            catch (Exception)
+            {
+
+
+            }
         }
     }
 }

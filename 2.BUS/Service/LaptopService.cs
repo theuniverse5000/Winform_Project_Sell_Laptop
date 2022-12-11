@@ -11,6 +11,7 @@ namespace _2.BUS.Service
         ILaptopRepositories laptopRepositories = new LaptopRepositories();
         IThuocTinhRepositories thuocTinhRepositories = new ThuocTinhRepositories();
         IGiaTriRepositories giaTriRepositories = new GiaTriRepositories();
+        IHinhAnhResponsitories hinhAnhResponsitories = new HinhAnhResponsitories();
         public string AddLaptop(LaptopView ltv)
         {
             if (ltv == null) return "Thất bại";
@@ -18,6 +19,8 @@ namespace _2.BUS.Service
             x.ID = ltv.ID;
             x.Ma = ltv.Ma;
             x.Ten = ltv.Ten;
+            x.IDHinhAnh = ltv.IDHinhAnh;
+            
             if (laptopRepositories.Add(x)) return "Thành công";
             else return "Thất bại";
         }
@@ -44,13 +47,15 @@ namespace _2.BUS.Service
             List<LaptopView> listlt = new List<LaptopView>();
             listlt = (
                 from a in laptopRepositories.GetLaptop()
+                join b in hinhAnhResponsitories.getAll() on a.IDHinhAnh equals b.Id
                 select new LaptopView
                 {
                     ID = a.ID,
                     Ma = a.Ma,
-                    Ten = a.Ten
+                    Ten = a.Ten,
+                    LinkAnh = b.LinkAnh,
                 }
-                ).ToList();
+                ) .ToList();
             return listlt;
 
         }
@@ -61,6 +66,7 @@ namespace _2.BUS.Service
             Laptop x = new Laptop();
             x.ID = ltv.ID;
             x.Ten = ltv.Ten;
+
             if (laptopRepositories.Update(x)) return "Thành công";
             else return "Thất bại";
         }

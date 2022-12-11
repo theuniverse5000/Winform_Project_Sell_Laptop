@@ -1,9 +1,11 @@
-﻿using _2.BUS.IService;
+﻿using _1.DAL.Models;
+using _2.BUS.IService;
 using _2.BUS.Service;
 using _2.BUS.ViewModels;
 
 namespace _3.PL.Views
 {
+
     public partial class QuanLyLaptopForm : Form
     {
         IMauSacService mauSacService;
@@ -13,12 +15,15 @@ namespace _3.PL.Views
         IGiaTriService giaTriService;
         IChiTietLaptopService chiTietLaptopService;
         IImeiService imeiService;
+        IHinhAnhService hinhAnhService;
+
         Guid GetIdMauSac { get; set; }
         Guid GetIdNsx { get; set; }
         Guid GetIdLaptop { get; set; }
         Guid GetIdThuocTinh { get; set; }
         Guid GetIdGiaTri { get; set; }
         Guid GetIdChiTietLaptop { get; set; }
+        Guid GetIdHinhAnh { get; set; }
         public QuanLyLaptopForm()
         {
             InitializeComponent();
@@ -29,6 +34,7 @@ namespace _3.PL.Views
             giaTriService = new GiaTriService();
             chiTietLaptopService = new ChiTietLaptopService();
             imeiService = new ImeiService();
+            hinhAnhService= new HinhAnhService();
         }
         void LoadDataMauSac(List<MauSacView> listms)
         {
@@ -62,20 +68,38 @@ namespace _3.PL.Views
                 dtg_shownsx.Rows.Add(c.ID, sttnsx, c.Ma, c.Ten);
             }
         }
+        void LoadHinhanh(List<hinhanhview> listha)
+        {
+            int sttgt = 0;
+            dtg_hinhanh.Rows.Clear();
+            dtg_hinhanh.ColumnCount = 5;
+            dtg_hinhanh.Columns[0].Name = "ID";
+            dtg_hinhanh.Columns[0].Visible = false;
+            dtg_hinhanh.Columns[1].Name = "STT";
+            dtg_hinhanh.Columns[2].Name = "Mã";
+            dtg_hinhanh.Columns[3].Name = "Tên";
+            dtg_hinhanh.Columns[4].Name = "Linkanh";
+            foreach (var h in listha)
+            {
+                sttgt++;
+                dtg_hinhanh.Rows.Add(h.Id, sttgt, h.Ma, h.Ten, h.LinkAnh);
+            }
+        }
         void LoadDataLaptop(List<LaptopView> listlt)
         {
             int sttlt = 0;
             dtg_showlaptop.Rows.Clear();
-            dtg_showlaptop.ColumnCount = 4;
+            dtg_showlaptop.ColumnCount = 5;
             dtg_showlaptop.Columns[0].Name = "ID";
             dtg_showlaptop.Columns[0].Visible = false;
             dtg_showlaptop.Columns[1].Name = "STT";
             dtg_showlaptop.Columns[2].Name = "Mã";
             dtg_showlaptop.Columns[3].Name = "Tên";
+            dtg_showlaptop.Columns[4].Name = "Link ảnh";
             foreach (var g in listlt)
             {
                 sttlt++;
-                dtg_showlaptop.Rows.Add(g.ID, sttlt, g.Ma, g.Ten);
+                dtg_showlaptop.Rows.Add(g.ID, sttlt, g.Ma, g.Ten, g.LinkAnh);
             }
         }
         void LoadDataThuocTinh(List<ThuocTinhView> listtt)
@@ -184,6 +208,7 @@ namespace _3.PL.Views
             LoadDataGiaTri(giaTriService.GetGiaTri());
             LoadDataChiTietLaptop(chiTietLaptopService.GetChiTietLaptop());
             ShowImei(imeiService.GetImei());
+            LoadHinhanh(hinhAnhService.GetAnh());
 
         }
 
@@ -357,7 +382,8 @@ namespace _3.PL.Views
                 LaptopView lv = new LaptopView();
                 lv.ID = Guid.NewGuid();
                 lv.Ma = tbx_malaptop.Text;
-                lv.Ten = tbx_tenlaptop.Text;
+                lv.Ten = tbx_tenlaptop.Text;              
+                lv.IDHinhAnh = hinhAnhService.GetAnh().FirstOrDefault(c => c.Ma == tbx_linkanhhh.Text).Id;
                 if (laptopService.CheckMa(tbx_malaptop.Text))
                 {
                     MessageBox.Show("Mã đã tồn tại", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -802,6 +828,129 @@ namespace _3.PL.Views
             }
 
 
+        }
+
+        private void tp_mausac_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtg_hinhanh_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                GetIdHinhAnh = Guid.Parse(dtg_hinhanh.CurrentRow.Cells[0].Value.ToString());
+                tbx_maanh.Text = dtg_hinhanh.CurrentRow.Cells[2].Value.ToString();
+                tbx_tenanh.Text = dtg_hinhanh.CurrentRow.Cells[3].Value.ToString();
+                tbx_linkanh.Text = dtg_hinhanh.CurrentRow.Cells[4].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void btn_openfile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog dlg = new OpenFileDialog();
+                dlg.Filter = "JPG Files(*.jpg)|*.jpg|PNG Files(*.png)|*.png|ALL Files(*.*)|*.*";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    string picPath = dlg.FileName.ToString();
+                    tbx_linkanh.Text = picPath;
+                    picb_anhlaptop.ImageLocation = picPath;
+
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+              
+            }
+            
+        }
+
+        private void btn_themanh_Click(object sender, EventArgs e)
+        {
+                try
+            {
+                hinhanhview thao = new hinhanhview();
+                thao.Id = Guid.NewGuid();
+                thao.Ten = tbx_tenanh.Text;
+                thao.Ma = tbx_maanh.Text;
+                thao.LinkAnh = tbx_linkanh.Text;
+
+                if (hinhAnhService.add(thao))
+                {
+                    LoadHinhanh(hinhAnhService.GetAnh());
+                    MessageBox.Show("Thêm thành công !!!");
+                }
+               
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btn_suaanh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                hinhanhview thao = new hinhanhview();
+                thao.Id = GetIdHinhAnh;
+                thao.Ten = tbx_tenanh.Text;              
+                thao.LinkAnh = tbx_linkanh.Text;
+                if (hinhAnhService.update(thao))
+                {
+                    LoadHinhanh(hinhAnhService.GetAnh());
+                    MessageBox.Show("Thêm thành công !!!");
+                }
+                
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btn_xoaanh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                hinhanhview thao = new hinhanhview();
+                thao.Id = GetIdHinhAnh;
+                
+
+                if (hinhAnhService.remove(thao))
+                {
+                    LoadHinhanh(hinhAnhService.GetAnh());
+                    MessageBox.Show("Xóa thành công !!!");
+                }
+               
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dtg_showlaptop_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tbx_linkanh_TextChanged(object sender, EventArgs e)
+        {
+            picb_anhlaptop.Image = new Bitmap(tbx_linkanh.Text);
         }
     }
 }

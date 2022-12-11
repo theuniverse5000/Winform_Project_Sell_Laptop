@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12345\\1.DAL\\1.DAL.csproj": {}
+    "C:\\Users\\admin\\Desktop\\da1\\1.DAL\\1.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12345\\1.DAL\\1.DAL.csproj": {
+    "C:\\Users\\admin\\Desktop\\da1\\1.DAL\\1.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12345\\1.DAL\\1.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\Desktop\\da1\\1.DAL\\1.DAL.csproj",
         "projectName": "1.DAL",
-        "projectPath": "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12345\\1.DAL\\1.DAL.csproj",
-        "packagesPath": "C:\\Users\\dinht\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dinht\\OneDrive\\Máy tính\\duan12345\\1.DAL\\obj\\",
+        "projectPath": "C:\\Users\\admin\\Desktop\\da1\\1.DAL\\1.DAL.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\admin\\Desktop\\da1\\1.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\dinht\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

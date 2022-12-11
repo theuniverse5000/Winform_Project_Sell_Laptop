@@ -15,6 +15,7 @@ namespace _2.BUS.Service
         IThuocTinhRepositories thuocTinhRepositories = new ThuocTinhRepositories();
         IGiaTriRepositories giaTriRepositories = new GiaTriRepositories();
         IImeiRepositories imeiRepositories = new ImeiRepositories();
+        IHinhAnhResponsitories hinhAnhResponsitories = new HinhAnhResponsitories();
         //   ILaptopService laptopService = new LaptopService();
         public string Add(ChiTietLaptopView ctltview)
         {
@@ -52,6 +53,7 @@ namespace _2.BUS.Service
                          join e in thuocTinhRepositories.GetThuocTinh() on g.ID equals e.IDLaptop
                          join f in giaTriRepositories.GetGiaTri() on e.ID equals f.IDThuocTinh
                          join h in imeiRepositories.GetImei() on a.ID equals h.IDChiTietLaptop
+                         join i in hinhAnhResponsitories.getAll() on g.IDHinhAnh equals i.Id
                          select new ChiTietLaptopView
                          {
                              ID = a.ID,
@@ -68,7 +70,8 @@ namespace _2.BUS.Service
                              ThongSoGiaTri = f.ThongSo,
                              TenMauSac = c.Ten,
                              TenNsx = d.Ten,
-                             SoImei = h.SoEmei
+                             SoImei = h.SoEmei,
+                             Linkanh = i.LinkAnh
                          }
 
                 ).ToList();
