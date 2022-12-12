@@ -12,7 +12,8 @@ namespace _2.BUS.IService
         bool add(hinhanhview img);
         bool remove(hinhanhview img);
         bool update(hinhanhview img);
-        public Guid Id(hinhanhview img);
+      //  public Guid Id(hinhanhview img);
         List<hinhanhview> GetAnh();
+        bool CheckMa(string ma);
     }
 }

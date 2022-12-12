@@ -78,7 +78,7 @@ namespace _2.BUS.Service
                               NgayTao = a.NgayTao,
                               GiaSauKhiGiam = a.GiaSauKhiGiam,
                               TinhTrang = a.TinhTrang,
-                              //  GiamGia = a.GiaTruoc - a.GiaSauKhiGiam,
+                              GiamGia = a.GiaTruoc - a.GiaSauKhiGiam,
                               SoImei = d.SoEmei,
                               GiaNhap = b.GiaNhap
 

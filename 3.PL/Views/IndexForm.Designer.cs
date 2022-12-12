@@ -40,10 +40,12 @@
             this.IBtn_banhang = new FontAwesome.Sharp.IconButton();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panel_index = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ms_menuindex.SuspendLayout();
             this.panel_formload.SuspendLayout();
             this.panel_index.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // ms_menuindex
@@ -180,6 +182,7 @@
             // panel_index
             // 
             this.panel_index.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(242)))), ((int)(((byte)(232)))));
+            this.panel_index.Controls.Add(this.pictureBox1);
             this.panel_index.Controls.Add(this.label2);
             this.panel_index.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_index.Location = new System.Drawing.Point(184, 33);
@@ -187,6 +190,17 @@
             this.panel_index.Name = "panel_index";
             this.panel_index.Size = new System.Drawing.Size(902, 456);
             this.panel_index.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::_3.PL.Properties.Resources.hinhencn;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(902, 456);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -220,6 +234,7 @@
             this.panel_formload.ResumeLayout(false);
             this.panel_index.ResumeLayout(false);
             this.panel_index.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +255,6 @@
         private FontAwesome.Sharp.IconButton IBtn_banhang;
         private Panel panel_index;
         private Label label2;
+        private PictureBox pictureBox1;
     }
 }

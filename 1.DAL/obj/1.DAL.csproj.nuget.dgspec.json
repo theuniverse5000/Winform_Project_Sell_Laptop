@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\Desktop\\da1\\1.DAL\\1.DAL.csproj": {}
+    "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PROne\\1.DAL\\1.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\Desktop\\da1\\1.DAL\\1.DAL.csproj": {
+    "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PROne\\1.DAL\\1.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Desktop\\da1\\1.DAL\\1.DAL.csproj",
+        "projectUniqueName": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PROne\\1.DAL\\1.DAL.csproj",
         "projectName": "1.DAL",
-        "projectPath": "C:\\Users\\admin\\Desktop\\da1\\1.DAL\\1.DAL.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Desktop\\da1\\1.DAL\\obj\\",
+        "projectPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PROne\\1.DAL\\1.DAL.csproj",
+        "packagesPath": "C:\\Users\\theun\\.nuget\\packages\\",
+        "outputPath": "E:\\Study\\Project_One_DotNet\\QuanLyBanLaptop_PROne\\1.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\theun\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

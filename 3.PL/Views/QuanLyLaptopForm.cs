@@ -1,5 +1,4 @@
-﻿using _1.DAL.Models;
-using _2.BUS.IService;
+﻿using _2.BUS.IService;
 using _2.BUS.Service;
 using _2.BUS.ViewModels;
 
@@ -34,7 +33,7 @@ namespace _3.PL.Views
             giaTriService = new GiaTriService();
             chiTietLaptopService = new ChiTietLaptopService();
             imeiService = new ImeiService();
-            hinhAnhService= new HinhAnhService();
+            hinhAnhService = new HinhAnhService();
         }
         void LoadDataMauSac(List<MauSacView> listms)
         {
@@ -382,7 +381,7 @@ namespace _3.PL.Views
                 LaptopView lv = new LaptopView();
                 lv.ID = Guid.NewGuid();
                 lv.Ma = tbx_malaptop.Text;
-                lv.Ten = tbx_tenlaptop.Text;              
+                lv.Ten = tbx_tenlaptop.Text;
                 lv.IDHinhAnh = hinhAnhService.GetAnh().FirstOrDefault(c => c.Ma == tbx_linkanhhh.Text).Id;
                 if (laptopService.CheckMa(tbx_malaptop.Text))
                 {
@@ -796,6 +795,9 @@ namespace _3.PL.Views
                         th.TrangThai = 0;
                     }
                     MessageBox.Show(imeiService.Add(th));
+                    ShowImei(imeiService.GetImei());
+
+
                 }
                 catch (Exception)
                 {
@@ -827,11 +829,6 @@ namespace _3.PL.Views
                 dtg_showimei.Rows.Add(d.ID, d.MaCTLT, d.SoEmei, trangthai);
             }
 
-
-        }
-
-        private void tp_mausac_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -867,27 +864,37 @@ namespace _3.PL.Views
             catch (Exception)
             {
                 MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-              
+
             }
-            
+
         }
 
         private void btn_themanh_Click(object sender, EventArgs e)
         {
-                try
+            try
             {
                 hinhanhview thao = new hinhanhview();
                 thao.Id = Guid.NewGuid();
                 thao.Ten = tbx_tenanh.Text;
                 thao.Ma = tbx_maanh.Text;
                 thao.LinkAnh = tbx_linkanh.Text;
-
-                if (hinhAnhService.add(thao))
+                if (tbx_tenanh.Text == "" || tbx_maanh.Text == "" || tbx_linkanh.Text == "")
                 {
-                    LoadHinhanh(hinhAnhService.GetAnh());
-                    MessageBox.Show("Thêm thành công !!!");
+                    MessageBox.Show("Hãy điền đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-               
+                else if (hinhAnhService.CheckMa(tbx_maanh.Text))
+                {
+                    MessageBox.Show("Mã không được trùng", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                else if (hinhAnhService.add(thao))
+                {
+                   
+                    MessageBox.Show("Thêm thành công !!!");
+                    LoadHinhanh(hinhAnhService.GetAnh());
+                }
+                
+
 
             }
             catch (Exception)
@@ -903,14 +910,14 @@ namespace _3.PL.Views
             {
                 hinhanhview thao = new hinhanhview();
                 thao.Id = GetIdHinhAnh;
-                thao.Ten = tbx_tenanh.Text;              
-                thao.LinkAnh = tbx_linkanh.Text;
+                thao.Ten = tbx_tenanh.Text;
+                thao.LinkAnh= tbx_linkanh.Text;
                 if (hinhAnhService.update(thao))
                 {
                     LoadHinhanh(hinhAnhService.GetAnh());
                     MessageBox.Show("Thêm thành công !!!");
                 }
-                
+
 
             }
             catch (Exception)
@@ -926,14 +933,14 @@ namespace _3.PL.Views
             {
                 hinhanhview thao = new hinhanhview();
                 thao.Id = GetIdHinhAnh;
-                
+
 
                 if (hinhAnhService.remove(thao))
                 {
                     LoadHinhanh(hinhAnhService.GetAnh());
                     MessageBox.Show("Xóa thành công !!!");
                 }
-               
+
 
             }
             catch (Exception)
@@ -943,14 +950,23 @@ namespace _3.PL.Views
             }
         }
 
-        private void dtg_showlaptop_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void tbx_linkanh_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                picb_anhlaptop.Image = new Bitmap(tbx_linkanh.Text);
+            }
+            catch (Exception)
+            {
+
+            }
 
         }
 
-        private void tbx_linkanh_TextChanged(object sender, EventArgs e)
+        private void tbx_soimei_KeyPress(object sender, KeyPressEventArgs e)
         {
-            picb_anhlaptop.Image = new Bitmap(tbx_linkanh.Text);
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

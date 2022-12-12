@@ -63,6 +63,7 @@ namespace _3.PL.Views
             btn_xoahoadon.Visible = false;
             btn_xoahoadonchitiet.Visible = false;
             btn_xoakhachhang.Visible = false;
+            tbx_linkanhh.Visible = false;
             if (FormLogin.CheckAdmin == 1)
             {
                 //btn_xoahoadon.Visible = true;
@@ -104,7 +105,6 @@ namespace _3.PL.Views
             dtg_xemlaptop.Rows.Clear();
             dtg_xemlaptop.ColumnCount = 15;
             dtg_xemlaptop.Columns[0].Name = "ID";
-            
             dtg_xemlaptop.Columns[0].Visible = false;
             dtg_xemlaptop.Columns[1].Name = "STT";
             dtg_xemlaptop.Columns[2].Name = "Mã";
@@ -136,7 +136,7 @@ namespace _3.PL.Views
             foreach (var s in list)
             {
                 sttctlt++;
-                dtg_xemlaptop.Rows.Add(s.ID, sttctlt, s.Ma, s.MaLaptop, s.TenLaptop, s.TenThuocTinh, s.ThongSoGiaTri, s.TenNsx, s.TenMauSac, s.MoTa, s.SoLuong, s.GiaNhap, s.Giaban, s.SoImei , s.Linkanh);
+                dtg_xemlaptop.Rows.Add(s.ID, sttctlt, s.Ma, s.MaLaptop, s.TenLaptop, s.TenThuocTinh, s.ThongSoGiaTri, s.TenNsx, s.TenMauSac, s.MoTa, s.SoLuong, s.GiaNhap, s.Giaban, s.SoImei, s.Linkanh);
             }
         }
         void LoadDataKhachHang(List<KhachHangView> list)
@@ -418,7 +418,7 @@ namespace _3.PL.Views
             try
             {
                 tbx_machitietlaptop.Text = dtg_xemlaptop.CurrentRow.Cells[2].Value.ToString();
-                tbx_xemlaptopmalaptop.Text = dtg_xemlaptop.CurrentRow.Cells[3].Value.ToString();
+                tbx_xemlaptopmalaptop.Text = dtg_xemlaptop.CurrentRow.Cells[4].Value.ToString();
                 tbx_xemlaptop_tennsx.Text = dtg_xemlaptop.CurrentRow.Cells[7].Value.ToString();
                 tbx_xemlaptop_tenmausac.Text = dtg_xemlaptop.CurrentRow.Cells[8].Value.ToString();
                 tbx_mota.Text = dtg_xemlaptop.CurrentRow.Cells[9].Value.ToString();

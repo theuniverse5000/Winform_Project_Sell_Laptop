@@ -264,7 +264,7 @@ namespace _3.PL.Views
             catch (Exception)
             {
 
-                MessageBox.Show("Đã xuất ra excel");
+              //  MessageBox.Show("Đã xuất ra excel");
             }
         }
     }
