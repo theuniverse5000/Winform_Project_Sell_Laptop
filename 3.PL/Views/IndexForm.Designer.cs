@@ -57,7 +57,7 @@
             this.mni_username});
             this.ms_menuindex.Location = new System.Drawing.Point(0, 0);
             this.ms_menuindex.Name = "ms_menuindex";
-            this.ms_menuindex.Size = new System.Drawing.Size(1086, 33);
+            this.ms_menuindex.Size = new System.Drawing.Size(1119, 33);
             this.ms_menuindex.TabIndex = 0;
             this.ms_menuindex.Text = "Menu Index";
             // 
@@ -100,7 +100,7 @@
             this.panel_formload.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_formload.Location = new System.Drawing.Point(0, 33);
             this.panel_formload.Name = "panel_formload";
-            this.panel_formload.Size = new System.Drawing.Size(184, 456);
+            this.panel_formload.Size = new System.Drawing.Size(184, 431);
             this.panel_formload.TabIndex = 3;
             // 
             // IBtn_thongke
@@ -188,7 +188,7 @@
             this.panel_index.Location = new System.Drawing.Point(184, 33);
             this.panel_index.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_index.Name = "panel_index";
-            this.panel_index.Size = new System.Drawing.Size(902, 456);
+            this.panel_index.Size = new System.Drawing.Size(935, 431);
             this.panel_index.TabIndex = 4;
             // 
             // pictureBox1
@@ -197,8 +197,8 @@
             this.pictureBox1.Image = global::_3.PL.Properties.Resources.hinhencn;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(902, 456);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.Size = new System.Drawing.Size(935, 431);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -216,8 +216,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.BlueViolet;
-            this.ClientSize = new System.Drawing.Size(1086, 489);
+            this.ClientSize = new System.Drawing.Size(1119, 464);
             this.Controls.Add(this.panel_index);
             this.Controls.Add(this.panel_formload);
             this.Controls.Add(this.ms_menuindex);

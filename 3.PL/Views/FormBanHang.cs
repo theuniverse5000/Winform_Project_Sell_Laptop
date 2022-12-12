@@ -171,6 +171,7 @@ namespace _3.PL.Views
             dtg_showhoadon.Columns[6].Name = "SĐT người nhận";
             dtg_showhoadon.Columns[7].Name = "Mã voucher";
             dtg_showhoadon.Columns[8].Name = "Tình trạng";
+            dtg_showhoadon.Columns[1].Visible = false;  dtg_showhoadon.Columns[4].Visible = false;
             string tthoadon;
             foreach (var s in listhdv)
             {
@@ -196,8 +197,11 @@ namespace _3.PL.Views
             dtg_hoadonchitiet.Columns[8].Name = "Thành tiền";
             dtg_hoadonchitiet.Columns[9].Name = "Ngày tạo";
             dtg_hoadonchitiet.Columns[10].Name = "Tình trạng";
-            //dtg_hoadonchitiet.Columns[0].Name = "ID";
-            //dtg_hoadonchitiet.Columns[0].Name = "ID";
+            dtg_hoadonchitiet.Columns[1].Visible = false;
+            dtg_hoadonchitiet.Columns[5].Visible = false;
+            dtg_hoadonchitiet.Columns[6].Visible = false;
+            dtg_hoadonchitiet.Columns[9].Visible = false;
+            //dtg_hoadonchitiet.Columns[0].V
             string tinhtranghdct;
             foreach (var t in listhdctv)
             {
@@ -469,7 +473,7 @@ namespace _3.PL.Views
                     HoaDonView hoadon = new HoaDonView();
                     hoadon.ID = Guid.NewGuid();
                     hoadon.Ma = tbx_mahoadon.Text;
-                    hoadon.NgayTao = dtp_ngaytaohoadon.Value;
+                    hoadon.NgayTao = DateTime.Now;
                     hoadon.TenNguoiNhan = tbx_tennguoinhan.Text;
                     hoadon.SdtNguoiNhan = tbx_sdtnguoinhan.Text;
                     hoadon.IdNhanVien = nhanVienService.GetAllNhanVien().FirstOrDefault(a => a.Ma == cbb_manhanvien.Text).ID;
@@ -552,18 +556,21 @@ namespace _3.PL.Views
             {
                 GetIdHoaDon = Guid.Parse(dtg_showhoadon.CurrentRow.Cells[0].Value.ToString());
                 tbx_mahoadon.Text = dtg_showhoadon.CurrentRow.Cells[1].Value.ToString();
-                dtp_ngaytaohoadon.Value = Convert.ToDateTime(dtg_showhoadon.CurrentRow.Cells[4].Value.ToString());
                 tbx_tennguoinhan.Text = dtg_showhoadon.CurrentRow.Cells[5].Value.ToString();
                 tbx_sdtnguoinhan.Text = dtg_showhoadon.CurrentRow.Cells[6].Value.ToString();
                 cbb_manhanvien.Text = dtg_showhoadon.CurrentRow.Cells[2].Value.ToString();
                 tbx_sodienthoaikh.Text = dtg_showhoadon.CurrentRow.Cells[3].Value.ToString();
                 tbx_mavoucher.Text = dtg_showhoadon.CurrentRow.Cells[7].Value.ToString();
-                string tt = dtg_showhoadon.CurrentRow.Cells[8].Value.ToString();
-                if (tt == "1")
+                string trangthaii = dtg_showhoadon.CurrentRow.Cells[8].Value.ToString();
+                if (trangthaii == "Đã thanh toán")
                 {
                     rbt_dathanhtoan.Checked = true;
+
                 }
-                else rbt_chuathanhtoan.Checked = true;
+                else
+                {
+                    rbt_chuathanhtoan.Checked = true;
+                }
             }
             catch (Exception)
             {
@@ -607,7 +614,7 @@ namespace _3.PL.Views
                     hdctv.IDHoaDon = hoaDonService.GetHoaDon().FirstOrDefault(a => a.Ma == tbx_mahoadon.Text).ID;
                     hdctv.SoLuong = Convert.ToInt32(nud_hdctsoluong.Value);
                     hdctv.GiaTruoc = Convert.ToDecimal(tbx_giagoc.Text);
-                    hdctv.NgayTao = dtp_ngaytaohoadon.Value;
+                    hdctv.NgayTao = DateTime.Now;
                     hdctv.GiaSauKhiGiam = Convert.ToDecimal(tbx_thanhtien.Text);
                     if (rbt_dathanhtoan.Checked)
                     {
@@ -780,27 +787,36 @@ namespace _3.PL.Views
         {
             try
             {
-                HoaDonChiTietView hoadonchitetxsmax = new HoaDonChiTietView();
-                hoadonchitetxsmax.TinhTrang = 1;
-                hoadonchitetxsmax.ID = GetIdHoaDonChiTiet;
-                MessageBox.Show(hoaDonChiTietService.UpdateTrangThai(hoadonchitetxsmax));
-                ImeiDaBanView i = new ImeiDaBanView();
-                i.ID = Guid.NewGuid();
-                i.IDHoaDonChiTiet = GetIdHoaDonChiTiet;
-                i.SoEmei = tbx_soimeidaban.Text;
-                //
-                // Update sl sản phẩm
-                ChiTietLaptopView gh = new ChiTietLaptopView();
-                gh.ID = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == getMaCTLT).ID;
-                gh.SoLuong = 0;
-                chiTietLaptopService.UpdateSoLuong(gh);
-                // Update trạng thái imei là đã bán
-                ImeiView anhs = new ImeiView();
-                anhs.ID = imeiService.GetImei().FirstOrDefault(a => a.MaCTLT == getMaCTLT).ID;
-                imeiService.UpdateTrangThai(anhs);
-                // thêm vào bảng imei đã bán
-                imeiDaBanService.Add(i);
-                LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietNoJoin().Where(a => a.TinhTrang == 0 && a.NgayTao.Day == DateTime.Now.Day).ToList());
+                var linh = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == getMaCTLT);
+                if (linh.SoLuong <= 0)
+                {
+                    MessageBox.Show("Hãy sản phẩm đã hết hàng", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    HoaDonChiTietView hoadonchitetxsmax = new HoaDonChiTietView();
+                    hoadonchitetxsmax.TinhTrang = 1;
+                    hoadonchitetxsmax.ID = GetIdHoaDonChiTiet;
+                    MessageBox.Show(hoaDonChiTietService.UpdateTrangThai(hoadonchitetxsmax));
+                    ImeiDaBanView i = new ImeiDaBanView();
+                    i.ID = Guid.NewGuid();
+                    i.IDHoaDonChiTiet = GetIdHoaDonChiTiet;
+                    i.SoEmei = tbx_soimeidaban.Text;
+                    //
+                    // Update sl sản phẩm
+                    ChiTietLaptopView gh = new ChiTietLaptopView();
+                    gh.ID = chiTietLaptopService.GetChiTietLaptop().FirstOrDefault(a => a.Ma == getMaCTLT).ID;
+                    gh.SoLuong = 0;
+                    chiTietLaptopService.UpdateSoLuong(gh);
+                    // Update trạng thái imei là đã bán
+                    ImeiView anhs = new ImeiView();
+                    anhs.ID = imeiService.GetImei().FirstOrDefault(a => a.MaCTLT == getMaCTLT).ID;
+                    imeiService.UpdateTrangThai(anhs);
+                    // thêm vào bảng imei đã bán
+                    imeiDaBanService.Add(i);
+                    LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietNoJoin().Where(a => a.TinhTrang == 0 && a.NgayTao.Day == DateTime.Now.Day).ToList());
+                }
+
 
             }
             catch (Exception)
