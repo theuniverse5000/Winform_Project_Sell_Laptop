@@ -492,7 +492,8 @@ namespace _3.PL.Views
                     else
                     {
                         MessageBox.Show(hoaDonService.Add(hoadon));
-                        LoadDataHoaDon(hoaDonService.GetHoaDon());
+                        LoadDataHoaDon(hoaDonService.GetHoaDon().Where(a => a.NgayTao.Day == DateTime.Now.Day).ToList());
+                      
                         voucherService.UpdateSoLuong(tbx_mavoucher.Text);
 
                     }
@@ -524,7 +525,8 @@ namespace _3.PL.Views
                     hoadonx.TinhTrang = 1;
                 }
                 MessageBox.Show(hoaDonService.Update(hoadonx));
-                LoadDataHoaDon(hoaDonService.GetHoaDon());
+                LoadDataHoaDon(hoaDonService.GetHoaDon().Where(a => a.NgayTao.Day == DateTime.Now.Day).ToList());
+              
             }
             catch (Exception)
             {
@@ -541,7 +543,8 @@ namespace _3.PL.Views
                 if (dl == DialogResult.Yes)
                 {
                     MessageBox.Show(hoaDonService.Delete(hoadonx));
-                    LoadDataHoaDon(hoaDonService.GetHoaDon());
+                    LoadDataHoaDon(hoaDonService.GetHoaDon().Where(a =>a.NgayTao.Day == DateTime.Now.Day).ToList());
+                  
                 }
             }
             catch (Exception)
@@ -620,9 +623,7 @@ namespace _3.PL.Views
                     {
                         hdctv.TinhTrang = 1;
                         MessageBox.Show(hoaDonChiTietService.Add(hdctv));
-                        LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietNoJoin());
-
-                        LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet());
+                        LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet().Where(a =>a.NgayTao.Day == DateTime.Now.Day).ToList());
 
                         // Update sl sản phẩm
                         ChiTietLaptopView gh = new ChiTietLaptopView();
@@ -643,9 +644,7 @@ namespace _3.PL.Views
                     {
                         hdctv.TinhTrang = 0;
                         MessageBox.Show(hoaDonChiTietService.Add(hdctv));
-                        LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTietNoJoin());
-
-                        LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet());
+                        LoadDataHoaDonChiTiet(hoaDonChiTietService.GetHoaDonChiTiet().Where(a =>a.NgayTao.Day == DateTime.Now.Day).ToList());
                     }
 
 
