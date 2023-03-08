@@ -70,10 +70,8 @@
             this.btn_suanhanvien = new System.Windows.Forms.Button();
             this.btn_xoanhanvien = new System.Windows.Forms.Button();
             this.btn_themnhanvien = new System.Windows.Forms.Button();
-            this.tbx_manhanvien = new System.Windows.Forms.TextBox();
             this.tbx_hotennhanvien = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabp_voucher = new System.Windows.Forms.TabPage();
             this.tbx_soluongvoucher = new System.Windows.Forms.TextBox();
             this.tbx_giatrivoucher = new System.Windows.Forms.TextBox();
@@ -367,10 +365,8 @@
             this.tabp_nhanvien.Controls.Add(this.btn_suanhanvien);
             this.tabp_nhanvien.Controls.Add(this.btn_xoanhanvien);
             this.tabp_nhanvien.Controls.Add(this.btn_themnhanvien);
-            this.tabp_nhanvien.Controls.Add(this.tbx_manhanvien);
             this.tabp_nhanvien.Controls.Add(this.tbx_hotennhanvien);
             this.tabp_nhanvien.Controls.Add(this.label5);
-            this.tabp_nhanvien.Controls.Add(this.label6);
             this.tabp_nhanvien.Location = new System.Drawing.Point(4, 33);
             this.tabp_nhanvien.Name = "tabp_nhanvien";
             this.tabp_nhanvien.Padding = new System.Windows.Forms.Padding(3);
@@ -381,9 +377,9 @@
             // 
             // tbx_emailnhanvien
             // 
-            this.tbx_emailnhanvien.Location = new System.Drawing.Point(123, 177);
+            this.tbx_emailnhanvien.Location = new System.Drawing.Point(92, 177);
             this.tbx_emailnhanvien.Name = "tbx_emailnhanvien";
-            this.tbx_emailnhanvien.Size = new System.Drawing.Size(122, 29);
+            this.tbx_emailnhanvien.Size = new System.Drawing.Size(153, 29);
             this.tbx_emailnhanvien.TabIndex = 48;
             // 
             // label21
@@ -432,16 +428,16 @@
             // 
             // tbx_diachinhanvien
             // 
-            this.tbx_diachinhanvien.Location = new System.Drawing.Point(122, 100);
+            this.tbx_diachinhanvien.Location = new System.Drawing.Point(91, 100);
             this.tbx_diachinhanvien.Name = "tbx_diachinhanvien";
-            this.tbx_diachinhanvien.Size = new System.Drawing.Size(122, 29);
+            this.tbx_diachinhanvien.Size = new System.Drawing.Size(153, 29);
             this.tbx_diachinhanvien.TabIndex = 42;
             // 
             // tbx_sdtnhanvien
             // 
-            this.tbx_sdtnhanvien.Location = new System.Drawing.Point(122, 136);
+            this.tbx_sdtnhanvien.Location = new System.Drawing.Point(91, 136);
             this.tbx_sdtnhanvien.Name = "tbx_sdtnhanvien";
-            this.tbx_sdtnhanvien.Size = new System.Drawing.Size(122, 29);
+            this.tbx_sdtnhanvien.Size = new System.Drawing.Size(153, 29);
             this.tbx_sdtnhanvien.TabIndex = 41;
             this.tbx_sdtnhanvien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbx_sdtnhanvien_KeyPress);
             // 
@@ -465,9 +461,9 @@
             // 
             // tbx_matkhaunhanvien
             // 
-            this.tbx_matkhaunhanvien.Location = new System.Drawing.Point(122, 223);
+            this.tbx_matkhaunhanvien.Location = new System.Drawing.Point(91, 223);
             this.tbx_matkhaunhanvien.Name = "tbx_matkhaunhanvien";
-            this.tbx_matkhaunhanvien.Size = new System.Drawing.Size(122, 29);
+            this.tbx_matkhaunhanvien.Size = new System.Drawing.Size(153, 29);
             this.tbx_matkhaunhanvien.TabIndex = 38;
             // 
             // label11
@@ -539,18 +535,11 @@
             this.btn_themnhanvien.UseVisualStyleBackColor = true;
             this.btn_themnhanvien.Click += new System.EventHandler(this.btn_themnhanvien_Click);
             // 
-            // tbx_manhanvien
-            // 
-            this.tbx_manhanvien.Location = new System.Drawing.Point(122, 35);
-            this.tbx_manhanvien.Name = "tbx_manhanvien";
-            this.tbx_manhanvien.Size = new System.Drawing.Size(122, 29);
-            this.tbx_manhanvien.TabIndex = 27;
-            // 
             // tbx_hotennhanvien
             // 
-            this.tbx_hotennhanvien.Location = new System.Drawing.Point(122, 68);
+            this.tbx_hotennhanvien.Location = new System.Drawing.Point(91, 68);
             this.tbx_hotennhanvien.Name = "tbx_hotennhanvien";
-            this.tbx_hotennhanvien.Size = new System.Drawing.Size(122, 29);
+            this.tbx_hotennhanvien.Size = new System.Drawing.Size(153, 29);
             this.tbx_hotennhanvien.TabIndex = 26;
             // 
             // label5
@@ -561,15 +550,6 @@
             this.label5.Size = new System.Drawing.Size(61, 21);
             this.label5.TabIndex = 25;
             this.label5.Text = "Họ Tên";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 43);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 21);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Mã";
             // 
             // tabp_voucher
             // 
@@ -601,7 +581,7 @@
             // 
             this.tbx_soluongvoucher.Location = new System.Drawing.Point(143, 265);
             this.tbx_soluongvoucher.Name = "tbx_soluongvoucher";
-            this.tbx_soluongvoucher.Size = new System.Drawing.Size(196, 29);
+            this.tbx_soluongvoucher.Size = new System.Drawing.Size(72, 29);
             this.tbx_soluongvoucher.TabIndex = 66;
             this.tbx_soluongvoucher.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbx_soluongvoucher_KeyPress);
             // 
@@ -810,10 +790,8 @@
         private Button btn_suanhanvien;
         private Button btn_xoanhanvien;
         private Button btn_themnhanvien;
-        private TextBox tbx_manhanvien;
         private TextBox tbx_hotennhanvien;
         private Label label5;
-        private Label label6;
         private NumericUpDown nud_ttnhanvien;
         private TabPage tabp_voucher;
         private Label label15;

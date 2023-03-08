@@ -25,17 +25,16 @@ namespace _1.DAL.Models
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<ThuocTinh> ThuocTinhs { get; set; }
         public virtual DbSet<Voucher> Vouchers { get; set; }
-        public virtual DbSet<Imei> Imeis { get; set; }
         public virtual DbSet<ImeiDaBan> ImeiDaBans { get; set; }
         public virtual DbSet<HinhAnh> HinhAnhs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //base.OnConfiguring((optionsBuilder.
-            //    UseSqlServer("Data Source=DESKTOP-3S9P0UC\\SQLEXPRESS;Initial Catalog=QuanLyBanLaptop_da1;" +
-            //    "Persist Security Info=True;User ID=theuniverse;Password=theuniverse")));
-            base.OnConfiguring((optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=QuanLyBanLaptop_da1;Trusted_Connection=True;")));
-            
+            base.OnConfiguring((optionsBuilder.
+                UseSqlServer("Data Source=DESKTOP-3S9P0UC\\SQLEXPRESS;Initial Catalog=QuanLyBanLaptop_da1;" +
+                "Persist Security Info=True;User ID=theuniverse;Password=theuniverse")));
+            //  base.OnConfiguring((optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=QuanLyBanLaptop_da1;Trusted_Connection=True;")));
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -56,7 +55,6 @@ namespace _1.DAL.Models
             modelBuilder.ApplyConfiguration(new NhanVienConfigurations());
             modelBuilder.ApplyConfiguration(new ThuocTinhConfigurations());
             modelBuilder.ApplyConfiguration(new VoucherConfigurations());
-            modelBuilder.ApplyConfiguration(new ImeiConfigurations());
             modelBuilder.ApplyConfiguration(new ImeiDaBanConfigurations());
             modelBuilder.ApplyConfiguration(new HinhAnhConfigurations());
         }

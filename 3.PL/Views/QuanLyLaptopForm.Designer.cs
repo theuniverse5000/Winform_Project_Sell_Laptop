@@ -51,15 +51,12 @@
             this.btn_themctlt = new System.Windows.Forms.Button();
             this.tp_laptop = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.tbx_linkanhhh = new System.Windows.Forms.TextBox();
+            this.cbb_mahinhanh = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.dtg_showlaptop = new System.Windows.Forms.DataGridView();
-            this.btn_sualt = new System.Windows.Forms.Button();
             this.btn_xoalt = new System.Windows.Forms.Button();
-            this.tbx_malaptop = new System.Windows.Forms.TextBox();
             this.tbx_tenlaptop = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.btn_themlt = new System.Windows.Forms.Button();
             this.tp_thuoctinh = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -88,12 +85,9 @@
             this.tp_nsx = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtg_shownsx = new System.Windows.Forms.DataGridView();
-            this.btn_suansx = new System.Windows.Forms.Button();
             this.btn_xoansx = new System.Windows.Forms.Button();
-            this.tbx_mansx = new System.Windows.Forms.TextBox();
             this.tbx_tennsx = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.btn_themnsx = new System.Windows.Forms.Button();
             this.tp_mausac = new System.Windows.Forms.TabPage();
             this.btn_suams = new System.Windows.Forms.Button();
@@ -105,22 +99,12 @@
             this.tbx_tenms = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabctrl_quanlylaptop = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dtg_showimei = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.rbt_trangthai0 = new System.Windows.Forms.RadioButton();
-            this.rbt_trangthai1 = new System.Windows.Forms.RadioButton();
-            this.btn_themimei = new System.Windows.Forms.Button();
-            this.tbx_imei_mactlt = new System.Windows.Forms.TextBox();
-            this.tbx_soimei = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tbx_hinhanh = new System.Windows.Forms.TextBox();
             this.dtg_hinhanh = new System.Windows.Forms.DataGridView();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.tbx_linkanh = new System.Windows.Forms.TextBox();
             this.tbx_tenanh = new System.Windows.Forms.TextBox();
             this.tbx_maanh = new System.Windows.Forms.TextBox();
             this.picb_anhlaptop = new System.Windows.Forms.PictureBox();
@@ -128,6 +112,7 @@
             this.btn_xoaanh = new System.Windows.Forms.Button();
             this.btn_suaanh = new System.Windows.Forms.Button();
             this.btn_themanh = new System.Windows.Forms.Button();
+            this.ofd_chooseimage = new System.Windows.Forms.OpenFileDialog();
             this.tp_chitietlaptop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_showchitietlaptop)).BeginInit();
             this.tp_laptop.SuspendLayout();
@@ -145,9 +130,6 @@
             this.tp_mausac.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_showmausac)).BeginInit();
             this.tabctrl_quanlylaptop.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtg_showimei)).BeginInit();
-            this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_hinhanh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picb_anhlaptop)).BeginInit();
@@ -187,8 +169,7 @@
             // 
             this.tbx_soluongctlt.Location = new System.Drawing.Point(130, 208);
             this.tbx_soluongctlt.Name = "tbx_soluongctlt";
-            this.tbx_soluongctlt.ReadOnly = true;
-            this.tbx_soluongctlt.Size = new System.Drawing.Size(27, 29);
+            this.tbx_soluongctlt.Size = new System.Drawing.Size(44, 29);
             this.tbx_soluongctlt.TabIndex = 36;
             this.tbx_soluongctlt.Text = "1";
             this.tbx_soluongctlt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbx_soluongctlt_KeyPress);
@@ -381,15 +362,12 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Controls.Add(this.tbx_linkanhhh);
+            this.panel6.Controls.Add(this.cbb_mahinhanh);
             this.panel6.Controls.Add(this.label26);
             this.panel6.Controls.Add(this.dtg_showlaptop);
-            this.panel6.Controls.Add(this.btn_sualt);
             this.panel6.Controls.Add(this.btn_xoalt);
-            this.panel6.Controls.Add(this.tbx_malaptop);
             this.panel6.Controls.Add(this.tbx_tenlaptop);
             this.panel6.Controls.Add(this.label11);
-            this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.btn_themlt);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 3);
@@ -397,21 +375,22 @@
             this.panel6.Size = new System.Drawing.Size(985, 539);
             this.panel6.TabIndex = 2;
             // 
-            // tbx_linkanhhh
+            // cbb_mahinhanh
             // 
-            this.tbx_linkanhhh.Location = new System.Drawing.Point(93, 154);
-            this.tbx_linkanhhh.Name = "tbx_linkanhhh";
-            this.tbx_linkanhhh.Size = new System.Drawing.Size(226, 29);
-            this.tbx_linkanhhh.TabIndex = 9;
+            this.cbb_mahinhanh.FormattingEnabled = true;
+            this.cbb_mahinhanh.Location = new System.Drawing.Point(93, 154);
+            this.cbb_mahinhanh.Name = "cbb_mahinhanh";
+            this.cbb_mahinhanh.Size = new System.Drawing.Size(159, 29);
+            this.cbb_mahinhanh.TabIndex = 10;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(10, 154);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(64, 21);
+            this.label26.Size = new System.Drawing.Size(76, 21);
             this.label26.TabIndex = 8;
-            this.label26.Text = "Mã ảnh";
+            this.label26.Text = "Hình ảnh";
             // 
             // dtg_showlaptop
             // 
@@ -425,17 +404,6 @@
             this.dtg_showlaptop.TabIndex = 7;
             this.dtg_showlaptop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_showlaptop_CellClick);
             // 
-            // btn_sualt
-            // 
-            this.btn_sualt.ForeColor = System.Drawing.Color.Red;
-            this.btn_sualt.Location = new System.Drawing.Point(4, 254);
-            this.btn_sualt.Name = "btn_sualt";
-            this.btn_sualt.Size = new System.Drawing.Size(120, 32);
-            this.btn_sualt.TabIndex = 6;
-            this.btn_sualt.Text = "Sửa";
-            this.btn_sualt.UseVisualStyleBackColor = true;
-            this.btn_sualt.Click += new System.EventHandler(this.btn_sualt_Click);
-            // 
             // btn_xoalt
             // 
             this.btn_xoalt.ForeColor = System.Drawing.Color.Red;
@@ -446,13 +414,6 @@
             this.btn_xoalt.Text = "Xóa";
             this.btn_xoalt.UseVisualStyleBackColor = true;
             this.btn_xoalt.Click += new System.EventHandler(this.btn_xoalt_Click);
-            // 
-            // tbx_malaptop
-            // 
-            this.tbx_malaptop.Location = new System.Drawing.Point(93, 52);
-            this.tbx_malaptop.Name = "tbx_malaptop";
-            this.tbx_malaptop.Size = new System.Drawing.Size(226, 29);
-            this.tbx_malaptop.TabIndex = 4;
             // 
             // tbx_tenlaptop
             // 
@@ -469,15 +430,6 @@
             this.label11.Size = new System.Drawing.Size(36, 21);
             this.label11.TabIndex = 2;
             this.label11.Text = "Tên";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(51, 52);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(33, 21);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Mã";
             // 
             // btn_themlt
             // 
@@ -754,12 +706,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.dtg_shownsx);
-            this.panel2.Controls.Add(this.btn_suansx);
             this.panel2.Controls.Add(this.btn_xoansx);
-            this.panel2.Controls.Add(this.tbx_mansx);
             this.panel2.Controls.Add(this.tbx_tennsx);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.btn_themnsx);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
@@ -780,17 +729,6 @@
             this.dtg_shownsx.TabIndex = 7;
             this.dtg_shownsx.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_shownsx_CellClick);
             // 
-            // btn_suansx
-            // 
-            this.btn_suansx.ForeColor = System.Drawing.Color.Red;
-            this.btn_suansx.Location = new System.Drawing.Point(85, 239);
-            this.btn_suansx.Name = "btn_suansx";
-            this.btn_suansx.Size = new System.Drawing.Size(129, 43);
-            this.btn_suansx.TabIndex = 6;
-            this.btn_suansx.Text = "Sửa";
-            this.btn_suansx.UseVisualStyleBackColor = true;
-            this.btn_suansx.Click += new System.EventHandler(this.btn_suansx_Click);
-            // 
             // btn_xoansx
             // 
             this.btn_xoansx.ForeColor = System.Drawing.Color.Red;
@@ -801,13 +739,6 @@
             this.btn_xoansx.Text = "Xóa";
             this.btn_xoansx.UseVisualStyleBackColor = true;
             this.btn_xoansx.Click += new System.EventHandler(this.btn_xoansx_Click);
-            // 
-            // tbx_mansx
-            // 
-            this.tbx_mansx.Location = new System.Drawing.Point(85, 34);
-            this.tbx_mansx.Name = "tbx_mansx";
-            this.tbx_mansx.Size = new System.Drawing.Size(226, 29);
-            this.tbx_mansx.TabIndex = 4;
             // 
             // tbx_tennsx
             // 
@@ -824,15 +755,6 @@
             this.label1.Size = new System.Drawing.Size(36, 21);
             this.label1.TabIndex = 2;
             this.label1.Text = "Tên";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 34);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 21);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Mã";
             // 
             // btn_themnsx
             // 
@@ -950,7 +872,6 @@
             this.tabctrl_quanlylaptop.Controls.Add(this.tp_thuoctinh);
             this.tabctrl_quanlylaptop.Controls.Add(this.tp_laptop);
             this.tabctrl_quanlylaptop.Controls.Add(this.tp_chitietlaptop);
-            this.tabctrl_quanlylaptop.Controls.Add(this.tabPage1);
             this.tabctrl_quanlylaptop.Controls.Add(this.tabPage2);
             this.tabctrl_quanlylaptop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabctrl_quanlylaptop.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
@@ -961,119 +882,14 @@
             this.tabctrl_quanlylaptop.Size = new System.Drawing.Size(999, 582);
             this.tabctrl_quanlylaptop.TabIndex = 0;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.dtg_showimei);
-            this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Controls.Add(this.btn_themimei);
-            this.tabPage1.Controls.Add(this.tbx_imei_mactlt);
-            this.tabPage1.Controls.Add(this.tbx_soimei);
-            this.tabPage1.Controls.Add(this.label19);
-            this.tabPage1.Controls.Add(this.label20);
-            this.tabPage1.Location = new System.Drawing.Point(4, 33);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(991, 545);
-            this.tabPage1.TabIndex = 7;
-            this.tabPage1.Text = "Imei";
-            // 
-            // dtg_showimei
-            // 
-            this.dtg_showimei.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dtg_showimei.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_showimei.Location = new System.Drawing.Point(425, 49);
-            this.dtg_showimei.Margin = new System.Windows.Forms.Padding(2);
-            this.dtg_showimei.Name = "dtg_showimei";
-            this.dtg_showimei.RowHeadersWidth = 62;
-            this.dtg_showimei.RowTemplate.Height = 33;
-            this.dtg_showimei.Size = new System.Drawing.Size(361, 435);
-            this.dtg_showimei.TabIndex = 11;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.rbt_trangthai0);
-            this.panel1.Controls.Add(this.rbt_trangthai1);
-            this.panel1.Location = new System.Drawing.Point(8, 130);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
-            this.panel1.TabIndex = 10;
-            // 
-            // rbt_trangthai0
-            // 
-            this.rbt_trangthai0.AutoSize = true;
-            this.rbt_trangthai0.Location = new System.Drawing.Point(103, 3);
-            this.rbt_trangthai0.Name = "rbt_trangthai0";
-            this.rbt_trangthai0.Size = new System.Drawing.Size(80, 25);
-            this.rbt_trangthai0.TabIndex = 1;
-            this.rbt_trangthai0.TabStop = true;
-            this.rbt_trangthai0.Text = "Đã bán";
-            this.rbt_trangthai0.UseVisualStyleBackColor = true;
-            // 
-            // rbt_trangthai1
-            // 
-            this.rbt_trangthai1.AutoSize = true;
-            this.rbt_trangthai1.Location = new System.Drawing.Point(0, 3);
-            this.rbt_trangthai1.Name = "rbt_trangthai1";
-            this.rbt_trangthai1.Size = new System.Drawing.Size(97, 25);
-            this.rbt_trangthai1.TabIndex = 0;
-            this.rbt_trangthai1.TabStop = true;
-            this.rbt_trangthai1.Text = "Chưa bán";
-            this.rbt_trangthai1.UseVisualStyleBackColor = true;
-            // 
-            // btn_themimei
-            // 
-            this.btn_themimei.BackColor = System.Drawing.Color.White;
-            this.btn_themimei.ForeColor = System.Drawing.Color.Red;
-            this.btn_themimei.Location = new System.Drawing.Point(256, 180);
-            this.btn_themimei.Name = "btn_themimei";
-            this.btn_themimei.Size = new System.Drawing.Size(75, 32);
-            this.btn_themimei.TabIndex = 9;
-            this.btn_themimei.Text = "Thêm";
-            this.btn_themimei.UseVisualStyleBackColor = false;
-            this.btn_themimei.Click += new System.EventHandler(this.btn_themimei_Click);
-            // 
-            // tbx_imei_mactlt
-            // 
-            this.tbx_imei_mactlt.Location = new System.Drawing.Point(184, 35);
-            this.tbx_imei_mactlt.Name = "tbx_imei_mactlt";
-            this.tbx_imei_mactlt.Size = new System.Drawing.Size(236, 29);
-            this.tbx_imei_mactlt.TabIndex = 8;
-            // 
-            // tbx_soimei
-            // 
-            this.tbx_soimei.Location = new System.Drawing.Point(184, 80);
-            this.tbx_soimei.Name = "tbx_soimei";
-            this.tbx_soimei.Size = new System.Drawing.Size(236, 29);
-            this.tbx_soimei.TabIndex = 7;
-            this.tbx_soimei.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbx_soimei_KeyPress);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(22, 80);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(66, 21);
-            this.label19.TabIndex = 6;
-            this.label19.Text = "Số Emei";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(22, 35);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(138, 21);
-            this.label20.TabIndex = 5;
-            this.label20.Text = "Mã chi tiết laptop";
-            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.tbx_hinhanh);
             this.tabPage2.Controls.Add(this.dtg_hinhanh);
             this.tabPage2.Controls.Add(this.label25);
             this.tabPage2.Controls.Add(this.label24);
             this.tabPage2.Controls.Add(this.label23);
-            this.tabPage2.Controls.Add(this.tbx_linkanh);
             this.tabPage2.Controls.Add(this.tbx_tenanh);
             this.tabPage2.Controls.Add(this.tbx_maanh);
             this.tabPage2.Controls.Add(this.picb_anhlaptop);
@@ -1088,6 +904,13 @@
             this.tabPage2.Size = new System.Drawing.Size(991, 545);
             this.tabPage2.TabIndex = 8;
             this.tabPage2.Text = "Ảnh sản phẩm";
+            // 
+            // tbx_hinhanh
+            // 
+            this.tbx_hinhanh.Location = new System.Drawing.Point(514, 139);
+            this.tbx_hinhanh.Name = "tbx_hinhanh";
+            this.tbx_hinhanh.Size = new System.Drawing.Size(204, 29);
+            this.tbx_hinhanh.TabIndex = 12;
             // 
             // dtg_hinhanh
             // 
@@ -1107,9 +930,9 @@
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(432, 142);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(71, 21);
+            this.label25.Size = new System.Drawing.Size(76, 21);
             this.label25.TabIndex = 10;
-            this.label25.Text = "Link ảnh";
+            this.label25.Text = "Hình ảnh";
             // 
             // label24
             // 
@@ -1129,18 +952,9 @@
             this.label23.TabIndex = 8;
             this.label23.Text = "Mã";
             // 
-            // tbx_linkanh
-            // 
-            this.tbx_linkanh.Location = new System.Drawing.Point(504, 141);
-            this.tbx_linkanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbx_linkanh.Name = "tbx_linkanh";
-            this.tbx_linkanh.Size = new System.Drawing.Size(425, 29);
-            this.tbx_linkanh.TabIndex = 7;
-            this.tbx_linkanh.TextChanged += new System.EventHandler(this.tbx_linkanh_TextChanged);
-            // 
             // tbx_tenanh
             // 
-            this.tbx_tenanh.Location = new System.Drawing.Point(504, 94);
+            this.tbx_tenanh.Location = new System.Drawing.Point(514, 92);
             this.tbx_tenanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbx_tenanh.Name = "tbx_tenanh";
             this.tbx_tenanh.Size = new System.Drawing.Size(155, 29);
@@ -1148,7 +962,7 @@
             // 
             // tbx_maanh
             // 
-            this.tbx_maanh.Location = new System.Drawing.Point(504, 42);
+            this.tbx_maanh.Location = new System.Drawing.Point(514, 42);
             this.tbx_maanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbx_maanh.Name = "tbx_maanh";
             this.tbx_maanh.Size = new System.Drawing.Size(155, 29);
@@ -1215,6 +1029,10 @@
             this.btn_themanh.UseVisualStyleBackColor = false;
             this.btn_themanh.Click += new System.EventHandler(this.btn_themanh_Click);
             // 
+            // ofd_chooseimage
+            // 
+            this.ofd_chooseimage.FileName = "ofd_chooseimage";
+            // 
             // QuanLyLaptopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1249,11 +1067,6 @@
             this.tp_mausac.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_showmausac)).EndInit();
             this.tabctrl_quanlylaptop.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtg_showimei)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_hinhanh)).EndInit();
@@ -1283,12 +1096,9 @@
         private TabPage tp_laptop;
         private Panel panel6;
         private DataGridView dtg_showlaptop;
-        private Button btn_sualt;
         private Button btn_xoalt;
-        private TextBox tbx_malaptop;
         private TextBox tbx_tenlaptop;
         private Label label11;
-        private Label label12;
         private Button btn_themlt;
         private TabPage tp_thuoctinh;
         private Panel panel5;
@@ -1317,12 +1127,9 @@
         private TabPage tp_nsx;
         private Panel panel2;
         private DataGridView dtg_shownsx;
-        private Button btn_suansx;
         private Button btn_xoansx;
-        private TextBox tbx_mansx;
         private TextBox tbx_tennsx;
         private Label label1;
-        private Label label4;
         private Button btn_themnsx;
         private TabPage tp_mausac;
         private DataGridView dtg_showmausac;
@@ -1339,21 +1146,10 @@
         private TextBox tbx_machitietlaptop;
         private Label label18;
         private TextBox tbx_soluongctlt;
-        private TabPage tabPage1;
-        private TextBox tbx_imei_mactlt;
-        private TextBox tbx_soimei;
-        private Label label19;
-        private Label label20;
-        private Button btn_themimei;
-        private Panel panel1;
-        private RadioButton rbt_trangthai0;
-        private RadioButton rbt_trangthai1;
-        private DataGridView dtg_showimei;
         private TabPage tabPage2;
         private Label label25;
         private Label label24;
         private Label label23;
-        private TextBox tbx_linkanh;
         private TextBox tbx_tenanh;
         private TextBox tbx_maanh;
         private PictureBox picb_anhlaptop;
@@ -1362,7 +1158,9 @@
         private Button btn_suaanh;
         private Button btn_themanh;
         private DataGridView dtg_hinhanh;
-        private TextBox tbx_linkanhhh;
         private Label label26;
+        private OpenFileDialog ofd_chooseimage;
+        private TextBox tbx_hinhanh;
+        private ComboBox cbb_mahinhanh;
     }
 }

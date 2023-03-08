@@ -49,8 +49,7 @@ namespace _2.BUS.Service
                     {
                         ID = a.ID,
                         Ten = a.Ten,
-                        Ma = a.Ma,
-                        MaLaptop = b.Ma
+                        Ma = a.Ma
                     }
                        ).ToList();
             return listthuoctinh;

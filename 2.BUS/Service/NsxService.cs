@@ -14,16 +14,15 @@ namespace _2.BUS.Service
             if (nsxv == null) return "Thất bại";
             Nsx dell = new Nsx();
             dell.ID = nsxv.ID;
-            dell.Ma = nsxv.Ma;
             dell.Ten = nsxv.Ten;
             if (nsxRepositories.Add(dell)) return "Thành công";
             else return "Thất bại";
         }
 
-        public bool CheckMa(string ma)
+        public bool CheckTen(string ten)
         {
             var listn = nsxRepositories.GetNsx();
-            var t = listn.FirstOrDefault(a => a.Ma == ma);
+            var t = listn.FirstOrDefault(a => a.Ten == ten);
             if (t != null) return true;
             else return false;
         }
@@ -46,21 +45,20 @@ namespace _2.BUS.Service
                 select new NsxView
                 {
                     ID = a.ID,
-                    Ma = a.Ma,
                     Ten = a.Ten
                 }
                 ).ToList();
             return listnsx;
         }
 
-        public string Update(NsxView nsxv)
-        {
-            if (nsxv == null) return "Thất bại";
-            Nsx dell = new Nsx();
-            dell.ID = nsxv.ID;
-            dell.Ten = nsxv.Ten;
-            if (nsxRepositories.Update(dell)) return "Thành công";
-            else return "Thất bại";
-        }
+        //public string Update(NsxView nsxv)
+        //{
+        //    if (nsxv == null) return "Thất bại";
+        //    Nsx dell = new Nsx();
+        //    dell.ID = nsxv.ID;
+        //    dell.Ten = nsxv.Ten;
+        //    if (nsxRepositories.Update(dell)) return "Thành công";
+        //    else return "Thất bại";
+        //}
     }
 }

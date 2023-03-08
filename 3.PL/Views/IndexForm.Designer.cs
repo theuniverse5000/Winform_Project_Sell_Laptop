@@ -74,8 +74,8 @@
             this.tsmni_dangxuat,
             this.exitToolStripMenuItem});
             this.mni_username.Name = "mni_username";
-            this.mni_username.Size = new System.Drawing.Size(105, 29);
-            this.mni_username.Text = "Tài khoản";
+            this.mni_username.Size = new System.Drawing.Size(114, 29);
+            this.mni_username.Text = "Nhân Viên";
             // 
             // tsmni_dangxuat
             // 

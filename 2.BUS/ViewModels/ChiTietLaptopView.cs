@@ -24,8 +24,7 @@ namespace _2.BUS.ViewModels
         public string TenMauSac { get; set; }
         public string TenThuocTinh { get; set; }
         public string ThongSoGiaTri { get; set; }
-        public string SoImei { get; set; }
-        public string Linkanh { get; set; }
+        public byte[] HAnh { get; set; } = null!;
 
     }
 }

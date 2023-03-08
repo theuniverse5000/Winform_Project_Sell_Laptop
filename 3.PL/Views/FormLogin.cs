@@ -10,6 +10,7 @@ namespace _3.PL.Views
         INhanVienService nhanVienService;
         //  public static string Sdtnv = string.Empty;
         public static int CheckAdmin = 0;
+        public static string SdtNhanVien = "";
         public FormLogin()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace _3.PL.Views
         {
             if (nhanVienService.CheckQuanLy(tbx_username.Text, tbx_password.Text, "ql"))
             {
+                SdtNhanVien = tbx_username.Text;
                 CheckAdmin = 1;
                 //    Sdtnv = tbx_username.Text;
                 ntf_quanly.ShowBalloonTip(5000);
@@ -36,11 +38,13 @@ namespace _3.PL.Views
                 this.Hide();// ẩn form login
                 idf.ShowDialog();// show from index// được ưu tiên hiển thị
                 this.Show();// hiện form login
+
                 tbx_password.Text = "";
                 tbx_username.Text = "";
             }
             else if (nhanVienService.CheckSdtMkNhanVien(tbx_username.Text, tbx_password.Text))
             {
+                SdtNhanVien = tbx_username.Text;
                 CheckAdmin = 0;
                 //Sdtnv = tbx_username.Text;
                 ntf_nhanvien.ShowBalloonTip(5000);
@@ -48,6 +52,7 @@ namespace _3.PL.Views
                 this.Hide();// ẩn form login
                 idf.ShowDialog();// show from index// được ưu tiên hiển thị
                 this.Show();// hiện form login
+
                 tbx_password.Text = "";
                 tbx_username.Text = "";
             }

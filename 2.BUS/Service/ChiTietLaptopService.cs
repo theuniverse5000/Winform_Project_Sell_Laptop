@@ -14,7 +14,6 @@ namespace _2.BUS.Service
         INsxRepositories nsxRepositories = new NsxRepositories();
         IThuocTinhRepositories thuocTinhRepositories = new ThuocTinhRepositories();
         IGiaTriRepositories giaTriRepositories = new GiaTriRepositories();
-        IImeiRepositories imeiRepositories = new ImeiRepositories();
         IHinhAnhResponsitories hinhAnhResponsitories = new HinhAnhResponsitories();
         //   ILaptopService laptopService = new LaptopService();
         public string Add(ChiTietLaptopView ctltview)
@@ -52,7 +51,6 @@ namespace _2.BUS.Service
                          join g in laptopRepositories.GetLaptop() on a.IDLaptop equals g.ID
                          join e in thuocTinhRepositories.GetThuocTinh() on g.ID equals e.IDLaptop
                          join f in giaTriRepositories.GetGiaTri() on e.ID equals f.IDThuocTinh
-                         join h in imeiRepositories.GetImei() on a.ID equals h.IDChiTietLaptop
                          join i in hinhAnhResponsitories.getAll() on g.IDHinhAnh equals i.Id
                          select new ChiTietLaptopView
                          {
@@ -63,15 +61,12 @@ namespace _2.BUS.Service
                              GiaNhap = a.GiaNhap,
                              Giaban = a.Giaban,
                              MaMauSac = c.Ma,
-                             MaNsx = d.Ma,
-                             MaLaptop = g.Ma,
                              TenLaptop = g.Ten,
                              TenThuocTinh = e.Ten,
                              ThongSoGiaTri = f.ThongSo,
                              TenMauSac = c.Ten,
                              TenNsx = d.Ten,
-                             SoImei = h.SoEmei,
-                             Linkanh = i.LinkAnh
+                             HAnh = i.HAnh
                          }
 
                 ).ToList();
@@ -110,14 +105,12 @@ namespace _2.BUS.Service
                              GiaNhap = a.GiaNhap,
                              Giaban = a.Giaban,
                              MaMauSac = c.Ma,
-                             MaNsx = d.Ma,
-                             MaLaptop = g.Ma,
                              TenLaptop = g.Ten,
                              TenThuocTinh = e.Ten,
                              ThongSoGiaTri = f.ThongSo,
                              TenMauSac = c.Ten,
                              TenNsx = d.Ten,
-                             //     SoImei = h.SoEmei
+
                          }
 
                 ).ToList();

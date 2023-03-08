@@ -12,8 +12,8 @@ namespace _1.DAL.Configurations
             // builder.HasKey(x => new { x.IDHoaDon, x.IDChiTietLapTop });
             builder.HasKey(x => x.Id);
             builder.Property(a => a.Ma).HasColumnName("Ma").HasColumnType("varchar(30)").IsRequired();
-            builder.Property(p => p.Ten).HasColumnName("Ten").HasColumnType("nvarchar(50)").IsRequired();
-            builder.Property(p => p.LinkAnh).HasColumnName("LinkAnh").HasColumnType("nvarchar(max)").IsRequired();
+            builder.Property(p => p.Ten).HasColumnName("Ten").HasColumnType("nvarchar(100)").HasDefaultValue(null);
+            builder.Property(p => p.HAnh).HasColumnName("Anh").HasColumnType("image").IsRequired();
 
         }
     }

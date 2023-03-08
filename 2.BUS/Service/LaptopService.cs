@@ -17,18 +17,17 @@ namespace _2.BUS.Service
             if (ltv == null) return "Thất bại";
             Laptop x = new Laptop();
             x.ID = ltv.ID;
-            x.Ma = ltv.Ma;
             x.Ten = ltv.Ten;
             x.IDHinhAnh = ltv.IDHinhAnh;
-            
+
             if (laptopRepositories.Add(x)) return "Thành công";
             else return "Thất bại";
         }
 
-        public bool CheckMa(string ma)
+        public bool CheckTen(string ten)
         {
             var listlap = laptopRepositories.GetLaptop();
-            var x = listlap.FirstOrDefault(a => a.Ma == ma);
+            var x = listlap.FirstOrDefault(a => a.Ten == ten);
             if (x != null) return true;
             else return false;
         }
@@ -51,24 +50,23 @@ namespace _2.BUS.Service
                 select new LaptopView
                 {
                     ID = a.ID,
-                    Ma = a.Ma,
                     Ten = a.Ten,
-                    LinkAnh = b.LinkAnh,
+                    HAnh = b.HAnh
                 }
-                ) .ToList();
+                ).ToList();
             return listlt;
 
         }
 
-        public string UpdateLaptop(LaptopView ltv)
-        {
-            if (ltv == null) return "Thất bại";
-            Laptop x = new Laptop();
-            x.ID = ltv.ID;
-            x.Ten = ltv.Ten;
+        //public string UpdateLaptop(LaptopView ltv)
+        //{
+        //    if (ltv == null) return "Thất bại";
+        //    Laptop x = new Laptop();
+        //    x.ID = ltv.ID;
+        //    x.Ten = ltv.Ten;
 
-            if (laptopRepositories.Update(x)) return "Thành công";
-            else return "Thất bại";
-        }
+        //    if (laptopRepositories.Update(x)) return "Thành công";
+        //    else return "Thất bại";
+        //}
     }
 }

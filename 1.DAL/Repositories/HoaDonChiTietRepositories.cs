@@ -33,19 +33,7 @@ namespace _1.DAL.Repositories
             if (hdct == null) return false;
             var t = context.HoaDonChiTiets.Find(hdct.ID);
             t.SoLuong = hdct.SoLuong;
-            t.GiaTruoc = hdct.GiaTruoc;
-            t.GiaSauKhiGiam = hdct.GiaSauKhiGiam;
-            t.TinhTrang = hdct.TinhTrang;
-            context.Update(t);
-            context.SaveChanges();
-            return true;
-        }
-        public bool UpdateTrangThai(HoaDonChiTiet hdct)
-        {
-            if (hdct == null) return false;
-            var t = context.HoaDonChiTiets.Find(hdct.ID);
-
-            t.TinhTrang = hdct.TinhTrang;
+            // t.GiaTruoc = hdct.GiaTruoc;
             context.Update(t);
             context.SaveChanges();
             return true;

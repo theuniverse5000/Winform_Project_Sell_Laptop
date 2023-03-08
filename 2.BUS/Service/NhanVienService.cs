@@ -22,7 +22,6 @@ namespace _2.BUS.Service
             if (nvv == null) return "Thất bại";
             NhanVien t = new NhanVien();
             t.ID = nvv.ID;
-            t.Ma = nvv.Ma;
             t.HoTen = nvv.HoTen;
             t.DiaChi = nvv.DiaChi;
             t.SDT = nvv.SDT;
@@ -36,9 +35,9 @@ namespace _2.BUS.Service
             else return "Thất bại";
         }
 
-        public bool CheckMa(string ma)
+        public bool CheckSdt(string sdt)
         {
-            var thao = nhanVienRepositories.GetNhanVien().FirstOrDefault(a => a.Ma == ma);
+            var thao = nhanVienRepositories.GetNhanVien().FirstOrDefault(a => a.SDT == sdt);
             if (thao != null) return true;
             else return false;
         }
@@ -78,7 +77,6 @@ namespace _2.BUS.Service
                 select new NhanVienView
                 {
                     ID = a.ID,
-                    Ma = a.Ma,
                     HoTen = a.HoTen,
                     DiaChi = a.DiaChi,
                     SDT = a.SDT,

@@ -10,7 +10,6 @@ namespace _1.DAL.Configurations
         {
             builder.ToTable("NhaSanXuat");
             builder.HasKey(a => a.ID);
-            builder.Property(a => a.Ma).HasColumnName("Ma").HasColumnType("varchar(30)").IsRequired();
             builder.Property(a => a.Ten).HasColumnName("Ten").HasColumnType("nvarchar(50)").IsRequired();
         }
     }

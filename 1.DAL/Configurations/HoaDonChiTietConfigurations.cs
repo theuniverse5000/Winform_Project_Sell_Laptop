@@ -14,9 +14,7 @@ namespace _1.DAL.Configurations
             builder.Property(a => a.Ma).HasColumnName("Ma").HasColumnType("varchar(30)").IsRequired();
             builder.Property(p => p.SoLuong).HasColumnName("SoLuong").HasColumnType("int").IsRequired();
             builder.Property(p => p.GiaTruoc).HasColumnName("GiaTruoc").HasColumnType("money").IsRequired();
-            builder.Property(p => p.GiaSauKhiGiam).HasColumnName("GiaSauKhiGiam").HasColumnType("money").IsRequired();
             builder.Property(p => p.NgayTao).HasColumnName("NgayTao").HasColumnType("datetime").IsRequired();
-            builder.Property(a => a.TinhTrang).HasColumnName("TinhTrang").HasColumnType("int").IsRequired();
             builder.HasOne(p => p.ChiTietLaptop).WithMany().HasForeignKey(p => p.IDChiTietLapTop);
             builder.HasOne(p => p.HoaDon).WithMany().HasForeignKey(p => p.IDHoaDon);
         }

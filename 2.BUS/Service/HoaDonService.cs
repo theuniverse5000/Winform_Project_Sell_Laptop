@@ -62,12 +62,12 @@ namespace _2.BUS.Service
                     TenNguoiNhan = a.TenNguoiNhan,
                     TinhTrang = a.TinhTrang,
                     SdtNguoiNhan = a.SdtNguoiNhan,
-                    MaNhanVien = b.Ma,
                     MaVoucher = d.Ma,
                     GiaTriVoucher = d.GiaTri,
                     SdtKhachHang = c.SDT,
                     TenKhachHang = c.HoTen,
-                    TenNhanVien = b.HoTen
+                    TenNhanVien = b.HoTen,
+                    SDTNhanVien = b.SDT
                 }
                 ).ToList();
             return listhoadon;

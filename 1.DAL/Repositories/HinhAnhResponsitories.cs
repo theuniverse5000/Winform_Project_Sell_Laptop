@@ -1,10 +1,5 @@
 ﻿using _1.DAL.IRepositories;
 using _1.DAL.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _1.DAL.Repositories
 {
@@ -50,7 +45,10 @@ namespace _1.DAL.Repositories
         {
             try
             {
-                _DBcontext.HinhAnhs.Update(image);
+                var lan = _DBcontext.HinhAnhs.Find(image.Id);
+                lan.Ten = image.Ten;
+                lan.HAnh = image.HAnh;
+                _DBcontext.Update(lan);
                 _DBcontext.SaveChanges();
                 return true;
             }

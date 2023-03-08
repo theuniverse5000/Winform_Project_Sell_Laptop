@@ -47,7 +47,7 @@ namespace _3.PL.Views
         private void IndexForm_Load(object sender, EventArgs e)
         {
             //   LoadDataIndex();
-            //  mni_username.Text = Sdtnv;
+            mni_username.Text = FormLogin.SdtNhanVien;
             IBtn_quanlylaptop.Visible = false;
             IBtn_AdminForm.Visible = false;
             IBtn_thongke.Visible = false;

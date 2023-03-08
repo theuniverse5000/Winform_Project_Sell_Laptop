@@ -77,23 +77,22 @@ namespace _3.PL.Views
         {
             int sttnv = 0;
             dtg_shownhanvien.Rows.Clear();
-            dtg_shownhanvien.ColumnCount = 10;
+            dtg_shownhanvien.ColumnCount = 9;
             dtg_shownhanvien.Columns[0].Name = "ID";
             dtg_shownhanvien.Columns[0].Visible = false;
             dtg_shownhanvien.Columns[1].Name = "STT";
-            dtg_shownhanvien.Columns[2].Name = "Mã nhân viên";
-            dtg_shownhanvien.Columns[3].Name = "Họ tên";
-            dtg_shownhanvien.Columns[4].Name = "Địa Chỉ";
-            dtg_shownhanvien.Columns[5].Name = "SDT";
-            dtg_shownhanvien.Columns[6].Name = "Mật Khẩu";
-            dtg_shownhanvien.Columns[6].Visible = false;
-            dtg_shownhanvien.Columns[7].Name = "Trạng Thái";
-            dtg_shownhanvien.Columns[8].Name = "Mã cửa hàng";
-            dtg_shownhanvien.Columns[9].Name = "Mã chức vụ";
+            dtg_shownhanvien.Columns[2].Name = "Họ tên";
+            dtg_shownhanvien.Columns[3].Name = "Địa Chỉ";
+            dtg_shownhanvien.Columns[4].Name = "SDT";
+            dtg_shownhanvien.Columns[5].Name = "Mật Khẩu";
+            dtg_shownhanvien.Columns[5].Visible = false;
+            dtg_shownhanvien.Columns[6].Name = "Trạng Thái";
+            dtg_shownhanvien.Columns[7].Name = "Mã cửa hàng";
+            dtg_shownhanvien.Columns[8].Name = "Mã chức vụ";
             foreach (var s in listnhanvien)
             {
                 sttnv++;
-                dtg_shownhanvien.Rows.Add(s.ID, sttnv, s.Ma, s.HoTen, s.DiaChi, s.SDT, s.MatKhau, s.TrangThai, s.MaCuaHang, s.MaChucVu);
+                dtg_shownhanvien.Rows.Add(s.ID, sttnv, s.HoTen, s.DiaChi, s.SDT, s.MatKhau, s.TrangThai, s.MaCuaHang, s.MaChucVu);
             }
         }
         void LoadDataVoucher(List<VoucherView> listvc)
@@ -165,8 +164,6 @@ namespace _3.PL.Views
             }
             catch (Exception)
             {
-                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             }
 
         }
@@ -292,7 +289,7 @@ namespace _3.PL.Views
             }
             catch (Exception)
             {
-                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
 
         }
@@ -301,7 +298,7 @@ namespace _3.PL.Views
         {
             try
             {
-                if (tbx_manhanvien.Text == "" || tbx_hotennhanvien.Text == "" || tbx_diachinhanvien.Text == "" || tbx_sdtnhanvien.Text == "" || tbx_emailnhanvien.Text == "" || tbx_matkhaunhanvien.Text == "" || cbb_idcuahang.Text == "" || cbb_idchucvu.Text == "")
+                if (tbx_hotennhanvien.Text == "" || tbx_diachinhanvien.Text == "" || tbx_sdtnhanvien.Text == "" || tbx_emailnhanvien.Text == "" || tbx_matkhaunhanvien.Text == "" || cbb_idcuahang.Text == "" || cbb_idchucvu.Text == "")
                 {
                     MessageBox.Show("Hãy điền đủ thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -309,7 +306,6 @@ namespace _3.PL.Views
                 {
                     NhanVienView t = new NhanVienView();
                     t.ID = Guid.NewGuid();
-                    t.Ma = tbx_manhanvien.Text;
                     t.HoTen = tbx_hotennhanvien.Text;
                     t.DiaChi = tbx_diachinhanvien.Text;
                     t.Gmail = tbx_emailnhanvien.Text;
@@ -318,7 +314,7 @@ namespace _3.PL.Views
                     t.TrangThai = Convert.ToInt32(nud_ttnhanvien.Value);
                     t.IdCuaHang = cuaHangService.GetCuaHang().FirstOrDefault(a => a.Ma == cbb_idcuahang.Text).ID;
                     t.IdChucVu = chucVuService.GetChucVu().FirstOrDefault(a => a.Ma == cbb_idchucvu.Text).ID;
-                    if (nhanVienService.CheckMa(tbx_manhanvien.Text))
+                    if (nhanVienService.CheckSdt(tbx_sdtnhanvien.Text))
                     {
                         MessageBox.Show("Mã đã có");
                     }
@@ -382,18 +378,17 @@ namespace _3.PL.Views
             try
             {
                 GetIdNhanVien = Guid.Parse(dtg_shownhanvien.CurrentRow.Cells[0].Value.ToString());
-                tbx_manhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[2].Value.ToString();
-                tbx_hotennhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[3].Value.ToString();
-                tbx_diachinhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[4].Value.ToString();
-                tbx_sdtnhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[5].Value.ToString();
-                tbx_matkhaunhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[6].Value.ToString();
-                nud_ttnhanvien.Value = Convert.ToDecimal(dtg_shownhanvien.CurrentRow.Cells[7].Value.ToString());
-                cbb_idchucvu.Text = dtg_shownhanvien.CurrentRow.Cells[9].Value.ToString();
-                cbb_idcuahang.Text = dtg_shownhanvien.CurrentRow.Cells[8].Value.ToString();
+                tbx_hotennhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[2].Value.ToString();
+                tbx_diachinhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[3].Value.ToString();
+                tbx_sdtnhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[4].Value.ToString();
+                tbx_matkhaunhanvien.Text = dtg_shownhanvien.CurrentRow.Cells[5].Value.ToString();
+                nud_ttnhanvien.Value = Convert.ToDecimal(dtg_shownhanvien.CurrentRow.Cells[6].Value.ToString());
+                cbb_idchucvu.Text = dtg_shownhanvien.CurrentRow.Cells[8].Value.ToString();
+                cbb_idcuahang.Text = dtg_shownhanvien.CurrentRow.Cells[7].Value.ToString();
             }
             catch (Exception)
             {
-                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
 
         }
@@ -407,7 +402,7 @@ namespace _3.PL.Views
             }
             else
             {
-                if (Convert.ToInt32(tbx_soluongvoucher.Text) > 9999|| Convert.ToInt32(tbx_soluongvoucher.Text)<=0)
+                if (Convert.ToInt32(tbx_soluongvoucher.Text) > 9999 || Convert.ToInt32(tbx_soluongvoucher.Text) <= 0)
                 {
                     MessageBox.Show("Số lượng không hợp lệ");
                 }
@@ -507,7 +502,7 @@ namespace _3.PL.Views
             }
             catch (Exception)
             {
-                MessageBox.Show("Hãy kiểm tra thông tin", "Warrning !!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
 
         }

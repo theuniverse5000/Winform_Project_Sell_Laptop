@@ -18,7 +18,7 @@ namespace _3.PL.Views
         void LoadDataHoaDonChiTiet(List<HoaDonChiTietView> listhdctv)
         {
             dtg_hoadonchitiet.Rows.Clear();
-            dtg_hoadonchitiet.ColumnCount = 16;
+            dtg_hoadonchitiet.ColumnCount = 15;
             dtg_hoadonchitiet.Columns[0].Name = "ID";
             dtg_hoadonchitiet.Columns[0].Visible = false;
             dtg_hoadonchitiet.Columns[1].Name = "Mã";
@@ -35,19 +35,14 @@ namespace _3.PL.Views
             dtg_hoadonchitiet.Columns[12].Name = "Giảm giá";
             dtg_hoadonchitiet.Columns[13].Name = "Thành tiền";
             dtg_hoadonchitiet.Columns[14].Name = "Ngày tạo";
-            dtg_hoadonchitiet.Columns[15].Name = "Tình trạng";
             dtg_hoadonchitiet.Columns[1].Visible = false;
             dtg_hoadonchitiet.Columns[2].Visible = false; dtg_hoadonchitiet.Columns[14].Visible = false;
-            string thanhtoan;
+
             foreach (var t in listhdctv)
             {
-                if (t.TinhTrang == 1)
-                    thanhtoan = "Đã thanh toán";
-                else
-                {
-                    thanhtoan = "Chưa thanh toán";
-                }
-                dtg_hoadonchitiet.Rows.Add(t.ID, t.Ma, t.MaHoaDon, t.MaChiTietLaptop, t.TenLaptop, t.SdtKhachHang, t.TenKhachHang, t.SdtNhanVien, t.TenNhanVien, t.SoImei, t.SoLuong, t.GiaTruoc, t.GiamGia, t.GiaSauKhiGiam, t.NgayTao, thanhtoan);
+
+
+                dtg_hoadonchitiet.Rows.Add(t.ID, t.Ma, t.MaHoaDon, t.MaChiTietLaptop, t.TenLaptop, t.SdtKhachHang, t.TenKhachHang, t.SdtNhanVien, t.TenNhanVien, t.SoLuong, t.GiaTruoc, t.GiamGia, t.GiaTruoc, t.NgayTao);
             }
         }
 
@@ -81,9 +76,9 @@ namespace _3.PL.Views
                 decimal doanhthu = 0;
                 int soluongdaban = 0;
                 decimal gianhap = 0;
-                foreach (var a in hoaDonChiTietService.GetHoaDonChiTiet().Where(h => h.TinhTrang == 1 && h.NgayTao.Day == DateTime.Now.Day))
+                foreach (var a in hoaDonChiTietService.GetHoaDonChiTiet().Where(h => h.NgayTao.Day == DateTime.Now.Day))
                 {
-                    doanhthu += a.GiaSauKhiGiam;
+                   // doanhthu += a.GiaSauKhiGiam;
                     soluongdaban += a.SoLuong;
                     gianhap += a.GiaNhap;
                 }
@@ -117,9 +112,9 @@ namespace _3.PL.Views
             if (cbb_12thang.Text == "1" || cbb_12thang.Text == "2" || cbb_12thang.Text == "3" || cbb_12thang.Text == "4" || cbb_12thang.Text == "5" || cbb_12thang.Text == "6" || cbb_12thang.Text == "7" || cbb_12thang.Text == "8" || cbb_12thang.Text == "9" || cbb_12thang.Text == "10" || cbb_12thang.Text == "11" || cbb_12thang.Text == "12")
             {
                 int thang = Convert.ToInt32(cbb_12thang.Text);
-                foreach (var a in hoaDonChiTietService.GetHoaDonChiTiet().Where(h => h.TinhTrang == 1 && h.NgayTao.Month == thang))
+                foreach (var a in hoaDonChiTietService.GetHoaDonChiTiet().Where(h => h.NgayTao.Month == thang))
                 {
-                    doanhthu += a.GiaSauKhiGiam;
+                    doanhthu += a.GiaTruoc;
                     soluongdaban += a.SoLuong;
                     gianhap += a.GiaNhap;
                 }
@@ -165,9 +160,9 @@ namespace _3.PL.Views
                 decimal doanhthu = 0;
                 int soluongdaban = 0;
                 decimal gianhap = 0;
-                foreach (var a in hoaDonChiTietService.GetHoaDonChiTiet().Where(h => h.TinhTrang == 1 && h.NgayTao.Year == nam))
+                foreach (var a in hoaDonChiTietService.GetHoaDonChiTiet().Where(h => h.NgayTao.Year == nam))
                 {
-                    doanhthu += a.GiaSauKhiGiam;
+                    doanhthu += a.GiaTruoc;
                     soluongdaban += a.SoLuong;
                     gianhap += a.GiaNhap;
                 }
@@ -264,7 +259,7 @@ namespace _3.PL.Views
             catch (Exception)
             {
 
-              //  MessageBox.Show("Đã xuất ra excel");
+                //  MessageBox.Show("Đã xuất ra excel");
             }
         }
     }

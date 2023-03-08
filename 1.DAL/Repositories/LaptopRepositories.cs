@@ -28,14 +28,14 @@ namespace _1.DAL.Repositories
             return context.LapTops.ToList();
         }
 
-        public bool Update(Laptop lt)
-        {
-            if (lt == null) return false;
-            var t = context.LapTops.Find(lt.ID);
-            t.Ten = lt.Ten;
-            context.Update(t);
-            context.SaveChanges();
-            return true;
-        }
+        //public bool Update(Laptop lt)
+        //{
+        //    if (lt == null) return false;
+        //    var t = context.LapTops.Find(lt.ID);
+        //    t.Ten = lt.Ten;
+        //    context.Update(t);
+        //    context.SaveChanges();
+        //    return true;
+        //}
     }
 }

@@ -26,8 +26,6 @@ namespace _2.BUS.Service
             hct.NgayTao = hdctview.NgayTao;
             hct.SoLuong = hdctview.SoLuong;
             hct.GiaTruoc = hdctview.GiaTruoc;
-            hct.GiaSauKhiGiam = hdctview.GiaSauKhiGiam;
-            hct.TinhTrang = hdctview.TinhTrang;
             if (hoaDonChiTietRepositories.Add(hct)) return "Thành công";
             else return "Thất bại";
         }
@@ -44,9 +42,17 @@ namespace _2.BUS.Service
 
         public bool CheckMaCTLT(string mactlt)
         {
-            var huyen = GetHoaDonChiTiet();
-            var linh = huyen.FirstOrDefault(a => a.MaChiTietLaptop == mactlt);
+            var huyen = chiTietLaptopRepositories.GetChiTietLaptop();
+            var linh = huyen.FirstOrDefault(a => a.Ma == mactlt);
             if (linh != null) return true;
+            else return false;
+        }
+
+        public bool CheckProductInOneBill(string mahoadon, string mactsp)
+        {
+            var list = GetHoaDonChiTiet().Where(a => a.MaHoaDon == mahoadon).ToList();
+            var th = list.FirstOrDefault(a => a.MaChiTietLaptop == mactsp);
+            if (th != null) return true;
             else return false;
         }
 
@@ -66,21 +72,20 @@ namespace _2.BUS.Service
                           from a in hoaDonChiTietRepositories.GetHoaDonChiTiet()
                           join b in chiTietLaptopRepositories.GetChiTietLaptop() on a.IDChiTietLapTop equals b.ID
                           join c in hoaDonRepositories.GetHoaDon() on a.IDHoaDon equals c.ID
-                          join d in imeiDaBanRepositories.GetImeiDB() on a.ID equals d.IDHoaDonChiTiet
+                          join e in laptopService.GetLaptop() on b.IDLaptop equals e.ID
+                          // join d in imeiDaBanRepositories.GetImeiDB() on a.ID equals d.IDHoaDonChiTiet
                           select new HoaDonChiTietView
                           {
                               ID = a.ID,
                               Ma = a.Ma,
                               MaChiTietLaptop = b.Ma,
+                              TenLaptop= e.Ten,
                               MaHoaDon = c.Ma,
                               SoLuong = a.SoLuong,
                               GiaTruoc = a.GiaTruoc,
                               NgayTao = a.NgayTao,
-                              GiaSauKhiGiam = a.GiaSauKhiGiam,
-                              TinhTrang = a.TinhTrang,
-                              GiamGia = a.GiaTruoc - a.GiaSauKhiGiam,
-                              SoImei = d.SoEmei,
-                              GiaNhap = b.GiaNhap
+                              GiaNhap = b.GiaNhap,
+                              ThanhTien = a.SoLuong * a.GiaTruoc
 
                           }
                 ).ToList();
@@ -94,7 +99,7 @@ namespace _2.BUS.Service
                           from a in hoaDonChiTietRepositories.GetHoaDonChiTiet()
                           join b in chiTietLaptopRepositories.GetChiTietLaptop() on a.IDChiTietLapTop equals b.ID
                           join c in hoaDonRepositories.GetHoaDon() on a.IDHoaDon equals c.ID
-                          join d in imeiDaBanRepositories.GetImeiDB() on a.ID equals d.IDHoaDonChiTiet
+                          //   join d in imeiDaBanRepositories.GetImeiDB() on a.ID equals d.IDHoaDonChiTiet
                           join e in nhanVienRepositories.GetNhanVien() on c.IdNhanVien equals e.ID
                           join f in khachHangRepositories.GetKhachHang() on c.IdKhachHang equals f.ID
                           join g in laptopService.GetLaptop() on b.IDLaptop equals g.ID
@@ -107,12 +112,7 @@ namespace _2.BUS.Service
                               SoLuong = a.SoLuong,
                               GiaTruoc = a.GiaTruoc,
                               NgayTao = a.NgayTao,
-                              GiaSauKhiGiam = a.GiaSauKhiGiam,
-                              TinhTrang = a.TinhTrang,
-                              GiamGia = a.GiaTruoc - a.GiaSauKhiGiam,
-                              SoImei = d.SoEmei,
                               GiaNhap = b.GiaNhap,
-                              MaNhanVien = e.Ma,
                               TenNhanVien = e.HoTen,
                               SdtKhachHang = f.SDT,
                               TenKhachHang = f.HoTen,
@@ -143,12 +143,6 @@ namespace _2.BUS.Service
                               SoLuong = a.SoLuong,
                               GiaTruoc = a.GiaTruoc,
                               NgayTao = a.NgayTao,
-                              GiaSauKhiGiam = a.GiaSauKhiGiam,
-                              TinhTrang = a.TinhTrang,
-                              //  GiamGia = a.GiaTruoc - a.GiaSauKhiGiam,
-                              //   SoImei = d.SoEmei,
-                              //   GiaNhap = b.GiaNhap
-                              MaNhanVien = e.Ma,
                               TenNhanVien = e.HoTen,
                               SdtKhachHang = f.SDT,
                               TenKhachHang = f.HoTen
@@ -175,9 +169,6 @@ namespace _2.BUS.Service
                               SoLuong = a.SoLuong,
                               GiaTruoc = a.GiaTruoc,
                               NgayTao = a.NgayTao,
-                              GiaSauKhiGiam = a.GiaSauKhiGiam,
-                              TinhTrang = a.TinhTrang,
-                              GiamGia = a.GiaTruoc - a.GiaSauKhiGiam
 
                           }
                 ).ToList();
@@ -186,24 +177,23 @@ namespace _2.BUS.Service
 
         public string Update(HoaDonChiTietView hdctview)
         {
+
             if (hdctview == null) return "Thất bại";
             HoaDonChiTiet hct = new HoaDonChiTiet();
             hct.ID = hdctview.ID;
             hct.SoLuong = hdctview.SoLuong;
-            hct.GiaTruoc = hdctview.GiaTruoc;
-            hct.GiaSauKhiGiam = hdctview.GiaSauKhiGiam;
-            hct.TinhTrang = hdctview.TinhTrang;
+            //   hct.GiaTruoc = hdctview.GiaTruoc;
             if (hoaDonChiTietRepositories.Update(hct)) return "Thành công";
             else return "Thất bại";
         }
-        public string UpdateTrangThai(HoaDonChiTietView hdctview)
-        {
-            if (hdctview == null) return "Thất bại";
-            HoaDonChiTiet hct = new HoaDonChiTiet();
-            hct.ID = hdctview.ID;
-            hct.TinhTrang = hdctview.TinhTrang;
-            if (hoaDonChiTietRepositories.UpdateTrangThai(hct)) return "Thành công";
-            else return "Thất bại";
-        }
+        //public string UpdateTrangThai(HoaDonChiTietView hdctview)
+        //{
+        //    if (hdctview == null) return "Thất bại";
+        //    HoaDonChiTiet hct = new HoaDonChiTiet();
+        //    hct.ID = hdctview.ID;
+        //    hct.TinhTrang = hdctview.TinhTrang;
+        //    if (hoaDonChiTietRepositories.UpdateTrangThai(hct)) return "Thành công";
+        //    else return "Thất bại";
+        //}
     }
 }

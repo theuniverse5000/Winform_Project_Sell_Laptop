@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _2.BUS.ViewModels
+﻿namespace _2.BUS.ViewModels
 {
-    public class hinhanhview
+    public class HinhAnhView
     {
         public Guid Id { get; set; }
         public string Ma { get; set; }
-        public string Ten { get; set; }
-        public string LinkAnh { get; set; }
+        public string? Ten { get; set; }
+        public byte[] HAnh { get; set; } = null!;
     }
 }
