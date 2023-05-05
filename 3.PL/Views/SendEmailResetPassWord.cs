@@ -23,15 +23,15 @@ namespace _3.PL.Views
             }
             else
             {
-                if (nhanVienService.CheckGmail(tb_EmailNguoiNhan.Text))
-                {
+                //if (nhanVienService.CheckGmail(tb_EmailNguoiNhan.Text))
+                //{
                     string from, to, pass, content;
                     //from = "thiennguvl2@gmail.com";
                     //to = tb_EmailNguoiNhan.Text.Trim();
                     //pass = "thien1402";
-                    from = "thiendvph28231@fpt.edu.vn";
+                    from = "minhtvph27733@fpt.edu.vn";
                     to = tb_EmailNguoiNhan.Text.Trim();
-                    pass = "conpig49kg";
+                    pass = "minh1606";
                     content = "Mã xác nhận của bạn là " + rand_num;
                     MailMessage mail = new MailMessage();
                     mail.To.Add(to);
@@ -56,13 +56,13 @@ namespace _3.PL.Views
 
                         MessageBox.Show(ex.Message, "Email", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                }
-                else
-                {
+                //}
+                //else
+                //{
 
-                    MessageBox.Show("Email ban Khong phai la nhan vien cua quan ");
-                    tb_EmailNguoiNhan.Text = "";
-                }
+                //    MessageBox.Show("Email ban Khong phai la nhan vien cua quan ");
+                //    tb_EmailNguoiNhan.Text = "";
+                //}
             }
         }
 
